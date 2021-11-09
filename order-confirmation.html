@@ -348,6 +348,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                 <tbody>
                   <tr>
                     <td valign="top">
+                      <!-- MAIN -->
                       <table
                         border="0"
                         cellpadding="0"
@@ -375,20 +376,15 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                 <tbody>
                                   <tr>
                                     <td class="columnContainer" valign="top">
-                                      <p
-                                        class="font-sm"
-                                        style="
-                                          color: rgb(84, 84, 84);
-                                          text-align: center;
-                                        "
-                                      >
+                                      <!-- DESCRIPTION SHORTTEXT -->
+                                      <p class="font-sm grey-400">
                                         Ihre Registrierung ist fast
                                         abgeschlossen.
                                         <!-- ${ctx.messages.description}
                                         #if($ctx.infoText&&!$ctx.infoText.empty)
                                             <br/><br/>
                                             #if(${ctx.highlighted})
-                                                <div><span style="color:red">${ctx.infoText}</span></div>
+                                                <div><span class="signal-500">${ctx.infoText}</span></div>
                                             #else
                                                 <div>${ctx.infoText}</div>
                                             #end
@@ -397,6 +393,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                         ${ctx.messages.descriptionParagraph}
                                         -->
                                       </p>
+                                      <!-- //DESCRIPTION -->
                                     </td>
                                   </tr>
                                   <tr>
@@ -705,6 +702,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                                         padding-bottom: 48px;
                                                       "
                                                     >
+                                                      <!-- ORDER SPLITTING SECTION HEADLINE -->
                                                       <hr class="divider" />
                                                       <center>
                                                         <h4 class="grey-400">
@@ -724,6 +722,8 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                                         </h4>
                                                       </center>
                                                       <p><br /></p>
+                                                      <!-- /ORDER SPLITTING SECTION HEADLINE -->
+
                                                       <!-- ITEM -->
                                                       <div class="item">
                                                         <h5 class="primary-500">
@@ -746,12 +746,12 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                                               >
                                                                 <img
                                                                   src="https://static.lagerhaus.at/mam/eb/54/P-W-8798625923122-2.jpg"
-                                                                  width="144"
+                                                                  width="62"
                                                                 />
                                                               </td>
                                                               <td
                                                                 rowspan="3"
-                                                                valign="bottom"
+                                                                valign="middle"
                                                                 class="
                                                                   grey-700
                                                                   font-sm
@@ -915,11 +915,6 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                         <tbody>
                                           <tr>
                                             <td valign="top">
-                                              <!-- <a
-                                                href="https://www.lagerhaus.at/mein-konto"
-                                                target="_blank"
-                                                >Mein Konto</a
-                                              > -->
                                               <a
                                                 href="http://smart.acct.lagerhaus.at/mein-konto"
                                                 class="button"
@@ -938,152 +933,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                       </p>
                                     </td>
                                   </tr>
-                                  <tr>
-                                    <td
-                                      class="columnContainer"
-                                      valign="top"
-                                      style="padding-top: 24px"
-                                    >
-                                      <table
-                                        align="center"
-                                        border="0"
-                                        cellpadding="0"
-                                        cellspacing="0"
-                                        width="100%"
-                                        role="presentation"
-                                      >
-                                        <tbody>
-                                          <tr>
-                                            <td valign="top">
-                                              <table
-                                                border="0"
-                                                cellpadding="0"
-                                                cellspacing="24"
-                                                width="100%"
-                                                role="presentation"
-                                                style="table-layout: fixed"
-                                              >
-                                                <colgroup>
-                                                  <col span="1" />
-                                                  <col span="1" />
-                                                  <col span="1" />
-                                                  <col span="1" />
-                                                  <col span="1" />
-                                                  <col span="1" />
-                                                  <col span="1" />
-                                                  <col span="1" />
-                                                  <col span="1" />
-                                                  <col span="1" />
-                                                  <col span="1" />
-                                                  <col span="1" />
-                                                </colgroup>
-                                                <tbody>
-                                                  <tr>
-                                                    <td
-                                                      class="column"
-                                                      valign="top"
-                                                      colspan="12"
-                                                      width="100%"
-                                                    >
-                                                      <table
-                                                        border="0"
-                                                        cellpadding="0"
-                                                        cellspacing="0"
-                                                        width="100%"
-                                                        role="presentation"
-                                                      >
-                                                        <tbody>
-                                                          <tr>
-                                                            <td
-                                                              class="
-                                                                columnContainer
-                                                              "
-                                                              align="center"
-                                                              valign="top"
-                                                            >
-                                                              <table
-                                                                border="0"
-                                                                cellpadding="0"
-                                                                cellspacing="0"
-                                                                width=""
-                                                                role="presentation"
-                                                                class="
-                                                                  mceClusterLayout
-                                                                "
-                                                              >
-                                                                <tbody>
-                                                                  <tr>
-                                                                    <td
-                                                                      valign="top"
-                                                                      style="
-                                                                        padding-left: 24px;
-                                                                        padding-top: 0px;
-                                                                        padding-right: 24px;
-                                                                      "
-                                                                    >
-                                                                      <a
-                                                                        href="https://facebook.com/"
-                                                                        target="_blank"
-                                                                        style="
-                                                                          display: block;
-                                                                        "
-                                                                        ><img
-                                                                          width="32"
-                                                                          alt="Facebook icon"
-                                                                          src="https://dim.mcusercontent.com/https/cdn-images.mailchimp.com%2Ficons%2Fsocial-block-v2%2Fdark-facebook-48.png?w=40&amp;dpr=2"
-                                                                          style="
-                                                                            border: 0px;
-                                                                            width: 32px;
-                                                                            height: auto;
-                                                                            max-width: 100%;
-                                                                            display: block;
-                                                                          "
-                                                                      /></a>
-                                                                    </td>
-                                                                    <td
-                                                                      valign="top"
-                                                                      style="
-                                                                        padding-left: 24px;
-                                                                        padding-top: 0px;
-                                                                        padding-right: 24px;
-                                                                      "
-                                                                    >
-                                                                      <a
-                                                                        href="https://youtube.com/"
-                                                                        target="_blank"
-                                                                        style="
-                                                                          display: block;
-                                                                        "
-                                                                        ><img
-                                                                          width="32"
-                                                                          alt="YouTube icon"
-                                                                          src="https://dim.mcusercontent.com/https/cdn-images.mailchimp.com%2Ficons%2Fsocial-block-v2%2Fdark-youtube-48.png?w=40&amp;dpr=2"
-                                                                          style="
-                                                                            border: 0px;
-                                                                            width: 32px;
-                                                                            height: auto;
-                                                                            max-width: 100%;
-                                                                            display: block;
-                                                                          "
-                                                                      /></a>
-                                                                    </td>
-                                                                  </tr>
-                                                                </tbody>
-                                                              </table>
-                                                            </td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
-                                                    </td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </td>
-                                  </tr>
+                                  <!-- FOOTER -->
                                   <tr>
                                     <td
                                       class="columnContainer"
@@ -1251,6 +1101,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                       </table>
                                     </td>
                                   </tr>
+                                  <!-- /FOOTER -->
                                 </tbody>
                               </table>
                             </td>
