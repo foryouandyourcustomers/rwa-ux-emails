@@ -228,6 +228,10 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         width: 72px;
         border: 2px solid #009e3c;
       }
+      .center {
+        display: block;
+        text-align: center;
+      }
 
       /* ///// ITEM */
       .item-image {
@@ -336,7 +340,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     <style id="editing-platform-styles"></style>
   </head>
   <body>
-    <center>
+    <div class="center">
       <table
         border="0"
         cellpadding="0"
@@ -363,12 +367,11 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                     <!-- MAIN COLUMN -->
                     <td valign="top">
                       <!-- DESCRIPTION SHORTTEXT -->
-                      <div id="description">
+                      <div id="description" class="center">
                         <p><br /></p>
-                        <center>
-                          <p class="font-sm grey-400">
-                            Ihre Registrierung ist fast abgeschlossen.
-                            <!-- ${ctx.messages.description}
+                        <p class="font-sm grey-400">
+                          Ihre Registrierung ist fast abgeschlossen.
+                          <!-- ${ctx.messages.description}
                                 #if($ctx.infoText&&!$ctx.infoText.empty)
                                     <br/><br/>
                                     #if(${ctx.highlighted})
@@ -380,14 +383,13 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                 #end
                                 ${ctx.messages.descriptionParagraph}
                                 -->
-                          </p>
-                        </center>
+                        </p>
                         <p><br /></p>
                       </div>
                       <!-- /DESCRIPTION SHORTTEXT-->
 
                       <!-- LOGO -->
-                      <center>
+                      <div id="header" class="center">
                         <img
                           width="106"
                           alt="Lagerhaus.at"
@@ -400,11 +402,11 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                           "
                         />
                         <p><br /></p>
-                      </center>
+                      </div>
                       <!-- /LOGO -->
 
                       <!-- INTRO -->
-                      <center>
+                      <div class="intro" class="center">
                         <h1>
                           Guten Tag Tilman Porschütz
                           <!-- ${ctx.messages.salutation} ${ctx.title} $ctx.esc.html(${ctx.displayName}), -->
@@ -412,12 +414,12 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                         <p>
                           vielen Dank für die Bestellung bei lagerhaus.at.
                           <!-- 
-                            <p class="font-sm">
-                                ${ctx.messages.subline}
-                            </p> 
-                            -->
+                                <p class="font-sm">
+                                    ${ctx.messages.subline}
+                                </p> 
+                                -->
                         </p>
-                      </center>
+                      </div>
                       <!-- /INTRO -->
 
                       <!-- CONTENT -->
@@ -579,7 +581,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                       >
                                         <!-- ORDER SPLITTING SECTION HEADLINE -->
                                         <hr class="divider" />
-                                        <center>
+                                        <div class="center">
                                           <h4 class="grey-400">
                                             Hauszustellung
                                             <span class="primary-500">
@@ -591,7 +593,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                               Werktage
                                             </p>
                                           </h4>
-                                        </center>
+                                        </div>
                                         <p><br /></p>
                                         <!-- /ORDER SPLITTING SECTION HEADLINE -->
 
@@ -720,34 +722,27 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                       <!-- /DISCLAIMER -->
 
                       <!-- CTA -->
-                      <div id="CTA">
-                        <center>
-                          <p><br /></p>
-                          <h2>Mehr Erfahren</h2>
-                          <p>
-                            Weitere Details zu Ihrer Bestellung finden Sie auch
-                            in Ihrem Kundenkonto!
-                          </p>
-                        </center>
+                      <div id="CTA" class="center">
                         <p><br /></p>
-                        <center>
-                          <a
-                            href="http://smart.acct.lagerhaus.at/mein-konto"
-                            class="button"
-                            target="_blank"
-                            data-saferedirecturl="https://www.google.com/url?q=http://smart.acct.lagerhaus.at/mein-konto&amp;source=gmail&amp;ust=1636131846857000&amp;usg=AFQjCNEYU3DQWAr8fv_aFWESt6dz775qRA"
-                            >Mein Konto</a
-                          >
-                        </center>
+                        <h2>Mehr Erfahren</h2>
+                        <p>
+                          Weitere Details zu Ihrer Bestellung finden Sie auch in
+                          Ihrem Kundenkonto!
+                        </p>
+                        <p><br /></p>
+                        <a
+                          href="http://smart.acct.lagerhaus.at/mein-konto"
+                          class="button"
+                          target="_blank"
+                          data-saferedirecturl="https://www.google.com/url?q=http://smart.acct.lagerhaus.at/mein-konto&amp;source=gmail&amp;ust=1636131846857000&amp;usg=AFQjCNEYU3DQWAr8fv_aFWESt6dz775qRA"
+                          >Mein Konto</a
+                        >
                       </div>
                       <!-- /CTA -->
 
                       <!-- GREETING -->
-                      <div id="greeting">
-                        <p><br /></p>
-                        <p style="text-align: center">
-                          <strong>Ihr Team vom Lagerhaus</strong>
-                        </p>
+                      <div id="greeting" class="center">
+                        <strong>Ihr Team vom Lagerhaus</strong>
                         <p><br /></p>
                       </div>
                       <!-- /GREETING -->
@@ -836,6 +831,6 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
           </tr>
         </tbody>
       </table>
-    </center>
+    </div>
   </body>
 </html>
