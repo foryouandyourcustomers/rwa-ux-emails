@@ -1,0 +1,231 @@
+<html>
+  <head>
+    <title>Meine Datei</title>
+    <script src="https://pixijs.download/v6.1.0-rc.6/pixi.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pixi-filters@latest/dist/pixi-filters.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Redacted+Script:wght@300;400;700&display=swap");
+      html {
+        font-size: 16px;
+      }
+      body {
+        overflow: hidden;
+      }
+      h1,
+      h2,
+      p,
+      button {
+        font-family: "Redacted Script", sans-serif;
+      }
+      h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+      }
+      h2 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      button {
+        border-radius: 0.25rem;
+        background: rgb(211, 0, 211);
+        border: 0;
+        color: white;
+        font-weight: 700;
+        line-height: 3rem;
+        padding: 0 2rem;
+        cursor: pointer;
+      }
+      button:hover {
+        background: red;
+      }
+      .seal {
+        transform: translateY(0);
+        transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        opacity: 1;
+        overflow: hidden;
+      }
+      .seal.hidden {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+      .seal.big {
+        zoom: 1.2;
+      }
+      .seal.inverted {
+        filter: invert(1);
+      }
+      main {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+        text-align: center;
+        z-index: 1000;
+      }
+      canvas {
+        width: 100vw;
+        height: 100vh;
+        display: block;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Hallo</h1>
+      <p>Og gut to gokatyz kut taw</p>
+      <button onclick="toggleSeal()">Toggle Seal</button>
+      <img
+        class="seal hidden "
+        src="seal.png"
+        alt="Seal on break"
+      />
+      <h2>Wiederum</h2>
+      <p>jghsjkfghks skdfgjk fdgj hdsjfgh dj gdfg</p>
+    </main>
+
+    <script>
+      const toggleSeal = () => {
+        document.querySelector(".seal").classList.toggle("hidden");
+      };
+
+      const Application = PIXI.Application;
+      const app = new Application({
+        width: 1920,
+        height: 1080,
+      });
+      document.body.appendChild(app.view);
+
+      const loader = PIXI.Loader.shared;
+      loader
+        .add("backgroundImage", "https://i.imgur.com/BFZqXAH.jpg")
+        .load(setup);
+
+      function setup(loader, resources) {
+        const backgroundImage = PIXI.Sprite.from(
+          resources.backgroundImage.texture
+        );
+        backgroundImage.anchor.set(0.5);
+        backgroundImage.x = app.renderer.width / 2;
+        backgroundImage.y = app.renderer.height / 2;
+
+        const container = new PIXI.Container();
+        container.addChild(backgroundImage);
+        app.stage.addChild(container);
+
+        const style = new PIXI.TextStyle({
+          fontFamily: "Redacted Script",
+          fontSize: 20 + window.innerWidth * 0.06,
+          fill: "#ffffff",
+          dropShadow: true,
+          dropShadowDistance: 2,
+          dropShadowAngle: Math.PI / 2,
+          dropShadowBlur: 3,
+          dropShadowColor: "#000000",
+        });
+
+        window.addEventListener("resize", function () {
+          style.fontSize = 20 + window.innerWidth * 0.06;
+        });
+
+        const myText = new PIXI.Text("Kegelrobbe", style);
+
+        container.addChild(myText);
+        myText.anchor.set(0.5);
+        myText.x = app.screen.width / 2;
+        myText.y = app.screen.height / 2;
+
+        const displacementSprite = PIXI.Sprite.from(
+          "https://i.imgur.com/hVKo63B.jpg"
+        );
+        const displacementFilter = new PIXI.filters.DisplacementFilter(
+          displacementSprite
+        );
+
+        displacementSprite.texture.baseTexture.wrapMode =
+          PIXI.WRAP_MODES.REPEAT;
+        displacementSprite.scale.set(0.5);
+
+        container.addChild(displacementSprite);
+
+        const options1 = {
+          amplitude: 40, //300
+          wavelength: 30, //160
+          speed: 200, //500
+          radius: 80,
+        };
+
+        const shockwaveFilter1 = new PIXI.filters.ShockwaveFilter(
+          [Math.random() * app.screen.width, Math.random() * app.screen.height],
+          options1,
+          0
+        );
+
+        const options2 = {
+          amplitude: 80, //300
+          wavelength: 45, //160
+          speed: 240, //500
+          radius: 100,
+        };
+
+        const shockwaveFilter2 = new PIXI.filters.ShockwaveFilter(
+          [Math.random() * app.screen.width, Math.random() * app.screen.height],
+          options2,
+          0
+        );
+
+        const options3 = {
+          amplitude: 105, //300
+          wavelength: 65, //160
+          speed: 300, //500
+          radius: 160,
+        };
+
+        const shockwaveFilter3 = new PIXI.filters.ShockwaveFilter(
+          [Math.random() * app.screen.width, Math.random() * app.screen.height],
+          options3,
+          0
+        );
+
+        container.filters = [
+          displacementFilter,
+          shockwaveFilter1,
+          shockwaveFilter2,
+          shockwaveFilter3,
+        ];
+
+        app.ticker.add(function () {
+          displacementSprite.x++;
+          if (displacementSprite.x > displacementSprite.width)
+            displacementSprite.x = 0;
+
+          createRaindrops(shockwaveFilter1, 0.7);
+          createRaindrops(shockwaveFilter2, 0.5);
+          createRaindrops(shockwaveFilter3, 1);
+        });
+
+        function createRaindrops(filter, resetTime) {
+          filter.time += 0.01;
+          if (filter.time > resetTime) {
+            filter.time = 0;
+            filter.center = [
+              Math.random() * app.screen.width,
+              Math.random() * app.screen.height,
+            ];
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

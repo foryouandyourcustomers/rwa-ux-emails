@@ -394,12 +394,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                           width="106"
                           alt="Lagerhaus.at"
                           src="https://s3.eu-central-1.amazonaws.com/rwa-images/email/lagerhaus_logo.png"
-                          style="
-                            width: 106px;
-                            height: auto;
-                            max-width: 100%;
-                            display: block;
-                          "
+                          style="width: 106px; height: auto; max-width: 100%"
                         />
                         <p><br /></p>
                       </div>
@@ -513,53 +508,56 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                                         <h5>Zahlungsart</h5>
                                         <p class="font-xl">Zahlung in Raten</p>
                                       </td>
+                                      <td>
+                                        <table
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
+                                          width="100%"
+                                        >
+                                          <tbody>
+                                            <tr>
+                                              <td valign="top" class="grey-400">
+                                                Zwischensumme
+                                              </td>
+                                              <td
+                                                valign="top"
+                                                style="text-align: right"
+                                              >
+                                                185,62 €
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top" class="grey-400">
+                                                Lieferung
+                                              </td>
+                                              <td
+                                                valign="top"
+                                                style="text-align: right"
+                                              >
+                                                16,46 €
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td valign="top" class="grey-400">
+                                                <strong> Endbetrag </strong>
+                                              </td>
+                                              <td
+                                                valign="top"
+                                                style="text-align: right"
+                                              >
+                                                <strong> 202,62 € </strong>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
                                     </tr>
                                   </tbody>
                                 </table>
 
                                 <!-- SUMMARY -->
-                                <table
-                                  border="0"
-                                  cellpadding="0"
-                                  cellspacing="0"
-                                  width="100%"
-                                >
-                                  <tbody>
-                                    <tr>
-                                      <td valign="top" class="grey-400">
-                                        Zwischensumme
-                                      </td>
-                                      <td
-                                        valign="top"
-                                        style="text-align: right"
-                                      >
-                                        185,62 €
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td valign="top" class="grey-400">
-                                        Lieferung
-                                      </td>
-                                      <td
-                                        valign="top"
-                                        style="text-align: right"
-                                      >
-                                        16,46 €
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td valign="top" class="grey-400">
-                                        <strong> Endbetrag </strong>
-                                      </td>
-                                      <td
-                                        valign="top"
-                                        style="text-align: right"
-                                      >
-                                        <strong> 202,62 € </strong>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+
                                 <!-- /SUMMARY -->
 
                                 <!-- PICKUP/DELIVERY SECTION: Example 1 -->
@@ -749,77 +747,58 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
 
                       <!-- FOOTER -->
                       <div id="footer" class="footer">
-                        <table
-                          border="0"
-                          cellpadding="0"
-                          cellspacing="0"
-                          width="100%"
-                          role="presentation"
-                        >
-                          <tbody>
-                            <tr>
-                              <td
-                                class="columnContainer"
-                                align="center"
-                                valign="top"
-                              >
-                                <p class="font-sm">
-                                  <strong>KONTAKT</strong>
-                                  <br /><br />Bei Fragen helfen wir Ihnen gern
-                                  weiter! <br />Tel.: +431 600 70 70 <br /><a
-                                    href="mailto:service@lagerhaus.at"
-                                    tabindex="-1"
-                                    >servicecenter@lagerhaus.at</a
-                                  >
-                                </p>
-                                <p class="font-sm">
-                                  Erreichbarkeit Service Center:
-                                  <br /><strong>Mo - Fr</strong>
-                                  07:30–20:00
-                                  <br /><strong>Sa</strong>
-                                  07:30–14:00
-                                </p>
-                                <br />
-                                <p class="font-sm">
-                                  "UNSER LAGERHAUS" Warenhandelsgesellschaft
-                                  m.b.H.<br />9020 Südring 242<br />Tel.: +431
-                                  600 70 70
-                                  <br />servicecenter@lagerhaus.at<br />Firmensitz:
-                                  9020 Südring 242<br />Firmenbuchgericht:
-                                  Landesgericht Klagenfurt
-                                </p>
-                                <br />
-                                <p class="font-sm">
-                                  <a
-                                    href="https://lagerhaus.at/haus-garten"
-                                    tabindex="-1"
-                                    >Impressum</a
-                                  >
-                                  <a
-                                    href="https://lagerhaus.at/haus-garten"
-                                    tabindex="-1"
-                                    >AGB</a
-                                  >
-                                  <a
-                                    href="https://lagerhaus.at/haus-garten"
-                                    tabindex="-1"
-                                    >Datenschutz</a
-                                  >
-                                  <a
-                                    href="https://lagerhaus.at/haus-garten"
-                                    tabindex="-1"
-                                    >Kontakt</a
-                                  >
-                                  <a
-                                    href="https://lagerhaus.at/haus-garten"
-                                    tabindex="-1"
-                                    >FAQ</a
-                                  >
-                                </p>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <p class="font-sm">
+                          <strong>KONTAKT</strong>
+                          <br /><br />Bei Fragen helfen wir Ihnen gern weiter!
+                          <br />Tel.: +431 600 70 70 <br /><a
+                            href="mailto:service@lagerhaus.at"
+                            tabindex="-1"
+                            >servicecenter@lagerhaus.at</a
+                          >
+                        </p>
+                        <p class="font-sm">
+                          Erreichbarkeit Service Center:
+                          <br /><strong>Mo - Fr</strong>
+                          07:30–20:00
+                          <br /><strong>Sa</strong>
+                          07:30–14:00
+                        </p>
+                        <br />
+                        <p class="font-sm">
+                          "UNSER LAGERHAUS" Warenhandelsgesellschaft m.b.H.<br />9020
+                          Südring 242<br />Tel.: +431 600 70 70
+                          <br />servicecenter@lagerhaus.at<br />Firmensitz: 9020
+                          Südring 242<br />Firmenbuchgericht: Landesgericht
+                          Klagenfurt
+                        </p>
+                        <br />
+                        <p class="font-sm">
+                          <a
+                            href="https://lagerhaus.at/haus-garten"
+                            tabindex="-1"
+                            >Impressum</a
+                          >
+                          <a
+                            href="https://lagerhaus.at/haus-garten"
+                            tabindex="-1"
+                            >AGB</a
+                          >
+                          <a
+                            href="https://lagerhaus.at/haus-garten"
+                            tabindex="-1"
+                            >Datenschutz</a
+                          >
+                          <a
+                            href="https://lagerhaus.at/haus-garten"
+                            tabindex="-1"
+                            >Kontakt</a
+                          >
+                          <a
+                            href="https://lagerhaus.at/haus-garten"
+                            tabindex="-1"
+                            >FAQ</a
+                          >
+                        </p>
                       </div>
                       <!-- /FOOTER -->
                     </td>
