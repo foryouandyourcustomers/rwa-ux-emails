@@ -29,6 +29,26 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${ctx.messages.subject}</title>
     <style data-no-filter="1">
+      @font-face {
+        font-family: "CalibreLH";
+        src: url("https://s3.eu-central-1.amazonaws.com/rwa-images/fonts/CalibreLH-Middle.woff")
+            format("woff"),
+          url("https://s3.eu-central-1.amazonaws.com/rwa-images/fonts/CalibreLH-Middle.woff2")
+            format("woff2");
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "CalibreLH";
+        src: url("https://s3.eu-central-1.amazonaws.com/rwa-images/fonts/CalibreLH-Headline.woff2")
+            format("woff2"),
+          url("https://s3.eu-central-1.amazonaws.com/rwa-images/fonts/CalibreLH-Headline.woff")
+            format("woff");
+        font-weight: 700;
+        font-display: swap;
+      }
+
       /*////// CLIENT-SPECIFIC VENDOR PREFIXED STYLES //////*/
       img {
         -ms-interpolation-mode: bicubic;
@@ -69,11 +89,6 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       }
 
       /*////// CLIENT-SPECIFIC SELECTORS //////*/
-      .bodyCell {
-        margin: 0 auto;
-        padding: 0;
-        width: 100%;
-      }
       a[x-apple-data-detectors] {
         color: inherit !important;
         text-decoration: none !important;
@@ -222,17 +237,29 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       }
       .divider {
         width: 72px;
+        /* height: 2px; */
         border: 2px solid #009e3c;
       }
       .center {
         display: block;
         text-align: center;
       }
-      .ElementContainer {
+      .container {
+        width: 660px;
+        max-width: 660px;
+      }
+      .bodyCell {
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+      }
+      .componentRoot {
         text-align: center;
         padding: 0 16px;
       }
 
+      /* Components
+      /* ///// OrderDetails
       .OrderDetails {
         text-align: left;
       }
@@ -296,49 +323,19 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
           min-width: 100% !important;
         } /* Force iOS Mail to render the email at full width. */
 
-        body.mobile-native {
-          -webkit-user-select: none;
-          user-select: none;
-          transition: transform 0.2s ease-in;
-          transform-origin: top center;
-        }
-        body.mobile-native.selection-allowed a {
-          user-select: auto;
-          -webkit-user-select: auto;
-        }
         /*////// STRUCTURAL STYLES //////*/
         img {
           height: auto !important;
         }
-        .responsive td {
-          display: block !important;
+        .force-row,
+        .container {
           width: 100% !important;
-          text-align: left !important;
+          max-width: 100% !important;
         }
+        /* TODO: Move to Component Styles */
         .ProductItem-annotation {
           padding-left: 0 !important;
         }
-      }
-    </style>
-    <style>
-      @font-face {
-        font-family: "CalibreLH";
-        src: url("https://s3.eu-central-1.amazonaws.com/rwa-images/fonts/CalibreLH-Middle.woff")
-            format("woff"),
-          url("https://s3.eu-central-1.amazonaws.com/rwa-images/fonts/CalibreLH-Middle.woff2")
-            format("woff2");
-        font-weight: 400;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "CalibreLH";
-        src: url("https://s3.eu-central-1.amazonaws.com/rwa-images/fonts/CalibreLH-Headline.woff2")
-            format("woff2"),
-          url("https://s3.eu-central-1.amazonaws.com/rwa-images/fonts/CalibreLH-Headline.woff")
-            format("woff");
-        font-weight: 700;
-        font-display: swap;
       }
     </style>
   </head>
@@ -347,7 +344,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       <div class="componentContainer">
         <div class="actions">
           <div>
-            <button class="app-button" onclick="remove(this)">Remove</button>
+            <button class="appButton" onclick="remove(this)">Remove</button>
           </div>
         </div>
         <div class="content"></div>
@@ -361,7 +358,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     <!-- Templates -->
 
     <template id="DescriptionShortText" class="component">
-      <div class="DescriptionShortText ElementContainer">
+      <div class="DescriptionShortText componentRoot">
         <p class="font-sm grey-400 center">
           <br />
           ${ctx.messages.description}<br />
@@ -371,7 +368,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     </template>
 
     <template id="LogoGreeting" class="component">
-      <div class="LogoGreeting ElementContainer">
+      <div class="LogoGreeting componentRoot">
         <img
           width="106"
           alt="Lagerhaus.at"
@@ -384,14 +381,14 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     </template>
 
     <template id="CenteredParagraph" class="component">
-      <div class="CenteredParagraph ElementContainer">
+      <div class="CenteredParagraph componentRoot">
         <p class="font-md">${ctx.messages.subline}</p>
         <br />
       </div>
     </template>
 
     <template id="OrderDetails" class="component">
-      <div class="OrderDetails ElementContainer">
+      <div class="OrderDetails componentRoot">
         <h5>Bestelldetails</h5>
         <span class="grey-400"> Ihre Bestellnummer lautet: </span>
         10300288<br />
@@ -405,51 +402,67 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     </template>
 
     <template id="BillingShippingAddress" class="component">
-      <div class="BillingShippingAddress ElementContainer">
+      <div class="BillingShippingAddress componentRoot">
+        <!--[if mso]>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr><td width="50%" valign="top"><![endif]-->
+
         <table
-          class="responsive"
+          width="298"
           border="0"
           cellpadding="0"
           cellspacing="0"
-          width="100%"
+          align="left"
+          class="force-row"
         >
-          <tbody>
-            <tr>
-              <td valign="top" style="padding-top: 24px">
-                <h5>Rechnungsadresse</h5>
-                <address>
-                  Andreas Bacca <br />
-                  CapGemini Rechnungsadresse<br />
-                  Oberösterreichischer Winterwaldweg 111/Forsthaus 3, Tür 4<br />
-                  5360 St. Wolfgang im Salzkammergut<br />
-                  Österreich<br />
-                  <span class="grey-400">Telefon:</span>
-                  004367682638631<br />
-                  <span class="grey-400">Email:</span>
-                  andreas.bacca@capgemini.com
-                </address>
-              </td>
-              <td valign="top" style="padding-top: 24px">
-                <h5>Lieferadresse</h5>
-                <address>
-                  Beate Bacca<br />
-                  CapGemini Lieferadresse<br />
-                  Oberösterreichischer Sommerwaldweg 222/Forsthaus 4, Tür 5<br />
-                  5361 St. Wolfgang im Salzkammergut<br />
-                  Österreich<br />
-                  <span class="grey-400">Telefon:</span>
-                  004367682638631
-                </address>
-              </td>
-            </tr>
-          </tbody>
+          <tr>
+            <td valign="top">
+              <h5>Rechnungsadresse</h5>
+              <address>
+                Andreas Bacca <br />
+                CapGemini Rechnungsadresse<br />
+                Oberösterreichischer Winterwaldweg 111/Forsthaus 3, Tür 4<br />
+                5360 St. Wolfgang im Salzkammergut<br />
+                Österreich<br />
+                <span class="grey-400">Telefon:</span>
+                004367682638631<br />
+                <span class="grey-400">Email:</span>
+                andreas.bacca@capgemini.com
+              </address>
+            </td>
+          </tr>
         </table>
+        <!--[if mso]></td><td width="50%" valign="top"><![endif]-->
+        <table
+          width="298"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          align="right"
+          class="force-row"
+        >
+          <tr>
+            <td valign="top">
+              <h5>Lieferadresse</h5>
+              <address>
+                Beate Bacca<br />
+                CapGemini Lieferadresse<br />
+                Oberösterreichischer Sommerwaldweg 222/Forsthaus 4, Tür 5<br />
+                5361 St. Wolfgang im Salzkammergut<br />
+                Österreich<br />
+                <span class="grey-400">Telefon:</span>
+                004367682638631
+              </address>
+            </td>
+          </tr>
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
         <br />
       </div>
     </template>
 
     <template id="OrderSplittingHeadline" class="component">
-      <div class="OrderSplittingHeadline ElementContainer">
+      <div class="OrderSplittingHeadline componentRoot">
         <hr class="divider" />
         <div class="center">
           <h4 class="grey-400">
@@ -465,7 +478,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     </template>
 
     <template id="ProductItem" class="component">
-      <div class="ProductItem ElementContainer">
+      <div class="ProductItem componentRoot">
         <h5 class="primary-500">Produktname (237487234)</h5>
         <table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tbody>
@@ -504,7 +517,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     </template>
 
     <template id="PaymentSummary" class="component">
-      <div class="PaymentSummary ElementContainer">
+      <div class="PaymentSummary componentRoot">
         <table
           border="0"
           class="responsive"
@@ -550,7 +563,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     </template>
 
     <template id="CallToAction" class="component">
-      <div class="CallToAction ElementContainer">
+      <div class="CallToAction componentRoot">
         <h2>Mehr Erfahren</h2>
         <p>
           Weitere Details zu Ihrer Bestellung finden Sie auch in Ihrem
@@ -568,7 +581,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     </template>
 
     <template id="Disclaimer" class="component">
-      <div class="Disclaimer ElementContainer">
+      <div class="Disclaimer componentRoot">
         <div class="content">
           <p class="font-sm-narrow">
             Zahlungs-, Liefer- und Leistungsbedingungen<br />
@@ -615,7 +628,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     </template>
 
     <template id="Footer" class="component">
-      <div class="Footer center ElementContainer">
+      <div class="Footer center componentRoot">
         <p class="font-sm">
           <strong>KONTAKT</strong>
           <br /><br />Bei Fragen helfen wir Ihnen gern weiter! <br />Tel.: +431
@@ -660,7 +673,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         width: 100vw;
         height: 100vh;
       }
-      .app-button {
+      .appButton {
         background: hsl(0, 0%, 85%);
         line-height: 2rem;
         font-weight: 700;
@@ -734,33 +747,31 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       <div class="content">
         <div class="center">
           <table
-            border="0"
             cellpadding="0"
             cellspacing="0"
+            border="0"
             height="100%"
             width="100%"
             id="bodyTable"
           >
             <tbody>
               <tr>
-                <td id="root" class="bodyCell" align="center" valign="top">
+                <td id="root" class="bodyCell" valign="top">
                   <table
-                    align="center"
-                    border="0"
+                    class="container"
                     cellpadding="0"
                     cellspacing="0"
-                    width="100%"
+                    border="0"
+                    width="660"
                     role="presentation"
-                    data-max-width="660"
-                    style="max-width: 660px"
                   >
                     <tbody>
                       <tr>
-                        <!-- MAIN COLUMN -->
                         <td valign="top">
+                          <!-- LAYOUT -->
                           <div id="layout" class="layout"></div>
+                          <!-- /LAYOUT -->
                         </td>
-                        <!-- /MAIN COLUMN -->
                       </tr>
                     </tbody>
                   </table>
@@ -784,10 +795,10 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
             </select>
           </div>
           <div>
-            <button class="app-button" onclick="add()">Add</button>
-            <button class="app-button" onclick="copy()">Copy</button>
-            <button class="app-button" onclick="clearLayout()">Clear</button>
-            <button class="app-button" onclick="showTree()">Treeview</button>
+            <button class="appButton" onclick="add()">Add</button>
+            <button class="appButton" onclick="copy()">Copy</button>
+            <button class="appButton" onclick="clearLayout()">Clear</button>
+            <button class="appButton" onclick="showTree()">Treeview</button>
           </div>
         </div>
         <div id="preview"></div>
@@ -856,8 +867,8 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       };
 
       const showTree = () => {
-          alert(layout.join("\n"))
-      }
+        alert(layout.join("\n"));
+      };
 
       /**
        * Clear layout
