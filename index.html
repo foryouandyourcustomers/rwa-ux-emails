@@ -178,8 +178,11 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
           "Helvetica Neue", "Lucida Grande", sans-serif;
         font-size: 16px !important;
         line-height: 1.5 !important;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
         color: #00332a;
+      }
+      p:last-of-type {
+        margin-bottom: 0;
       }
       .font-sm-narrow {
         font-size: 13px !important;
@@ -201,7 +204,6 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       h1 {
         font-size: 36px !important;
         line-height: 1.2 !important;
-        margin-bottom: 24px !important;
       }
       h2 {
         font-size: 26px !important;
@@ -244,6 +246,9 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         display: block;
         text-align: center;
       }
+      table {
+        table-layout: fixed; /* fuck tables */
+      }
       .container {
         width: 660px;
         max-width: 660px;
@@ -256,10 +261,11 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       .componentRoot {
         text-align: center;
         padding: 0 16px;
+        margin-bottom: 16px; /* Adds a margin behind each component */
       }
 
-      /* Components
-      /* ///// OrderDetails
+      /* Components */
+      /* ///// OrderDetails */
       .OrderDetails {
         text-align: left;
       }
@@ -292,8 +298,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         border-top: 1px solid #c5c9c7;
       }
 
-      /* ////// DISCLAIMER */
-      .Disclaimer .content {
+      .boxed {
         border: 1px solid #f0f5f2;
         box-sizing: border-box;
         border-radius: 8px;
@@ -342,12 +347,27 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
   <body>
     <template id="ComponentContainer">
       <div class="componentContainer">
-        <div class="actions">
+        <div class="componentActions">
           <div>
-            <button class="appButton" onclick="remove(this)">Remove</button>
+            <button class="appButton grey-700" onclick="remove(this)">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 26 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M13.5413 5.4165V4.33317C13.5413 4.00817 13.3247 3.7915 12.9997 3.7915C12.6747 3.7915 12.458 4.00817 12.458 4.33317V5.4165H6.49967C6.17467 5.4165 5.95801 5.63317 5.95801 5.95817C5.95801 6.28317 6.17467 6.49984 6.49967 6.49984H19.4997C19.8247 6.49984 20.0413 6.28317 20.0413 5.95817C20.0413 5.63317 19.8247 5.4165 19.4997 5.4165H13.5413ZM7.09551 7.58317C6.77051 7.58317 6.49967 7.854 6.55384 8.179L8.07051 21.7207C8.12467 22.0998 8.28717 22.2082 8.61217 22.2082H17.3872C17.7122 22.2082 17.8747 22.0998 17.9288 21.7207L19.4455 8.179C19.4997 7.854 19.2288 7.58317 18.9038 7.58317H7.09551ZM9.09967 21.1248L7.85384 8.6665H18.1997L16.8997 21.1248H9.09967ZM12.9997 20.0415C13.3247 20.0415 13.5413 19.8248 13.5413 19.4998V10.2915C13.5413 9.9665 13.3247 9.74984 12.9997 9.74984C12.6747 9.74984 12.458 9.9665 12.458 10.2915V19.4998C12.458 19.8248 12.6747 20.0415 12.9997 20.0415ZM10.833 19.4998C11.158 19.4998 11.3747 19.2832 11.3747 18.9582L10.833 10.8332C10.833 10.5082 10.6163 10.2915 10.2913 10.2915C9.96634 10.2915 9.74967 10.5082 9.74967 10.8332L10.2913 18.9582C10.2913 19.2832 10.508 19.4998 10.833 19.4998ZM15.1663 19.4998C15.4913 19.4998 15.708 19.2832 15.708 18.9582L16.2497 10.8332C16.2497 10.5082 16.033 10.2915 15.708 10.2915C15.383 10.2915 15.1663 10.5082 15.1663 10.8332L14.6247 18.9582C14.6247 19.2832 14.8413 19.4998 15.1663 19.4998Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
           </div>
         </div>
-        <div class="content"></div>
+        <div class="componentContent"></div>
       </div>
     </template>
 
@@ -383,7 +403,6 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     <template id="CenteredParagraph" class="component">
       <div class="CenteredParagraph componentRoot">
         <p class="font-md">${ctx.messages.subline}</p>
-        <br />
       </div>
     </template>
 
@@ -397,67 +416,69 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         <br />
         <span class="grey-400"> Vertragspartner: </span>
         Lagerhaus Eferding-OÖ. Mitte eGen
-        <br />
       </div>
     </template>
 
     <template id="BillingShippingAddress" class="component">
       <div class="BillingShippingAddress componentRoot">
-        <!--[if mso]>
-        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-          <tr><td width="50%" valign="top"><![endif]-->
-
-        <table
-          width="298"
-          border="0"
-          cellpadding="0"
-          cellspacing="0"
-          align="left"
-          class="force-row"
-        >
+        <table border="0" cellpadding="0" cellspacing="0" width="660">
           <tr>
-            <td valign="top">
-              <h5>Rechnungsadresse</h5>
-              <address>
-                Andreas Bacca <br />
-                CapGemini Rechnungsadresse<br />
-                Oberösterreichischer Winterwaldweg 111/Forsthaus 3, Tür 4<br />
-                5360 St. Wolfgang im Salzkammergut<br />
-                Österreich<br />
-                <span class="grey-400">Telefon:</span>
-                004367682638631<br />
-                <span class="grey-400">Email:</span>
-                andreas.bacca@capgemini.com
-              </address>
+            <td width="50%" valign="top">
+              <table
+                width="298"
+                border="0"
+                cellpadding="0"
+                cellspacing="0"
+                align="left"
+                class="force-row"
+              >
+                <tr>
+                  <td valign="top">
+                    <h5>Rechnungsadresse</h5>
+                    <address>
+                      Andreas Bacca <br />
+                      CapGemini Rechnungsadresse<br />
+                      Oberösterreichischer Winterwaldweg 111/Forsthaus 3, Tür
+                      4<br />
+                      5360 St. Wolfgang im Salzkammergut<br />
+                      Österreich<br />
+                      <span class="grey-400">Telefon:</span>
+                      004367682638631<br />
+                      <span class="grey-400">Email:</span>
+                      andreas.bacca@capgemini.com
+                    </address>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="50%" valign="top">
+              <table
+                width="298"
+                border="0"
+                cellpadding="0"
+                cellspacing="0"
+                align="right"
+                class="force-row"
+              >
+                <tr>
+                  <td valign="top">
+                    <h5>Lieferadresse</h5>
+                    <address>
+                      Beate Bacca<br />
+                      CapGemini Lieferadresse<br />
+                      Oberösterreichischer Sommerwaldweg 222/Forsthaus 4, Tür
+                      5<br />
+                      5361 St. Wolfgang im Salzkammergut<br />
+                      Österreich<br />
+                      <span class="grey-400">Telefon:</span>
+                      004367682638631
+                    </address>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>
-        <!--[if mso]></td><td width="50%" valign="top"><![endif]-->
-        <table
-          width="298"
-          border="0"
-          cellpadding="0"
-          cellspacing="0"
-          align="right"
-          class="force-row"
-        >
-          <tr>
-            <td valign="top">
-              <h5>Lieferadresse</h5>
-              <address>
-                Beate Bacca<br />
-                CapGemini Lieferadresse<br />
-                Oberösterreichischer Sommerwaldweg 222/Forsthaus 4, Tür 5<br />
-                5361 St. Wolfgang im Salzkammergut<br />
-                Österreich<br />
-                <span class="grey-400">Telefon:</span>
-                004367682638631
-              </address>
-            </td>
-          </tr>
-        </table>
-        <!--[if mso]></td></tr></table><![endif]-->
-        <br />
       </div>
     </template>
 
@@ -465,13 +486,10 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       <div class="OrderSplittingHeadline componentRoot">
         <hr class="divider" />
         <div class="center">
-          <h4 class="grey-400">
+          <h4 class="grey-700">
             Hauszustellung
             <span class="primary-500"> An Ihre Lieferaddresse </span>
-            <p>
-              1 Artikel<br />
-              Voraussichtliche Lieferung: 2 - 5 Werktage
-            </p>
+            <p>Voraussichtliche Lieferung: 2 - 5 Werktage</p>
           </h4>
         </div>
       </div>
@@ -479,11 +497,10 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
 
     <template id="ProductItem" class="component">
       <div class="ProductItem componentRoot">
-        <h5 class="primary-500">Produktname (237487234)</h5>
-        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0" width="628">
           <tbody>
             <tr>
-              <td rowspan="3" class="ProductItem-image">
+              <td rowspan="3" width="62" class="ProductItem-image">
                 <img
                   src="https://static.lagerhaus.at/mam/eb/54/P-W-8798625923122-2.jpg"
                   width="62"
@@ -492,13 +509,15 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
               <td
                 rowspan="3"
                 valign="top"
+                width="390"
                 class="grey-400 font-sm ProductItem-annotation"
               >
+                <h5 class="grey-700">Produktname (237487234)</h5>
                 2x ANNORAK (343878434)<br />
                 1x HUT (23939283)
               </td>
-              <td class="ProductItem-label grey-400">Einzelpreis</td>
-              <td class="ProductItem-price">5,00 €</td>
+              <td class="ProductItem-label grey-400" width="160">Einzelpreis</td>
+              <td class="ProductItem-price" width="100">5,00 €</td>
             </tr>
             <tr>
               <td class="ProductItem-label grey-400">Menge</td>
@@ -512,7 +531,6 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
             </tr>
           </tbody>
         </table>
-        <br />
       </div>
     </template>
 
@@ -520,19 +538,19 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       <div class="PaymentSummary componentRoot">
         <table
           border="0"
-          class="responsive"
+          class="force-row"
           cellpadding="0"
           cellspacing="0"
-          width="100%"
+          width="660"
         >
           <tbody>
             <tr>
-              <td valign="top">
+              <td valign="top" width="198">
                 <br />
                 <h5>Zahlungsart</h5>
                 <p class="font-md">Zahlung in Raten</p>
               </td>
-              <td>
+              <td valign="top" width="412">
                 <br />
                 <table border="0" cellpadding="0" cellspacing="0" align="right">
                   <tbody>
@@ -558,7 +576,6 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
             </tr>
           </tbody>
         </table>
-        <br />
       </div>
     </template>
 
@@ -576,13 +593,91 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
           target="_blank"
           data-saferedirecturl="https://www.google.com/url?q=http://smart.acct.lagerhaus.at/mein-konto&amp;source=gmail&amp;ust=1636131846857000&amp;usg=AFQjCNEYU3DQWAr8fv_aFWESt6dz775qRA"
           >Mein Konto</a
-        ><br />
+        >
+      </div>
+    </template>
+
+    <template id="OpeningHoursAndContact" class="component">
+      <div class="OpeningHoursAndContact componentRoot">
+        <table border="0" cellpadding="0" cellspacing="0" width="660">
+          <tr>
+            <td width="33.333%" valign="top">
+              <table
+                width="198"
+                border="0"
+                cellpadding="0"
+                cellspacing="0"
+                align="left"
+                class="force-row"
+              >
+                <tr>
+                  <td valign="top">
+                    <h5>Öffnungszeiten</h5>
+                    Mo: 07:30-18:00<br />
+                    Di: 07:30-18:00<br />
+                    Mi: 07:30-18:00<br />
+                    Do: 07:30-18:00<br />
+                    Fr: 07:30-18:00<br />
+                    Sa: 08:00-17:00<br />
+                    So: geschlossen
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="33.33%" valign="top">
+              <table
+                width="198"
+                border="0"
+                cellpadding="0"
+                cellspacing="0"
+                align="left"
+                class="force-row"
+              >
+                <tr>
+                  <td valign="top">
+                    <h5>Jahreöffnungszeiten</h5>
+                    08.12: geschlossen<br />
+                    25.12: geschlossen<br />
+                    26.12: geschlossen<br />
+                    01.01: geschlossen
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="33.33%" valign="top">
+              <table
+                width="198"
+                border="0"
+                cellpadding="0"
+                cellspacing="0"
+                align="right"
+                class="force-row"
+              >
+                <tr>
+                  <td valign="top">
+                    <h5>Kontakt</h5>
+                    <address>
+                      <span class="grey-400">Telefon:</span>
+                      +43 7472 200 600<br />
+                      <span class="grey-400">Fax:</span>
+                      +43 7472 200 651<br />
+                      <br />
+                      Amstetten Rütgersstraße 1<br />
+                      3300 Amstetten<br />
+                      Österreich
+                    </address>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
       </div>
     </template>
 
     <template id="Disclaimer" class="component">
       <div class="Disclaimer componentRoot">
-        <div class="content">
+        <div class="boxed">
           <p class="font-sm-narrow">
             Zahlungs-, Liefer- und Leistungsbedingungen<br />
             Es gelten unsere Allgemeinen Geschäftsbedingungen (siehe AGB).
@@ -623,7 +718,6 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
             des Unternehmers (siehe Verkaufs- und Lieferbedingungen).
           </p>
         </div>
-        <br />
       </div>
     </template>
 
@@ -695,23 +789,25 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         background-color: #fff;
         background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
       }
-      .content {
+      .appContent {
         overflow: auto;
+        margin: 0 auto;
+        width: 660px;
       }
       .componentContainer {
         position: relative;
       }
-      .componentContainer .actions {
+      .componentContainer .componentActions {
         display: none;
         line-height: 3rem;
-        align-items: center;
-        justify-content: center;
+        align-items: self-start;
+        justify-content: end;
         height: 100%;
         width: 100%;
         position: absolute;
         background: hsl(0, 0%, 95%, 0.5);
       }
-      .componentContainer:hover .actions {
+      .componentContainer:hover .componentActions {
         display: flex;
       }
       .blank {
@@ -730,7 +826,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         grid-template-rows: 3rem auto auto;
         height: 100vh;
       }
-      .sidebar .actions {
+      .sidebar .sidebarActions {
         background: hsl(60, 0%, 90%);
         padding: 0 1rem;
         display: flex;
@@ -744,7 +840,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       }
     </style>
     <main class="app" id="app">
-      <div class="content">
+      <div class="appContent">
         <div class="center">
           <table
             cellpadding="0"
@@ -783,7 +879,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
 
       <div class="sidebar">
-        <div class="actions">
+        <div class="sidebarActions">
           <div>
             <select
               name="selectedTemplate"
@@ -849,7 +945,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
           const container = document
             .querySelector("#componentContainer")
             .content.cloneNode(true);
-          container.querySelector(".content").appendChild(clone);
+          container.querySelector(".componentContent").appendChild(clone);
           layoutElement.appendChild(container);
           layout.push(currentSelection);
         } else {
