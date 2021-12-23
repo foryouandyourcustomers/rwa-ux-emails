@@ -321,6 +321,9 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       .align-center {
         text-align: center;
       }
+      .pad-r-md {
+        padding-right: 16px;
+      }
 
       /* Components */
       .OrderDetails {
@@ -395,7 +398,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
   </head>
   <body data-theme="lagerhaus">
     <template id="ComponentContainer">
-      <div class="componentContainer">
+      <div class="componentContainer" onclick="selectTemplateFromLayout()" data-id="undefined">
         <div class="componentActions">
           <div>
             <button class="appButton grey-700" onclick="remove(this)">
@@ -416,7 +419,9 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
             </button>
           </div>
         </div>
-        <div class="componentContent"></div>
+        <div
+          class="componentContent"
+        ></div>
       </div>
     </template>
 
@@ -426,7 +431,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
 
     <!-- Templates -->
 
-    <template id="DescriptionShortText" class="component">
+    <template data-template-id="DescriptionShortText" class="component">
       <div class="DescriptionShortText componentRoot">
         <p class="font-sm grey-400 center">
           <br />
@@ -437,39 +442,39 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
     </template>
 
-    <template id="LogoGreeting" class="component">
+    <template data-template-id="LogoGreeting" class="component">
       <div class="LogoGreeting componentRoot">
         <img
-          width="106"
+          width="77"
           alt="Lagerhaus.at"
-          src="images/lagerhaus_logo.png"
-          style="width: 106px; height: auto; max-width: 100%"
+          src="images/lagerhaus_logo2x.png"
+          style="width: 77px; height: auto; max-width: 100%"
         />
         <p><br /></p>
         <h1>Guten Tag Senta Probst,</h1>
       </div>
     </template>
 
-    <template id="LogoGreetingRWA" class="component">
+    <template data-template-id="LogoGreetingRWA" class="component">
       <div class="LogoGreetingRWA componentRoot">
         <img
-          width="106"
+          width="142"
           alt="RWA.at"
-          src="images/rwa_logo.png"
-          style="width: 106px; height: auto; max-width: 100%"
+          src="images/rwa_logo2x.png"
+          style="width: 142px; height: auto; max-width: 100%"
         />
         <p><br /></p>
-        <h1>${ctx.messages.salutation} $ctx.esc.html(${ctx.displayName}),</h1>
+        <h1>Guten Tag Alina Royer,</h1>
       </div>
     </template>
 
-    <template id="CenteredParagraph" class="component">
+    <template data-template-id="CenteredParagraph" class="component">
       <div class="CenteredParagraph componentRoot">
-        <p class="font-md">${ctx.messages.subline}</p>
+        <p class="font-md">vielen Dank für die Bestellung bei lagerhaus.at.</p>
       </div>
     </template>
 
-    <template id="OrderDetails" class="component">
+    <template data-template-id="OrderDetails" class="component">
       <div class="OrderDetails componentRoot">
         <h5>Bestelldetails</h5>
         <span class="grey-400"> Ihre Bestellnummer lautet: </span>
@@ -482,7 +487,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
     </template>
 
-    <template id="BillingShippingAddress" class="component">
+    <template data-template-id="BillingShippingAddress" class="component">
       <div class="BillingShippingAddress componentRoot">
         <table border="0" cellpadding="0" cellspacing="0" width="660">
           <tr>
@@ -545,7 +550,18 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
     </template>
 
-    <template id="ProductItem" class="component">
+    <template data-template-id="OrderSplittingHeadline" class="component">
+      <div class="OrderSplittingHeadline componentRoot center">
+        <hr class="divider" />
+        <p>
+          <strong>Hauszustellung</strong>
+          <span class="primary-500"> An Ihre Lieferaddresse </span>
+        </p>
+        <p>Voraussichtliche Lieferung: 3 - 7 Werktage</p>
+      </div>
+    </template>
+
+    <template data-template-id="ProductItem" class="component">
       <div class="ProductItem componentRoot">
         <table border="0" cellpadding="0" cellspacing="0" width="628">
           <tbody>
@@ -586,14 +602,14 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
     </template>
 
-    <template id="PaymentSummary" class="component">
+    <template data-template-id="PaymentSummary" class="component">
       <div class="PaymentSummary componentRoot">
         <table
           border="0"
           class="force-row"
           cellpadding="0"
           cellspacing="0"
-          width="660"
+          width="628"
         >
           <tbody>
             <tr>
@@ -607,18 +623,18 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                 <table border="0" cellpadding="0" cellspacing="0" align="right">
                   <tbody>
                     <tr>
-                      <td valign="top" class="grey-400">Zwischensumme</td>
-                      <td valign="top" style="text-align: right">185,62 €</td>
+                      <td valign="top" class="align-right grey-400 pad-r-md">Zwischensumme</td>
+                      <td valign="top" class="align-right">185,62 €</td>
                     </tr>
                     <tr>
-                      <td valign="top" class="grey-400">Lieferung</td>
-                      <td valign="top" style="text-align: right">16,46 €</td>
+                      <td valign="top" class="align-right grey-400 pad-r-md">Lieferung</td>
+                      <td valign="top" class="align-right">16,46 €</td>
                     </tr>
                     <tr>
-                      <td valign="top" class="grey-400">
+                      <td valign="top" class="align-right grey-400 pad-r-md">
                         <strong> Endbetrag </strong>
                       </td>
-                      <td valign="top" style="text-align: right">
+                      <td valign="top" class="align-right">
                         <strong> 202,62 € </strong>
                       </td>
                     </tr>
@@ -631,7 +647,78 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
     </template>
 
-    <template id="CallToAction" class="component">
+
+    <template data-template-id="ProductTable" class="component" data-brand-specific-for="RWA">
+      <div class="ProductTable componentRoot">
+        <table
+          width="628"
+          border="0"
+          class="font-sm"
+          cellpadding="0"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th class="align-left">Art.Nr.</th>
+              <th class="align-left">OTN</th>
+              <th class="align-center">Pos.</th>
+              <th class="align-center">L/S</th>
+              <th class="align-left">Bezeichnung</th>
+              <th class="align-right">Menge</th>
+              <th class="align-right">Preis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-left">6253823</td>
+              <td class="align-left">23662</td>
+              <td class="align-center">2</td>
+              <td class="align-center">S</td>
+              <td class="align-left">Zolliger Schieber EMS</td>
+              <td class="align-right">1</td>
+              <td class="align-right">10,99 &euro;</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td class="align-right" colspan="7">
+                Gesamtpreis: <strong>10,99 &euro;</strong>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </template>
+
+    <template data-template-id="PrimaryMessage" class="component">
+      <div class="PrimaryMessage componentRoot">
+        <p class="font-lg grey-700 center">
+          <strong>
+            Ihre Reservierung wird am Standort Gösling/Ybbs vorbereitet </strong
+          ><br />
+          Sie erhalten eine Benachrichtigung sobald Ihre Reseservierung
+          abholbereit ist.<br />
+          Der Abholstandort befindet sich im Fachbereich
+          <strong> Bau & Garten </strong>
+        </p>
+      </div>
+    </template>
+
+    <template data-template-id="ShippingStatus" class="component">
+      <div class="ShippingStatus componentRoot center">
+        <h5>Lieferstatus</h5>
+        <br />
+        <p>Ihre Bestellung wird mit unser Spedition zugestellt.</p>
+        <p>
+          <strong>
+            Zur Vereinbarung eines Liefertermin werden Sie vorab von der
+            Spedition kontaktiert.
+          </strong>
+        </p>
+      </div>
+    </template>
+
+    <template data-template-id="CallToAction" class="component">
       <div class="CallToAction componentRoot">
         <p>
           Weitere Details zu Ihrer Bestellung finden Sie auch in Ihrem
@@ -672,7 +759,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
     </template>
 
-    <template id="PrimaryButton" class="component">
+    <template data-template-id="PrimaryButton" class="component">
       <div class="PrimaryButton componentRoot">
         <!-- Bulletproof Button -->
         <table class="button" border="0" cellspacing="0" cellpadding="0">
@@ -708,7 +795,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
     </template>
 
-    <template id="OpeningHoursAndContact" class="component">
+    <template data-template-id="OpeningHoursAndContact" class="component">
       <div class="OpeningHoursAndContact componentRoot">
         <table border="0" cellpadding="0" cellspacing="0" width="628">
           <tr>
@@ -786,7 +873,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
     </template>
 
-    <template id="Disclaimer" class="component">
+    <template data-template-id="Disclaimer" class="component">
       <div class="Disclaimer componentRoot">
         <div class="boxed">
           <p class="font-sm-narrow">
@@ -832,7 +919,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
     </template>
 
-    <template id="Footer" class="component">
+    <template data-template-id="Footer" class="component">
       <div class="Footer center componentRoot">
         <h5 class="font-sm">Kontakt</h5>
         <p class="font-sm">
@@ -860,88 +947,6 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         </p>
       </div>
     </template>
-
-    <template id="ProductTable" class="component" data-brand-specific-for="RWA">
-      <div class="ProductTable componentRoot">
-        <table
-          width="628"
-          border="0"
-          class="font-sm"
-          cellpadding="0"
-          cellspacing="0"
-        >
-          <thead>
-            <tr>
-              <th class="align-left">Art.Nr.</th>
-              <th class="align-left">OTN</th>
-              <th class="align-center">Pos.</th>
-              <th class="align-center">L/S</th>
-              <th class="align-left">Bezeichnung</th>
-              <th class="align-right">Menge</th>
-              <th class="align-right">Preis</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="align-left">6253823</td>
-              <td class="align-left">23662</td>
-              <td class="align-center">2</td>
-              <td class="align-center">S</td>
-              <td class="align-left">Zolliger Schieber EMS</td>
-              <td class="align-right">1</td>
-              <td class="align-right">10,99 &euro;</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td class="align-right" colspan="7">
-                Gesamtpreis: <strong>10,99 &euro;</strong>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-    </template>
-
-    <template id="PrimaryMessage" class="component">
-      <div class="PrimaryMessage componentRoot">
-        <p class="font-lg grey-700 center">
-          <strong>
-            Ihre Reservierung wird am Standort Gösling/Ybbs vorbereitet </strong
-          ><br />
-          Sie erhalten eine Benachrichtigung sobald Ihre Reseservierung
-          abholbereit ist.<br />
-          Der Abholstandort befindet sich im Fachbereich
-          <strong> Bau & Garten </strong>
-        </p>
-      </div>
-    </template>
-
-    <template id="ShippingStatus" class="component">
-      <div class="ShippingStatus componentRoot center">
-        <h5>Lieferstatus</h5>
-        <br />
-        <p>Ihre Bestellung wird mit unser Spedition zugestellt.</p>
-        <p>
-          <strong>
-            Zur Vereinbarung eines Liefertermin werden Sie vorab von der
-            Spedition kontaktiert.
-          </strong>
-        </p>
-      </div>
-    </template>
-
-    <template id="OrderSplittingHeadline" class="component">
-      <div class="OrderSplittingHeadline componentRoot center">
-        <hr class="divider" />
-        <p>
-          <strong>Hauszustellung</strong>
-          <span class="primary-500"> An Ihre Lieferaddresse </span>
-        </p>
-        <p>Voraussichtliche Lieferung: 3 - 7 Werktage</p>
-      </div>
-    </template>
-
     <!-- /Templates -->
 
     <!-- Logic -->
@@ -1103,124 +1108,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
     </main>
 
-    <script>
-      const templateElements = document.querySelectorAll("template.component");
-      const layoutElement = document.querySelector("#layout");
-      const selectElement = document.querySelector("#selectedTemplate");
-      const previewElement = document.querySelector("#preview");
-      const codeElement = document.querySelector("#code");
-
-      let currentSelection = "None";
-      let layout = [];
-
-      /**
-       * Select template for preview
-       **/
-      const selectTemplate = (that) => {
-        const templateHTML = document.querySelector(
-          "#" + selectElement.value
-        ).innerHTML;
-        currentSelection = selectElement.value;
-        previewElement.innerHTML = templateHTML;
-        if (selectElement.value !== "None")
-          codeElement.innerHTML = templateHTML;
-        else codeElement.innerHTML = "";
-      };
-
-      const copy = () => {
-        let textarea = document.getElementById("code");
-        textarea.select();
-        document.execCommand("copy");
-        alert("Copied source code to your clipboard!");
-      };
-
-      /**
-       * Add template to layout
-       **/
-      const add = () => {
-        if (currentSelection !== "None") {
-          if (layout.length === 0) layoutElement.innerHTML = "";
-          const clone = document
-            .querySelector("#" + currentSelection)
-            .content.cloneNode(true);
-          // Wrap in container
-          const container = document
-            .querySelector("#componentContainer")
-            .content.cloneNode(true);
-          container.querySelector(".componentContent").appendChild(clone);
-          layoutElement.appendChild(container);
-          layout.push(currentSelection);
-        } else {
-          alert("Select template first!");
-        }
-      };
-
-      /**
-       * Remove component reference from DOM only
-       **/
-      const remove = (elementRef) => {
-        elementRef.parentNode.parentNode.parentNode.parentNode.removeChild(
-          elementRef.parentNode.parentNode.parentNode
-        );
-      };
-
-      const showTree = () => {
-        alert(layout.join("\n"));
-      };
-
-      /**
-       * Clear layout
-       **/
-      const clearLayout = () => {
-        layout = [];
-        layoutElement.innerHTML = `<div class="blank blank--full-height">None</div>`;
-      };
-
-      class Theme {
-        static Lagerhaus = "Lagerhaus";
-        static RWA = "RWA";
-      }
-
-      /**
-       * Switch theme
-       **/
-      const switchTheme = () => {
-        const toggleValue =
-          localStorage.getItem("theme") === Theme.Lagerhaus
-            ? Theme.RWA
-            : Theme.Lagerhaus;
-        localStorage.setItem("theme", toggleValue);
-        setTheme();
-      };
-
-      const themeSwitcher = document.querySelector("#theme");
-
-      /**
-       * Set theme
-       **/
-      const setTheme = () => {
-        const currentTheme = localStorage.getItem("theme") || Theme.Lagerhaus;
-        document.body.dataset.theme = currentTheme;
-        console.log(themeSwitcher.innerText, Theme.Lagerhaus);
-        themeSwitcher.innerText =
-          currentTheme === Theme.Lagerhaus ? Theme.RWA : Theme.Lagerhaus;
-      };
-
-      // set theme on inital load
-      setTheme();
-
-      const run = () => {
-        // Populate options
-        templateElements.forEach((template) => {
-          var opt = document.createElement("option");
-          opt.value = template.id;
-          opt.innerHTML = template.id;
-          selectElement.appendChild(opt);
-        });
-        clearLayout();
-      };
-      run();
-    </script>
+    <script src="app.js"></script>
     <!-- /Logic -->
   </body>
 </html>
