@@ -43,6 +43,14 @@ const copy = () => {
 };
 
 /**
+ * Select Layout source code
+ **/
+const selectLayout = () => {
+  let templateHTML = document.getElementById("layout").innerHTML;
+  codeElement.innerHTML = templateHTML;
+};
+
+/**
  * Add template to layout
  **/
 const add = () => {
