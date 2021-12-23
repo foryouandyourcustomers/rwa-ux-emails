@@ -1,0 +1,87 @@
+/* Styles for Layout Skeleton App */
+.app {
+  display: grid;
+  grid-template-columns: auto 660px;
+  width: 100vw;
+  height: 100vh;
+}
+.appButton {
+  background: hsl(0, 0%, 85%);
+  line-height: 2rem;
+  font-weight: 700;
+  padding: 0 1rem;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0.25rem;
+  font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
+    "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande",
+    sans-serif !important;
+}
+.app-select {
+  width: 100%;
+  min-width: 15ch;
+  max-width: 30ch;
+  border: 1px solid hsl(0, 60%, 85%);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
+    "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande",
+    sans-serif !important;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+.appContent {
+  overflow: auto;
+  margin: 0 auto;
+  width: 660px;
+}
+.componentContainer {
+  position: relative;
+}
+.componentContainer .componentActions {
+  display: none;
+  line-height: 3rem;
+  align-items: self-start;
+  justify-content: end;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: hsl(0, 0%, 95%, 0.5);
+}
+.componentContainer:hover .componentActions {
+  display: flex;
+}
+.blank {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blank--full-height {
+  height: 100vh;
+}
+.sidebar {
+  background: hsl(60, 0%, 100%);
+  border-left: 2px solid hsl(60, 0%, 90%);
+  display: grid;
+  grid-template-rows: 3rem auto auto;
+  height: 100vh;
+  font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
+    "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande",
+    sans-serif !important;
+}
+.sidebar .sidebarActions {
+  background: hsl(60, 0%, 90%);
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar #code {
+  border: none;
+  border-top: 2px solid hsl(60, 0%, 90%);
+  background: hsl(0, 0%, 95%);
+}

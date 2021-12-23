@@ -18,9 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${ctx.messages.subject}</title>
 
+    <style data-styles-partial="app">
+      @import "app.css";
+    </style>
+
     <style
       data-styles-partial="fonts"
-      data-no-filter="1"
       data-brand-specific-for="rwa"
     >
       @import url("https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap");
@@ -45,7 +48,6 @@
 
     <style
       data-styles-partial="fonts"
-      data-no-filter="1"
       data-brand-specific-for="lagerhaus"
     >
       @font-face {
@@ -85,7 +87,7 @@
       }
     </style>
 
-    <style>
+    <style data-styles-partial="resets">
       /*////// CLIENT-SPECIFIC VENDOR PREFIXED STYLES //////*/
       img {
         -ms-interpolation-mode: bicubic;
@@ -134,34 +136,12 @@
         font-weight: inherit !important;
         line-height: inherit !important;
       } /* Force iOS devices to heed link styles set in CSS. */
-    </style>
-    <style>
-      /*////// RESET STYLES //////*/
       body {
         height: 100%;
         margin: 0;
         padding: 0;
         width: 100%;
-        background: #ffffff;
       }
-      p,
-      th,
-      td,
-      html,
-      body,
-      div,
-      button,
-      .button,
-      th,
-      td,
-      address,
-      span {
-        font-weight: 400;
-        margin: 0;
-        padding: 0;
-        color: #434544;
-        line-height: 1.5;
-      } /* Remove margin and padding from paragraphs */
       td,
       p,
       a {
@@ -190,8 +170,28 @@
         cursor: default;
         text-decoration: none;
       }
+    </style>
 
+    <style data-styles-partial="design-system">
       /* Design System */
+      p,
+      th,
+      td,
+      html,
+      body,
+      div,
+      button,
+      .button,
+      th,
+      td,
+      address,
+      span {
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        color: #434544;
+        line-height: 1.5;
+      } /* Remove margin and padding from paragraphs */
       p {
         font-size: 16px !important;
         line-height: 1.5 !important;
@@ -387,7 +387,11 @@
   </head>
   <body data-theme="lagerhaus">
     <template id="ComponentContainer">
-      <div class="componentContainer" onclick="selectTemplateFromLayout()" data-id="undefined">
+      <div
+        class="componentContainer"
+        onclick="selectTemplateFromLayout()"
+        data-id="undefined"
+      >
         <div class="componentActions">
           <div>
             <button class="appButton grey-700" onclick="remove(this)">
@@ -408,9 +412,7 @@
             </button>
           </div>
         </div>
-        <div
-          class="componentContent"
-        ></div>
+        <div class="componentContent"></div>
       </div>
     </template>
 
@@ -612,11 +614,15 @@
                 <table border="0" cellpadding="0" cellspacing="0" align="right">
                   <tbody>
                     <tr>
-                      <td valign="top" class="align-right grey-400 pad-r-md">Zwischensumme</td>
+                      <td valign="top" class="align-right grey-400 pad-r-md">
+                        Zwischensumme
+                      </td>
                       <td valign="top" class="align-right">185,62 €</td>
                     </tr>
                     <tr>
-                      <td valign="top" class="align-right grey-400 pad-r-md">Lieferung</td>
+                      <td valign="top" class="align-right grey-400 pad-r-md">
+                        Lieferung
+                      </td>
                       <td valign="top" class="align-right">16,46 €</td>
                     </tr>
                     <tr>
@@ -636,8 +642,11 @@
       </div>
     </template>
 
-
-    <template data-template-id="ProductTable" class="component" data-brand-specific-for="RWA">
+    <template
+      data-template-id="ProductTable"
+      class="component"
+      data-brand-specific-for="RWA"
+    >
       <div class="ProductTable componentRoot">
         <table
           width="628"
@@ -939,95 +948,6 @@
     <!-- /Templates -->
 
     <!-- Logic -->
-    <style>
-      /* Styles for Layout Skeleton App */
-      .app {
-        display: grid;
-        grid-template-columns: auto 660px;
-        width: 100vw;
-        height: 100vh;
-      }
-      .appButton {
-        background: hsl(0, 0%, 85%);
-        line-height: 2rem;
-        font-weight: 700;
-        padding: 0 1rem;
-        cursor: pointer;
-        border: 0;
-        border-radius: 0.25rem;
-        font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
-          "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue",
-          "Lucida Grande", sans-serif !important;
-      }
-      .app-select {
-        width: 100%;
-        min-width: 15ch;
-        max-width: 30ch;
-        border: 1px solid hsl(0, 60%, 85%);
-        border-radius: 0.25em;
-        padding: 0.25em 0.5em;
-        font-size: 1.25rem;
-        font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
-          "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue",
-          "Lucida Grande", sans-serif !important;
-        cursor: pointer;
-        line-height: 1.1;
-        background-color: #fff;
-        background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
-      }
-      .appContent {
-        overflow: auto;
-        margin: 0 auto;
-        width: 660px;
-      }
-      .componentContainer {
-        position: relative;
-      }
-      .componentContainer .componentActions {
-        display: none;
-        line-height: 3rem;
-        align-items: self-start;
-        justify-content: end;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        background: hsl(0, 0%, 95%, 0.5);
-      }
-      .componentContainer:hover .componentActions {
-        display: flex;
-      }
-      .blank {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .blank--full-height {
-        height: 100vh;
-      }
-      .sidebar {
-        background: hsl(60, 0%, 100%);
-        border-left: 2px solid hsl(60, 0%, 90%);
-        display: grid;
-        grid-template-rows: 3rem auto auto;
-        height: 100vh;
-        font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
-          "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue",
-          "Lucida Grande", sans-serif !important;
-      }
-      .sidebar .sidebarActions {
-        background: hsl(60, 0%, 90%);
-        padding: 0 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .sidebar #code {
-        border: none;
-        border-top: 2px solid hsl(60, 0%, 90%);
-        background: hsl(0, 0%, 95%);
-      }
-    </style>
     <main class="app" id="app">
       <div class="appContent">
         <div class="center">
