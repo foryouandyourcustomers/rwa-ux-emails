@@ -28,7 +28,37 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${ctx.messages.subject}</title>
-    <style data-no-filter="1">
+
+    <style
+      data-styles-partial="fonts"
+      data-no-filter="1"
+      data-brand-specific-for="rwa"
+    >
+      @import url("https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap");
+
+      [data-theme="RWA"] p,
+      [data-theme="RWA"] th,
+      [data-theme="RWA"] td,
+      [data-theme="RWA"] html,
+      [data-theme="RWA"] body,
+      [data-theme="RWA"] div,
+      [data-theme="RWA"] button,
+      [data-theme="RWA"] .button,
+      [data-theme="RWA"] th,
+      [data-theme="RWA"] td,
+      [data-theme="RWA"] address,
+      [data-theme="RWA"] span {
+        font-family: "Titilitium Web", "Open Sans", system, -apple-system,
+          ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI",
+          "Helvetica Neue", "Lucida Grande", sans-serif;
+      }
+    </style>
+
+    <style
+      data-styles-partial="fonts"
+      data-no-filter="1"
+      data-brand-specific-for="lagerhaus"
+    >
       @font-face {
         font-family: "CalibreLH";
         src: url("https://s3.eu-central-1.amazonaws.com/rwa-images/fonts/CalibreLH-Middle.woff")
@@ -48,7 +78,25 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         font-weight: 700;
         font-display: swap;
       }
+      [data-theme="Lagerhaus"] p,
+      [data-theme="Lagerhaus"] th,
+      [data-theme="Lagerhaus"] td,
+      [data-theme="Lagerhaus"] html,
+      [data-theme="Lagerhaus"] body,
+      [data-theme="Lagerhaus"] div,
+      [data-theme="Lagerhaus"] button,
+      [data-theme="Lagerhaus"] .button,
+      [data-theme="Lagerhaus"] th,
+      [data-theme="Lagerhaus"] td,
+      [data-theme="Lagerhaus"] address,
+      [data-theme="Lagerhaus"] span {
+        font-family: "CalibreLH", "Open Sans", system, -apple-system,
+          ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI",
+          "Helvetica Neue", "Lucida Grande", sans-serif;
+      }
+    </style>
 
+    <style>
       /*////// CLIENT-SPECIFIC VENDOR PREFIXED STYLES //////*/
       img {
         -ms-interpolation-mode: bicubic;
@@ -113,10 +161,12 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       html,
       body,
       div,
+      button,
+      .button,
+      th,
+      td,
+      address,
       span {
-        font-family: "CalibreLH", "Open Sans", system, -apple-system,
-          ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI",
-          "Helvetica Neue", "Lucida Grande", sans-serif;
         font-weight: 400;
         margin: 0;
         padding: 0;
@@ -145,44 +195,37 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         outline: none;
         text-decoration: none;
       } /* Force images to display correctly across clients */
-
-      /*////// BUTTON //////*/
-      .button {
-        margin: 0;
-        background-color: rgb(0, 158, 60);
-        border-radius: 2px;
-        color: #ffffff !important;
-        display: inline-block;
-        font-family: "CalibreLH", "Open Sans", system, -apple-system,
-          ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI",
-          "Helvetica Neue", "Lucida Grande", sans-serif;
-        font-size: 20px !important;
-        line-height: 1 !important;
-        font-weight: 700;
-        margin: 0;
-        padding: 14px 48px;
-        text-align: center;
+      a[href^="tel"],
+      a[href^="sms"] {
+        color: inherit;
+        cursor: default;
         text-decoration: none;
       }
+
+      /* Design System */
+      p {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 16px;
+        color: #434544;
+      }
+      p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      table.button {
+        margin: 0 auto;
+      }
+      table.button > tbody > tr > td {
+        background-color: #009e3c;
+        border-radius: 2px;
+      }
+
       a {
         color: #434544;
       }
       a:visited {
         color: #646665;
-      }
-
-      /*////// TEXT /////*/
-      p {
-        font-family: "CalibreLH", "Open Sans", system, -apple-system,
-          ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI",
-          "Helvetica Neue", "Lucida Grande", sans-serif;
-        font-size: 16px !important;
-        line-height: 1.5 !important;
-        margin-bottom: 16px;
-        color: #00332a;
-      }
-      p:last-of-type {
-        margin-bottom: 0;
       }
       .font-sm-narrow {
         font-size: 13px !important;
@@ -239,8 +282,8 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       }
       .divider {
         width: 72px;
-        /* height: 2px; */
         border: 2px solid #009e3c;
+        margin-bottom: 16px;
       }
       .center {
         display: block;
@@ -263,14 +306,26 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         padding: 0 16px;
         margin-bottom: 16px; /* Adds a margin behind each component */
       }
+      .boxed {
+        border: 1px solid #f0f5f2;
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding: 16px;
+      }
+      .align-left {
+        text-align: left;
+      }
+      .align-right {
+        text-align: right;
+      }
+      .align-center {
+        text-align: center;
+      }
 
       /* Components */
-      /* ///// OrderDetails */
       .OrderDetails {
         text-align: left;
       }
-
-      /* ///// ProductItem */
       .ProductItem-image {
         width: 64px;
         height: 64px;
@@ -293,42 +348,36 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         text-align: right;
         color: #00332a;
       }
-
       .PaymentSummary > table {
         border-top: 1px solid #c5c9c7;
       }
-
-      .boxed {
-        border: 1px solid #f0f5f2;
-        box-sizing: border-box;
-        border-radius: 8px;
-        padding: 16px;
+      .ProductTable table {
+        table-layout: auto;
       }
-
-      /* /////// FOOTER */
+      .ProductTable table th {
+        border-bottom: 1px solid #c5c9c7;
+        padding-bottom: 16px;
+      }
+      .ProductTable th {
+        font-weight: bold;
+      }
+      .ProductTable td {
+        padding: 16px 0;
+      }
+      .ProductTable table tfoot td {
+        border-top: 1px solid #c5c9c7;
+      }
       .Footer {
         padding-top: 24px;
         padding-bottom: 24px;
         background: #f0f5f2;
       }
 
-      /*////// CLIENT-SPECIFIC STYLES //////*/
-      a[href^="tel"],
-      a[href^="sms"] {
-        color: inherit;
-        cursor: default;
-        text-decoration: none;
-      } /* Force mobile devices to inherit declared link styles. */
-
-      /*////// XS-MOBILE STYLES //////*/
       @media only screen and (max-width: 640px) {
-        /*////// CLIENT-SPECIFIC STYLES //////*/
         body {
           width: 100% !important;
           min-width: 100% !important;
-        } /* Force iOS Mail to render the email at full width. */
-
-        /*////// STRUCTURAL STYLES //////*/
+        }
         img {
           height: auto !important;
         }
@@ -337,14 +386,14 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
           width: 100% !important;
           max-width: 100% !important;
         }
-        /* TODO: Move to Component Styles */
+        /* Components */
         .ProductItem-annotation {
           padding-left: 0 !important;
         }
       }
     </style>
   </head>
-  <body>
+  <body data-theme="lagerhaus">
     <template id="ComponentContainer">
       <div class="componentContainer">
         <div class="componentActions">
@@ -381,7 +430,8 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       <div class="DescriptionShortText componentRoot">
         <p class="font-sm grey-400 center">
           <br />
-          ${ctx.messages.description}<br />
+          Hiermit erhalten Sie eine Übersicht über ihre bei uns eingegangene
+          Bestellung.<br />
           <br />
         </p>
       </div>
@@ -392,7 +442,20 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         <img
           width="106"
           alt="Lagerhaus.at"
-          src="https://s3.eu-central-1.amazonaws.com/rwa-images/email/lagerhaus_logo.png"
+          src="images/lagerhaus_logo.png"
+          style="width: 106px; height: auto; max-width: 100%"
+        />
+        <p><br /></p>
+        <h1>Guten Tag Senta Probst,</h1>
+      </div>
+    </template>
+
+    <template id="LogoGreetingRWA" class="component">
+      <div class="LogoGreetingRWA componentRoot">
+        <img
+          width="106"
+          alt="RWA.at"
+          src="images/rwa_logo.png"
           style="width: 106px; height: auto; max-width: 100%"
         />
         <p><br /></p>
@@ -482,19 +545,6 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
       </div>
     </template>
 
-    <template id="OrderSplittingHeadline" class="component">
-      <div class="OrderSplittingHeadline componentRoot">
-        <hr class="divider" />
-        <div class="center">
-          <h4 class="grey-700">
-            Hauszustellung
-            <span class="primary-500"> An Ihre Lieferaddresse </span>
-            <p>Voraussichtliche Lieferung: 2 - 5 Werktage</p>
-          </h4>
-        </div>
-      </div>
-    </template>
-
     <template id="ProductItem" class="component">
       <div class="ProductItem componentRoot">
         <table border="0" cellpadding="0" cellspacing="0" width="628">
@@ -516,7 +566,9 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
                 2x ANNORAK (343878434)<br />
                 1x HUT (23939283)
               </td>
-              <td class="ProductItem-label grey-400" width="160">Einzelpreis</td>
+              <td class="ProductItem-label grey-400" width="160">
+                Einzelpreis
+              </td>
               <td class="ProductItem-price" width="100">5,00 €</td>
             </tr>
             <tr>
@@ -581,25 +633,84 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
 
     <template id="CallToAction" class="component">
       <div class="CallToAction componentRoot">
-        <h2>Mehr Erfahren</h2>
         <p>
           Weitere Details zu Ihrer Bestellung finden Sie auch in Ihrem
           Kundenkonto!
         </p>
         <br />
-        <a
-          href="http://smart.acct.lagerhaus.at/mein-konto"
-          class="button"
-          target="_blank"
-          data-saferedirecturl="https://www.google.com/url?q=http://smart.acct.lagerhaus.at/mein-konto&amp;source=gmail&amp;ust=1636131846857000&amp;usg=AFQjCNEYU3DQWAr8fv_aFWESt6dz775qRA"
-          >Mein Konto</a
-        >
+        <!-- Bulletproof Button -->
+        <table class="button" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <a
+                  href="http://smart.acct.lagerhaus.at/mein-konto"
+                  class="button"
+                  target="_blank"
+                  style="
+                    background-color: #009e3c;
+                    border-radius: 2px;
+                    color: #ffffff;
+                    border: 1px solid #009e3c;
+                    display: inline-block;
+                    font-size: 16px;
+                    line-height: 1;
+                    font-weight: 700;
+                    display: inline-block;
+                    padding: 14px 48px;
+                    text-align: center;
+                    text-decoration: none;
+                  "
+                  data-saferedirecturl="https://www.google.com/url?q=http://smart.acct.lagerhaus.at/mein-konto&amp;source=gmail&amp;ust=1636131846857000&amp;usg=AFQjCNEYU3DQWAr8fv_aFWESt6dz775qRA"
+                  >Mein Konto</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- /Bulletproof Button -->
+      </div>
+    </template>
+
+    <template id="PrimaryButton" class="component">
+      <div class="PrimaryButton componentRoot">
+        <!-- Bulletproof Button -->
+        <table class="button" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <a
+                  href="http://smart.acct.lagerhaus.at/mein-konto"
+                  class="button"
+                  target="_blank"
+                  style="
+                    background-color: #009e3c;
+                    border-radius: 2px;
+                    color: #ffffff;
+                    border: 1px solid #009e3c;
+                    display: inline-block;
+                    font-size: 16px;
+                    line-height: 1;
+                    font-weight: 700;
+                    display: inline-block;
+                    padding: 14px 48px;
+                    text-align: center;
+                    text-decoration: none;
+                  "
+                  data-saferedirecturl="https://www.google.com/url?q=http://smart.acct.lagerhaus.at/mein-konto&amp;source=gmail&amp;ust=1636131846857000&amp;usg=AFQjCNEYU3DQWAr8fv_aFWESt6dz775qRA"
+                  >Bestellung versand</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- /Bulletproof Button -->
       </div>
     </template>
 
     <template id="OpeningHoursAndContact" class="component">
       <div class="OpeningHoursAndContact componentRoot">
-        <table border="0" cellpadding="0" cellspacing="0" width="660">
+        <table border="0" cellpadding="0" cellspacing="0" width="628">
           <tr>
             <td width="33.333%" valign="top">
               <table
@@ -723,27 +834,21 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
 
     <template id="Footer" class="component">
       <div class="Footer center componentRoot">
+        <h5 class="font-sm">Kontakt</h5>
         <p class="font-sm">
-          <strong>KONTAKT</strong>
-          <br /><br />Bei Fragen helfen wir Ihnen gern weiter! <br />Tel.: +431
-          600 70 70 <br /><a href="mailto:service@lagerhaus.at" tabindex="-1"
-            >servicecenter@lagerhaus.at</a
-          >
+          Bei Fragen helfen wir Ihnen gern weiter! <br />Tel.: +431 600 70 70
         </p>
         <p class="font-sm">
+          <a href="mailto:service@lagerhaus.at" tabindex="-1"
+            >servicecenter@lagerhaus.at</a
+          ><br />
           Erreichbarkeit Service Center:
           <br /><strong>Mo - Fr</strong>
           07:30–20:00
           <br /><strong>Sa</strong>
           07:30–14:00
         </p>
-        <br />
-        <p class="font-sm">
-          "UNSER LAGERHAUS" Warenhandelsgesellschaft m.b.H.<br />9020 Südring
-          242<br />servicecenter@lagerhaus.at<br />Firmensitz: 9020 Südring
-          242<br />Firmenbuchgericht: Landesgericht Klagenfurt
-        </p>
-        <br />
+        <p><br /></p>
         <p class="font-sm">
           <a href="https://lagerhaus.at/impressum" tabindex="-1">Impressum</a>
           <a href="https://lagerhaus.at/AGB" tabindex="-1">AGB</a>
@@ -753,6 +858,87 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
           <a href="https://lagerhaus.at/Kontakt" tabindex="-1">Kontakt</a>
           <a href="https://lagerhaus.at/FAQ" tabindex="-1">FAQ</a>
         </p>
+      </div>
+    </template>
+
+    <template id="ProductTable" class="component" data-brand-specific-for="RWA">
+      <div class="ProductTable componentRoot">
+        <table
+          width="628"
+          border="0"
+          class="font-sm"
+          cellpadding="0"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th class="align-left">Art.Nr.</th>
+              <th class="align-left">OTN</th>
+              <th class="align-center">Pos.</th>
+              <th class="align-center">L/S</th>
+              <th class="align-left">Bezeichnung</th>
+              <th class="align-right">Menge</th>
+              <th class="align-right">Preis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-left">6253823</td>
+              <td class="align-left">23662</td>
+              <td class="align-center">2</td>
+              <td class="align-center">S</td>
+              <td class="align-left">Zolliger Schieber EMS</td>
+              <td class="align-right">1</td>
+              <td class="align-right">10,99 &euro;</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td class="align-right" colspan="7">
+                Gesamtpreis: <strong>10,99 &euro;</strong>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </template>
+
+    <template id="PrimaryMessage" class="component">
+      <div class="PrimaryMessage componentRoot">
+        <p class="font-lg grey-700 center">
+          <strong>
+            Ihre Reservierung wird am Standort Gösling/Ybbs vorbereitet </strong
+          ><br />
+          Sie erhalten eine Benachrichtigung sobald Ihre Reseservierung
+          abholbereit ist.<br />
+          Der Abholstandort befindet sich im Fachbereich
+          <strong> Bau & Garten </strong>
+        </p>
+      </div>
+    </template>
+
+    <template id="ShippingStatus" class="component">
+      <div class="ShippingStatus componentRoot center">
+        <h5>Lieferstatus</h5>
+        <br />
+        <p>Ihre Bestellung wird mit unser Spedition zugestellt.</p>
+        <p>
+          <strong>
+            Zur Vereinbarung eines Liefertermin werden Sie vorab von der
+            Spedition kontaktiert.
+          </strong>
+        </p>
+      </div>
+    </template>
+
+    <template id="OrderSplittingHeadline" class="component">
+      <div class="OrderSplittingHeadline componentRoot center">
+        <hr class="divider" />
+        <p>
+          <strong>Hauszustellung</strong>
+          <span class="primary-500"> An Ihre Lieferaddresse </span>
+        </p>
+        <p>Voraussichtliche Lieferung: 3 - 7 Werktage</p>
       </div>
     </template>
 
@@ -775,6 +961,9 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         cursor: pointer;
         border: 0;
         border-radius: 0.25rem;
+        font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
+          "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue",
+          "Lucida Grande", sans-serif !important;
       }
       .app-select {
         width: 100%;
@@ -784,6 +973,9 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         border-radius: 0.25em;
         padding: 0.25em 0.5em;
         font-size: 1.25rem;
+        font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
+          "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue",
+          "Lucida Grande", sans-serif !important;
         cursor: pointer;
         line-height: 1.1;
         background-color: #fff;
@@ -825,6 +1017,9 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         display: grid;
         grid-template-rows: 3rem auto auto;
         height: 100vh;
+        font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
+          "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue",
+          "Lucida Grande", sans-serif !important;
       }
       .sidebar .sidebarActions {
         background: hsl(60, 0%, 90%);
@@ -891,10 +1086,16 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
             </select>
           </div>
           <div>
+            <button
+              class="appButton primary-500"
+              id="theme"
+              onclick="switchTheme()"
+            >
+              Lagerhaus
+            </button>
             <button class="appButton" onclick="add()">Add</button>
             <button class="appButton" onclick="copy()">Copy</button>
             <button class="appButton" onclick="clearLayout()">Clear</button>
-            <button class="appButton" onclick="showTree()">Treeview</button>
           </div>
         </div>
         <div id="preview"></div>
@@ -911,6 +1112,7 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
 
       let currentSelection = "None";
       let layout = [];
+
       /**
        * Select template for preview
        **/
@@ -973,6 +1175,39 @@ messageSource=classpath:/lhcore/messages/email-orderConfirmation_$lang.propertie
         layout = [];
         layoutElement.innerHTML = `<div class="blank blank--full-height">None</div>`;
       };
+
+      class Theme {
+        static Lagerhaus = "Lagerhaus";
+        static RWA = "RWA";
+      }
+
+      /**
+       * Switch theme
+       **/
+      const switchTheme = () => {
+        const toggleValue =
+          localStorage.getItem("theme") === Theme.Lagerhaus
+            ? Theme.RWA
+            : Theme.Lagerhaus;
+        localStorage.setItem("theme", toggleValue);
+        setTheme();
+      };
+
+      const themeSwitcher = document.querySelector("#theme");
+
+      /**
+       * Set theme
+       **/
+      const setTheme = () => {
+        const currentTheme = localStorage.getItem("theme") || Theme.Lagerhaus;
+        document.body.dataset.theme = currentTheme;
+        console.log(themeSwitcher.innerText, Theme.Lagerhaus);
+        themeSwitcher.innerText =
+          currentTheme === Theme.Lagerhaus ? Theme.RWA : Theme.Lagerhaus;
+      };
+
+      // set theme on inital load
+      setTheme();
 
       const run = () => {
         // Populate options
