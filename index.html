@@ -13,6 +13,7 @@
         </o:OfficeDocumentSettings>
       </xml>
     <![endif]-->
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,10 +23,7 @@
       @import "app.css";
     </style>
 
-    <style
-      data-styles-partial="fonts"
-      data-brand-specific-for="rwa"
-    >
+    <style data-styles-partial="fonts" data-brand-specific-for="rwa">
       @import url("https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap");
 
       [data-theme="RWA"] p,
@@ -34,22 +32,18 @@
       [data-theme="RWA"] html,
       [data-theme="RWA"] body,
       [data-theme="RWA"] div,
-      [data-theme="RWA"] button,
       [data-theme="RWA"] .button,
       [data-theme="RWA"] th,
       [data-theme="RWA"] td,
       [data-theme="RWA"] address,
       [data-theme="RWA"] span {
-        font-family: "Titilitium Web", "Open Sans", system, -apple-system,
+        font-family: "Titillium Web", "Open Sans", system, -apple-system,
           ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI",
           "Helvetica Neue", "Lucida Grande", sans-serif;
       }
     </style>
 
-    <style
-      data-styles-partial="fonts"
-      data-brand-specific-for="lagerhaus"
-    >
+    <style data-styles-partial="fonts" data-brand-specific-for="lagerhaus">
       @font-face {
         font-family: "CalibreLH";
         src: url("https://s3.eu-central-1.amazonaws.com/rwa-images/fonts/CalibreLH-Middle.woff")
@@ -75,7 +69,6 @@
       [data-theme="Lagerhaus"] html,
       [data-theme="Lagerhaus"] body,
       [data-theme="Lagerhaus"] div,
-      [data-theme="Lagerhaus"] button,
       [data-theme="Lagerhaus"] .button,
       [data-theme="Lagerhaus"] th,
       [data-theme="Lagerhaus"] td,
@@ -87,7 +80,23 @@
       }
     </style>
 
+    <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+    <!--[if mso]>
+      <style>
+        * {
+          font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
+            "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue",
+            "Lucida Grande", sans-serif !important;
+        }
+      </style>
+    <![endif]-->
+
     <style data-styles-partial="resets">
+      :root {
+        color-scheme: light;
+        supported-color-schemes: light;
+      }
+
       /*////// CLIENT-SPECIFIC VENDOR PREFIXED STYLES //////*/
       img {
         -ms-interpolation-mode: bicubic;
@@ -137,10 +146,10 @@
         line-height: inherit !important;
       } /* Force iOS devices to heed link styles set in CSS. */
       body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        width: 100%;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
       }
       td,
       p,
@@ -284,6 +293,7 @@
       .container {
         width: 660px;
         max-width: 660px;
+        margin: 0 auto;
       }
       .bodyCell {
         margin: 0 auto;
@@ -386,34 +396,6 @@
     </style>
   </head>
   <body data-theme="lagerhaus">
-    <template id="ComponentContainer">
-      <div
-        class="componentContainer"
-      >
-        <div class="componentActions">
-          <div>
-            <button class="appButton grey-700" onclick="remove(this)">
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 26 26"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M13.5413 5.4165V4.33317C13.5413 4.00817 13.3247 3.7915 12.9997 3.7915C12.6747 3.7915 12.458 4.00817 12.458 4.33317V5.4165H6.49967C6.17467 5.4165 5.95801 5.63317 5.95801 5.95817C5.95801 6.28317 6.17467 6.49984 6.49967 6.49984H19.4997C19.8247 6.49984 20.0413 6.28317 20.0413 5.95817C20.0413 5.63317 19.8247 5.4165 19.4997 5.4165H13.5413ZM7.09551 7.58317C6.77051 7.58317 6.49967 7.854 6.55384 8.179L8.07051 21.7207C8.12467 22.0998 8.28717 22.2082 8.61217 22.2082H17.3872C17.7122 22.2082 17.8747 22.0998 17.9288 21.7207L19.4455 8.179C19.4997 7.854 19.2288 7.58317 18.9038 7.58317H7.09551ZM9.09967 21.1248L7.85384 8.6665H18.1997L16.8997 21.1248H9.09967ZM12.9997 20.0415C13.3247 20.0415 13.5413 19.8248 13.5413 19.4998V10.2915C13.5413 9.9665 13.3247 9.74984 12.9997 9.74984C12.6747 9.74984 12.458 9.9665 12.458 10.2915V19.4998C12.458 19.8248 12.6747 20.0415 12.9997 20.0415ZM10.833 19.4998C11.158 19.4998 11.3747 19.2832 11.3747 18.9582L10.833 10.8332C10.833 10.5082 10.6163 10.2915 10.2913 10.2915C9.96634 10.2915 9.74967 10.5082 9.74967 10.8332L10.2913 18.9582C10.2913 19.2832 10.508 19.4998 10.833 19.4998ZM15.1663 19.4998C15.4913 19.4998 15.708 19.2832 15.708 18.9582L16.2497 10.8332C16.2497 10.5082 16.033 10.2915 15.708 10.2915C15.383 10.2915 15.1663 10.5082 15.1663 10.8332L14.6247 18.9582C14.6247 19.2832 14.8413 19.4998 15.1663 19.4998Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="componentContent"></div>
-      </div>
-    </template>
-
     <template id="None">
       <div class="blank">Select template to preview here.</div>
     </template>
@@ -948,66 +930,101 @@
     <!-- Logic -->
     <main class="app" id="app">
       <div class="appContent">
-        <div class="center">
-          <table
-            cellpadding="0"
-            cellspacing="0"
-            border="0"
-            height="100%"
-            width="100%"
-            id="bodyTable"
-          >
-            <tbody>
-              <tr>
-                <td id="root" class="bodyCell" valign="top">
-                  <table
-                    class="container"
-                    cellpadding="0"
-                    cellspacing="0"
-                    border="0"
-                    width="660"
-                    role="presentation"
-                  >
-                    <tbody>
-                      <tr>
-                        <td valign="top">
-                          <!-- LAYOUT -->
-                          <div id="layout" class="layout"></div>
-                          <!-- /LAYOUT -->
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="appContentActions">
+          <div>
+            <button
+              class="appButton appButtonPrimary"
+              id="theme"
+              onclick="switchTheme()"
+            >
+              RWA
+            </button>
+          </div>
+          <div>
+            <div class="appFontMd appPrimary">
+              Drop layout files to load them here
+            </div>
+            <button class="appButton grey-700" onclick="saveLayout()">
+              Save
+            </button>
+            <button class="appButton grey-700" onclick="moveUp()">Up</button>
+            <button class="appButton grey-700" onclick="moveDown()">
+              Down
+            </button>
+            <button class="appButton signal-500 grey-700" onclick="remove()">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 26 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M13.5413 5.4165V4.33317C13.5413 4.00817 13.3247 3.7915 12.9997 3.7915C12.6747 3.7915 12.458 4.00817 12.458 4.33317V5.4165H6.49967C6.17467 5.4165 5.95801 5.63317 5.95801 5.95817C5.95801 6.28317 6.17467 6.49984 6.49967 6.49984H19.4997C19.8247 6.49984 20.0413 6.28317 20.0413 5.95817C20.0413 5.63317 19.8247 5.4165 19.4997 5.4165H13.5413ZM7.09551 7.58317C6.77051 7.58317 6.49967 7.854 6.55384 8.179L8.07051 21.7207C8.12467 22.0998 8.28717 22.2082 8.61217 22.2082H17.3872C17.7122 22.2082 17.8747 22.0998 17.9288 21.7207L19.4455 8.179C19.4997 7.854 19.2288 7.58317 18.9038 7.58317H7.09551ZM9.09967 21.1248L7.85384 8.6665H18.1997L16.8997 21.1248H9.09967ZM12.9997 20.0415C13.3247 20.0415 13.5413 19.8248 13.5413 19.4998V10.2915C13.5413 9.9665 13.3247 9.74984 12.9997 9.74984C12.6747 9.74984 12.458 9.9665 12.458 10.2915V19.4998C12.458 19.8248 12.6747 20.0415 12.9997 20.0415ZM10.833 19.4998C11.158 19.4998 11.3747 19.2832 11.3747 18.9582L10.833 10.8332C10.833 10.5082 10.6163 10.2915 10.2913 10.2915C9.96634 10.2915 9.74967 10.5082 9.74967 10.8332L10.2913 18.9582C10.2913 19.2832 10.508 19.4998 10.833 19.4998ZM15.1663 19.4998C15.4913 19.4998 15.708 19.2832 15.708 18.9582L16.2497 10.8332C16.2497 10.5082 16.033 10.2915 15.708 10.2915C15.383 10.2915 15.1663 10.5082 15.1663 10.8332L14.6247 18.9582C14.6247 19.2832 14.8413 19.4998 15.1663 19.4998Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="layoutWrapper">
+          <div class="container">
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              border="0"
+              height="100%"
+              width="100%"
+              id="bodyTable"
+            >
+              <tbody>
+                <tr>
+                  <td id="root" class="bodyCell" valign="top">
+                    <table
+                      cellpadding="0"
+                      cellspacing="0"
+                      border="0"
+                      width="660"
+                      role="presentation"
+                    >
+                      <tbody>
+                        <tr>
+                          <td valign="top">
+                            <!-- LAYOUT -->
+                            <div id="layout" class="layout"></div>
+                            <!-- /LAYOUT -->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
-      <div class="sidebar">
-        <div class="sidebarActions">
+      <div class="appSidebar">
+        <div class="appSidebarActions">
           <div>
             <select
               name="selectedTemplate"
               id="selectedTemplate"
-              class="app-select"
+              class="appSelect"
               onChange="selectTemplate()"
             >
-              <option value="None">...</option>
+              <option value="None">Select template ...</option>
             </select>
           </div>
           <div>
-            <button
-              class="appButton primary-500"
-              id="theme"
-              onclick="switchTheme()"
-            >
-              Lagerhaus
-            </button>
             <button class="appButton" onclick="add()">Add</button>
             <button class="appButton" onclick="copy()">Copy</button>
-            <button class="appButton" onclick="selectLayout()">Select Layout</button>
+            <button class="appButton" onclick="selectLayout()">
+              Select Layout
+            </button>
             <button class="appButton" onclick="clearLayout()">Clear</button>
           </div>
         </div>

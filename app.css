@@ -17,7 +17,16 @@
     "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande",
     sans-serif !important;
 }
-.app-select {
+.appPrimary {
+  color: hsl(241, 69%, 57%);
+}
+.appFontMd {
+  font-size: 16px;
+  font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
+    "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande",
+    sans-serif !important;
+}
+.appSelect {
   width: 100%;
   min-width: 15ch;
   max-width: 30ch;
@@ -35,35 +44,40 @@
 }
 .appContent {
   overflow: auto;
-  margin: 0 auto;
-  width: 660px;
-}
-.componentContainer {
-  position: relative;
-}
-.componentContainer .componentActions {
-  display: none;
-  line-height: 3rem;
-  align-items: self-start;
-  justify-content: end;
-  height: 100%;
   width: 100%;
-  position: absolute;
-  background: hsl(0, 0%, 95%, 0.5);
 }
-.componentContainer:hover .componentActions {
+.appContent .appContentActions {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  min-height: 3rem;
+  background: hsl(60, 0%, 100%);
 }
 .blank {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.blank--full-height {
+.appContent {
+  display: grid;
+  grid-template-rows: 3rem auto;
   height: 100vh;
+  font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
+    "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande",
+    sans-serif !important;
 }
-.sidebar {
+.appContent .layoutWrapper {
+  overflow: auto;
+}
+.appContent .appContentActions {
+  background: hsl(60, 0%, 90%);
+}
+.appContent .appContentActions .appFontMd {
+    line-height: 2rem;
+    padding-right: 1rem;
+}
+.appSidebar {
   background: hsl(60, 0%, 100%);
   border-left: 2px solid hsl(60, 0%, 90%);
   display: grid;
@@ -73,15 +87,31 @@
     "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande",
     sans-serif !important;
 }
-.sidebar .sidebarActions {
+.appSidebar .appSidebarActions {
   background: hsl(60, 0%, 90%);
   padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.sidebar #code {
+.appSidebar .appSidebarActions > div,
+.appContent .appContentActions > div {
+  display: inline-flex;
+  gap: 0.25rem;
+}
+.appSidebar #code {
   border: none;
   border-top: 2px solid hsl(60, 0%, 90%);
   background: hsl(0, 0%, 95%);
+}
+.isSelected {
+  outline: 1px dashed hsl(0, 60%, 85%);
+  outline-offset: -1px;
+}
+.layout .componentRoot {
+  cursor: default;
+}
+.layout .componentRoot:hover {
+  outline: 1px dashed hsl(0, 60%, 65%);
+  outline-offset: -1px;
 }
