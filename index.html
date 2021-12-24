@@ -323,6 +323,9 @@
       .pad-r-md {
         padding-right: 16px;
       }
+      .pad-0 {
+        padding: 0;
+      }
 
       /* Components */
       .OrderDetails {
@@ -364,7 +367,7 @@
         font-weight: bold;
       }
       .ProductTable td {
-        padding: 16px 0;
+        padding: 8px 0;
       }
       .ProductTable table tfoot td {
         border-top: 1px solid #c5c9c7;
@@ -631,12 +634,12 @@
         <table
           width="628"
           border="0"
-          class="font-sm"
+          class="font-md"
           cellpadding="0"
           cellspacing="0"
         >
           <thead>
-            <tr>
+            <tr class="ProductTableHeader">
               <th class="align-left">Art.Nr.</th>
               <th class="align-left">OTN</th>
               <th class="align-center">Pos.</th>
@@ -647,7 +650,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr class="ProductTableItem">
               <td class="align-left">6253823</td>
               <td class="align-left">23662</td>
               <td class="align-center">2</td>
@@ -656,11 +659,25 @@
               <td class="align-right">1</td>
               <td class="align-right">10,99 &euro;</td>
             </tr>
+            <tr class="ProductTableAdditionalText">
+              <td class="align-left font-sm grey-400 pad-0" colspan="7">
+                Eine Bemerkung zum Produkt
+              </td>
+            </tr>
+            <tr class="ProductTableItem">
+              <td class="align-left">672348</td>
+              <td class="align-left">2222912</td>
+              <td class="align-center">4</td>
+              <td class="align-center">L</td>
+              <td class="align-left">Sachinger Schraubmelkstuhl</td>
+              <td class="align-right">2</td>
+              <td class="align-right">52,99 &euro;</td>
+            </tr>
           </tbody>
           <tfoot>
             <tr>
               <td class="align-right" colspan="7">
-                Gesamtpreis: <strong>10,99 &euro;</strong>
+                Gesamtpreis: <strong>116,97 &euro;</strong>
               </td>
             </tr>
           </tfoot>
