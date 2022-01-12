@@ -66,8 +66,7 @@ const selectLayout = () => {
   codeElement.innerHTML = templateHTML;
 };
 
-const selectHead = () => {
-  let templateHTML = document.innerHTML;
+const selectDocument = () => {
   const clone = document.firstElementChild.cloneNode(true);
   // Remove the other font style sheet
   clone
@@ -80,22 +79,17 @@ const selectHead = () => {
     )
     .remove();
   // Remove app styles
-  clone
-    .querySelector(
-      `[data-styles-partial*=app]`
-    )
-    .remove();
+  clone.querySelector(`[data-styles-partial*=app]`).remove();
   let layoutWrapper = document.querySelector(".layoutWrapper");
   // Clear body
   clone.querySelector("body").innerHTML = "";
   // Re-attach layout wrapper
   clone.querySelector("body").appendChild(layoutWrapper);
   // Replace layout with placeholder comment
-  clone.querySelector("#layout").innerHTML = "<!-- Add your components here -->";
+  clone.querySelector("#layout").innerHTML =
+    "<!-- Add your components here -->";
   codeElement.innerHTML = clone.innerHTML;
 };
-
-const selectFoot = () => {};
 
 /**
  * Add template to layout
