@@ -62,7 +62,7 @@ const copy = () => {
  * Select Layout source code
  **/
 const selectLayout = () => {
-  let templateHTML = document.querySelector(".layoutWrapper").innerHTML;
+  let templateHTML = document.querySelector("#layout").innerHTML;
   codeElement.innerHTML = templateHTML;
 };
 
@@ -80,7 +80,7 @@ const selectDocument = () => {
     .remove();
   // Remove app styles
   clone.querySelector(`[data-styles-partial*=app]`).remove();
-  let layoutWrapper = document.querySelector(".layoutWrapper");
+  let layoutWrapper = document.querySelector(".layoutWrapper").cloneNode(true);
   // Clear body
   clone.querySelector("body").innerHTML = "";
   // Re-attach layout wrapper
