@@ -66,6 +66,37 @@ const selectLayout = () => {
   codeElement.innerHTML = templateHTML;
 };
 
+const selectHead = () => {
+  let templateHTML = document.innerHTML;
+  const clone = document.firstElementChild.cloneNode(true);
+  // Remove the other font style sheet
+  clone
+    .querySelector(
+      `[data-brand-specific-for*=${
+        document.body.dataset.theme === Theme.Lagerhaus
+          ? Theme.RWA
+          : Theme.Lagerhaus
+      }]`
+    )
+    .remove();
+  // Remove app styles
+  clone
+    .querySelector(
+      `[data-styles-partial*=app]`
+    )
+    .remove();
+  let layoutWrapper = document.querySelector(".layoutWrapper");
+  // Clear body
+  clone.querySelector("body").innerHTML = "";
+  // Re-attach layout wrapper
+  clone.querySelector("body").appendChild(layoutWrapper);
+  // Replace layout with placeholder comment
+  clone.querySelector("#layout").innerHTML = "<!-- Add your components here -->";
+  codeElement.innerHTML = clone.innerHTML;
+};
+
+const selectFoot = () => {};
+
 /**
  * Add template to layout
  **/
@@ -210,7 +241,8 @@ const themeSwitcher = document.querySelector("#theme");
 const setTheme = () => {
   const currentTheme = localStorage.getItem("theme") || Theme.Lagerhaus;
   document.body.dataset.theme = currentTheme;
-  const innerText = currentTheme === Theme.Lagerhaus ? Theme.RWA : Theme.Lagerhaus;
+  const innerText =
+    currentTheme === Theme.Lagerhaus ? Theme.RWA : Theme.Lagerhaus;
   themeSwitcher.innerText = "Switch to " + innerText;
 };
 
@@ -289,6 +321,9 @@ const attachlayoutDropZone = () => {
   }
 };
 
+/**
+ * Run the app
+ */
 const run = () => {
   // Populate options
   attachlayoutDropZone();

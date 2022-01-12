@@ -1,0 +1,13 @@
+[
+  { "uuid": "b428b72a-64cf", "templateId": "DescriptionShortText" },
+  { "uuid": "9b7ba300-8490", "templateId": "LogoGreeting" },
+  { "uuid": "52810289-4261", "templateId": "CenteredParagraph" },
+  { "uuid": "7333f3aa-ce12", "templateId": "OrderDetails" },
+  { "uuid": "0b031775-29ff", "templateId": "ReservationContactDetails" },
+  { "uuid": "c508d979-e087", "templateId": "PrimaryMessage" },
+  { "uuid": "d0f42bdf-8b7e", "templateId": "ProductItem" },
+  { "uuid": "4fc47ccb-e325", "templateId": "OpeningHoursAndContact" },
+  { "uuid": "f6fd2208-3815", "templateId": "CallToAction" },
+  { "uuid": "253ecc23-9d40", "templateId": "PrimaryButton" },
+  { "uuid": "ff67fc5a-3338", "templateId": "Footer" }
+]

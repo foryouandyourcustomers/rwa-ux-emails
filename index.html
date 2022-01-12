@@ -17,13 +17,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RWA/Lagerhaus Emails ${ctx.messages.subject}</title>
+    <title>${ctx.messages.subject}</title>
 
     <style data-styles-partial="app">
       @import "app.css";
     </style>
 
-    <style data-styles-partial="fonts" data-brand-specific-for="rwa">
+    <style data-styles-partial="fonts" data-brand-specific-for="RWA">
       @import url("https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap");
 
       [data-theme="RWA"] p,
@@ -43,7 +43,7 @@
       }
     </style>
 
-    <style data-styles-partial="fonts" data-brand-specific-for="lagerhaus">
+    <style data-styles-partial="fonts" data-brand-specific-for="Lagerhaus">
       @font-face {
         font-family: "CalibreLH";
         src: url("https://s3.eu-central-1.amazonaws.com/rwa-images/fonts/CalibreLH-Middle.woff")
@@ -331,6 +331,9 @@
       .OrderDetails {
         text-align: left;
       }
+      .ReservationContactDetails {
+        text-align: left;
+      }
       .ProductItem-image {
         width: 64px;
         height: 64px;
@@ -398,7 +401,7 @@
       }
     </style>
   </head>
-  <body data-theme="lagerhaus">
+  <body data-theme="Lagerhaus">
     <template id="None">
       <div class="blank">Select template to preview here.</div>
     </template>
@@ -434,7 +437,7 @@
         <img
           width="142"
           alt="RWA.at"
-          src="images/rwa_logo2x.png"
+          src="https://rwa-images.s3.eu-central-1.amazonaws.com/email/lagerhaus_logo2x.png"
           style="width: 142px; height: auto; max-width: 100%"
         />
         <p><br /></p>
@@ -524,8 +527,8 @@
       </div>
     </template>
 
-    <template data-template-id="ContactDetails" class="component">
-      <div class="ContactDetails componentRoot">
+    <template data-template-id="ReservationContactDetails" class="component">
+      <div class="ReservationContactDetails componentRoot">
         <h5>Kontaktdetails</h5>
         <address>
           Andreas Bacca <br />
@@ -1053,7 +1056,10 @@
             <button class="appButton" onclick="add()">Add</button>
             <button class="appButton" onclick="copy()">Copy</button>
             <button class="appButton" onclick="selectLayout()">
-              Select Layout
+              Layout
+            </button>
+            <button class="appButton" onclick="selectHead()">
+              Head
             </button>
             <button class="appButton" onclick="clearLayout()">Clear</button>
           </div>
