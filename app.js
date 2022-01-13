@@ -247,7 +247,7 @@ const populateSelectedTemplateOptions = () => {
   templateElements.forEach((template) => {
     var opt = document.createElement("option");
     opt.value = template.dataset.templateId;
-    opt.innerHTML = template.dataset.templateId;
+    opt.innerHTML = `${template.dataset.templateId} (${template.dataset.templateVersion})`;
     selectTemplateElement.appendChild(opt);
   });
 };

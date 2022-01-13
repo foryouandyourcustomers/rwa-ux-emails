@@ -381,6 +381,10 @@
         padding-bottom: 24px;
         background: #f0f5f2;
       }
+      .Footer a {
+        text-decoration: none;
+        color: #434544;
+      }
 
       @media only screen and (max-width: 640px) {
         body {
@@ -409,8 +413,8 @@
 
     <!-- Templates -->
 
-    <template data-template-id="DescriptionParagraph" class="component">
-      <div class="DescriptionParagraph componentRoot" data-version="1.0.0">
+    <template data-template-id="DescriptionParagraph" data-template-version="1.0.0" class="component">
+      <div class="DescriptionParagraph componentRoot">
         <p class="font-sm grey-400 center">
           <br />
           Hiermit erhalten Sie eine Übersicht über ihre bei uns eingegangene
@@ -420,8 +424,8 @@
       </div>
     </template>
 
-    <template data-template-id="LogoGreeting" class="component">
-      <div class="LogoGreeting componentRoot" data-version="1.0.1">
+    <template data-template-id="LogoGreeting"  data-template-version="1.0.1" class="component">
+      <div class="LogoGreeting componentRoot">
         <img
           width="77"
           alt="Lagerhaus.at"
@@ -433,8 +437,8 @@
       </div>
     </template>
 
-    <template data-template-id="LogoGreetingRWA" class="component">
-      <div class="LogoGreetingRWA componentRoot" data-version="1.0.0">
+    <template data-template-id="LogoGreetingRWA" data-template-version="1.0.0" class="component">
+      <div class="LogoGreetingRWA componentRoot">
         <img
           width="142"
           alt="RWA.at"
@@ -446,14 +450,14 @@
       </div>
     </template>
 
-    <template data-template-id="CenteredParagraph" class="component">
-      <div class="CenteredParagraph componentRoot" data-version="1.0.0">
+    <template data-template-id="CenteredParagraph" data-template-version="1.0.0" class="component">
+      <div class="CenteredParagraph componentRoot">
         <p class="font-md">vielen Dank für die Bestellung bei lagerhaus.at.</p>
       </div>
     </template>
 
-    <template data-template-id="OrderDetails" class="component">
-      <div class="OrderDetails componentRoot" data-version="1.0.0">
+    <template data-template-id="OrderDetails" data-template-version="1.0.0" class="component">
+      <div class="OrderDetails componentRoot">
         <h5>Bestelldetails</h5>
         <span class="grey-400"> Ihre Bestellnummer lautet: </span>
         10300288<br />
@@ -465,8 +469,8 @@
       </div>
     </template>
 
-    <template data-template-id="BillingShippingAddress" class="component">
-      <div class="BillingShippingAddress componentRoot" data-version="1.0.1">
+    <template data-template-id="BillingShippingAddress" data-template-version="1.0.1" class="component">
+      <div class="BillingShippingAddress componentRoot">
         <table border="0" cellpadding="0" cellspacing="0" width="660">
           <tr>
             <td width="50%" valign="top">
@@ -528,8 +532,8 @@
       </div>
     </template>
 
-    <template data-template-id="ReservationContactDetails" class="component">
-      <div class="ReservationContactDetails componentRoot" data-version="1.0.0">
+    <template data-template-id="ReservationContactDetails" data-template-version="1.0.1" class="component">
+      <div class="ReservationContactDetails componentRoot">
         <h5>Kontaktdetails</h5>
         <address>
           Andreas Bacca <br />
@@ -541,7 +545,7 @@
       </div>
     </template>
 
-    <template data-template-id="OrderSplittingHeadline" class="component">
+    <template data-template-id="OrderSplittingHeadline"  data-template-version="1.0.0" class="component">
       <div class="OrderSplittingHeadline componentRoot center">
         <hr class="divider" />
         <p>
@@ -552,8 +556,8 @@
       </div>
     </template>
 
-    <template data-template-id="ProductItem" class="component">
-      <div class="ProductItem componentRoot" data-version="1.0.1">
+    <template data-template-id="ProductItem"  data-template-version="1.0.1" class="component">
+      <div class="ProductItem componentRoot">
         <table border="0" cellpadding="0" cellspacing="0" width="628">
           <tbody>
             <tr>
@@ -593,8 +597,8 @@
       </div>
     </template>
 
-    <template data-template-id="PaymentSummary" class="component">
-      <div class="PaymentSummary componentRoot" data-version="1.0.1">
+    <template data-template-id="PaymentSummary"  data-template-version="1.0.1" class="component">
+      <div class="PaymentSummary componentRoot">
         <table
           border="0"
           class="force-row"
@@ -644,10 +648,11 @@
 
     <template
       data-template-id="ProductTable"
-      class="component"
       data-brand-specific-for="RWA"
+      data-template-version="1.0.0"
+      class="component"
     >
-      <div class="ProductTable componentRoot" data-version="1.0.0">
+      <div class="ProductTable componentRoot">
         <table
           width="628"
           border="0"
@@ -702,8 +707,8 @@
       </div>
     </template>
 
-    <template data-template-id="PrimaryMessage" class="component">
-      <div class="PrimaryMessage componentRoot" data-version="1.0.0">
+    <template data-template-id="PrimaryMessage" data-template-version="1.0.0" class="component">
+      <div class="PrimaryMessage componentRoot">
         <p class="font-lg grey-700 center">
           <strong>
             Ihre Reservierung wird am Standort Gösling/Ybbs vorbereitet </strong
@@ -716,7 +721,7 @@
       </div>
     </template>
 
-    <template data-template-id="ShippingStatus" class="component">
+    <template data-template-id="ShippingStatus" class="component" data-template-version="1.0.0">
       <div class="ShippingStatus componentRoot center">
         <h5>Lieferstatus</h5>
         <br />
@@ -730,8 +735,8 @@
       </div>
     </template>
 
-    <template data-template-id="CallToAction" class="component">
-      <div class="CallToAction componentRoot" data-version="1.0.0">
+    <template data-template-id="CallToAction" data-template-version="1.0.0" class="component">
+      <div class="CallToAction componentRoot">
         <p>
           Weitere Details zu Ihrer Bestellung finden Sie auch in Ihrem
           Kundenkonto!
@@ -771,8 +776,8 @@
       </div>
     </template>
 
-    <template data-template-id="PrimaryButton" class="component">
-      <div class="PrimaryButton componentRoot" data-version="1.0.0">
+    <template data-template-id="PrimaryButton"  data-template-version="1.0.0" class="component">
+      <div class="PrimaryButton componentRoot">
         <!-- Bulletproof Button -->
         <table class="button" border="0" cellspacing="0" cellpadding="0">
           <tbody>
@@ -807,8 +812,8 @@
       </div>
     </template>
 
-    <template data-template-id="OpeningHoursAndContact" class="component">
-      <div class="OpeningHoursAndContact componentRoot" data-version="1.0.1">
+    <template data-template-id="OpeningHoursAndContact" data-template-version="1.0.1" class="component">
+      <div class="OpeningHoursAndContact componentRoot">
         <table border="0" cellpadding="0" cellspacing="0" width="628">
           <tr>
             <td width="33.333%" valign="top">
@@ -885,8 +890,8 @@
       </div>
     </template>
 
-    <template data-template-id="Disclaimer" class="component">
-      <div class="Disclaimer componentRoot" data-version="1.0.0">
+    <template data-template-id="Disclaimer" data-template-version="1.0.0" class="component">
+      <div class="Disclaimer componentRoot">
         <div class="boxed">
           <p class="font-sm-narrow">
             Zahlungs-, Liefer- und Leistungsbedingungen<br />
@@ -931,8 +936,8 @@
       </div>
     </template>
 
-    <template data-template-id="Footer" class="component">
-      <div class="Footer center componentRoot" data-version="1.0.0">
+    <template data-template-id="Footer"  data-template-version="1.0.0" class="component">
+      <div class="Footer center componentRoot">
         <h5 class="font-sm">Kontakt</h5>
         <p class="font-sm">
           Bei Fragen helfen wir Ihnen gern weiter! <br />Tel.: +431 600 70 70
