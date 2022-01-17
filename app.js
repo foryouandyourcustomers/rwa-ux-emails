@@ -12,7 +12,6 @@ class LayoutItem {
   static uuid;
   static templateId;
   constructor(templateId) {
-    // this.uuid = uuidv4();
     this.uuid = uuid();
     this.templateId = templateId;
   }
@@ -133,19 +132,6 @@ const attach = (item) => {
 };
 
 /**
- * Get a UUID v4
- * @returns {string} RFC4122-complaint UUID
- */
-const uuidv4 = () => {
-  return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
-    (
-      c ^
-      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
-    ).toString(16)
-  );
-};
-
-/**
  * Get a UUID
  * @returns {string} Simple uuid
  */
@@ -237,7 +223,7 @@ const setTheme = () => {
   document.body.dataset.theme = currentTheme;
   const innerText =
     currentTheme === Theme.Lagerhaus ? Theme.RWA : Theme.Lagerhaus;
-  themeSwitcher.innerText = "Switch to " + innerText;
+  themeSwitcher.innerText = innerText;
 };
 
 // set theme on inital load
@@ -315,6 +301,24 @@ const attachlayoutDropZone = () => {
   }
 };
 
+attachKeyEvents = () => {
+  const checkKey = (e) => {
+    e = e || window.event;
+    console.log(e);
+
+    if (e.key == "ArrowUp") {
+      moveUp();
+    } else if (e.key == "ArrowDown") {
+      moveDown();
+    } else if (e.key == "ArrowLeft") {
+      add();
+    } else if (e.key == "Delete" || e.key == "Backspace") {
+      remove();
+    }
+  };
+  document.onkeydown = checkKey;
+};
+
 /**
  * Run the app
  */
@@ -323,6 +327,7 @@ const run = () => {
   attachlayoutDropZone();
   populateSelectedTemplateOptions();
   clearLayout();
+  attachKeyEvents();
   // loadLayout();
 };
 run();
