@@ -331,9 +331,6 @@
       .OrderDetails {
         text-align: left;
       }
-      .ReservationContactDetails {
-        text-align: left;
-      }
       .ProductItem-image {
         width: 64px;
         height: 64px;
@@ -413,7 +410,11 @@
 
     <!-- Templates -->
 
-    <template data-template-id="DescriptionParagraph" data-template-version="1.0.0" class="component">
+    <template
+      data-template-id="DescriptionParagraph"
+      data-template-version="1.0.0"
+      class="component"
+    >
       <div class="DescriptionParagraph componentRoot">
         <p class="font-sm grey-400 center">
           <br />
@@ -424,7 +425,11 @@
       </div>
     </template>
 
-    <template data-template-id="LogoGreeting"  data-template-version="1.0.1" class="component">
+    <template
+      data-template-id="LogoGreeting"
+      data-template-version="1.0.1"
+      class="component"
+    >
       <div class="LogoGreeting componentRoot">
         <img
           width="77"
@@ -437,7 +442,11 @@
       </div>
     </template>
 
-    <template data-template-id="LogoGreetingRWA" data-template-version="1.0.0" class="component">
+    <template
+      data-template-id="LogoGreetingRWA"
+      data-template-version="1.0.0"
+      class="component"
+    >
       <div class="LogoGreetingRWA componentRoot">
         <img
           width="142"
@@ -450,13 +459,21 @@
       </div>
     </template>
 
-    <template data-template-id="CenteredParagraph" data-template-version="1.0.0" class="component">
+    <template
+      data-template-id="CenteredParagraph"
+      data-template-version="1.0.0"
+      class="component"
+    >
       <div class="CenteredParagraph componentRoot">
         <p class="font-md">vielen Dank für die Bestellung bei lagerhaus.at.</p>
       </div>
     </template>
 
-    <template data-template-id="OrderDetails" data-template-version="1.0.0" class="component">
+    <template
+      data-template-id="OrderDetails"
+      data-template-version="1.0.0"
+      class="component"
+    >
       <div class="OrderDetails componentRoot">
         <h5>Bestelldetails</h5>
         <span class="grey-400"> Ihre Bestellnummer lautet: </span>
@@ -469,7 +486,11 @@
       </div>
     </template>
 
-    <template data-template-id="BillingShippingAddress" data-template-version="1.0.1" class="component">
+    <template
+      data-template-id="BillingShippingAddress"
+      data-template-version="1.0.1"
+      class="component"
+    >
       <div class="BillingShippingAddress componentRoot">
         <table border="0" cellpadding="0" cellspacing="0" width="660">
           <tr>
@@ -532,20 +553,11 @@
       </div>
     </template>
 
-    <template data-template-id="ReservationContactDetails" data-template-version="1.0.1" class="component">
-      <div class="ReservationContactDetails componentRoot">
-        <h5>Kontaktdetails</h5>
-        <address>
-          Andreas Bacca <br />
-          <span class="grey-400">Telefon:</span>
-          004367682638631<br />
-          <span class="grey-400">Email:</span>
-          andreas.bacca@capgemini.com
-        </address>
-      </div>
-    </template>
-
-    <template data-template-id="OrderSplittingHeadline"  data-template-version="1.0.0" class="component">
+    <template
+      data-template-id="OrderSplittingHeadline"
+      data-template-version="1.0.0"
+      class="component"
+    >
       <div class="OrderSplittingHeadline componentRoot center">
         <hr class="divider" />
         <p>
@@ -556,7 +568,11 @@
       </div>
     </template>
 
-    <template data-template-id="ProductItem"  data-template-version="1.0.1" class="component">
+    <template
+      data-template-id="ProductItem"
+      data-template-version="1.0.1"
+      class="component"
+    >
       <div class="ProductItem componentRoot">
         <table border="0" cellpadding="0" cellspacing="0" width="628">
           <tbody>
@@ -597,7 +613,11 @@
       </div>
     </template>
 
-    <template data-template-id="PaymentSummary"  data-template-version="1.0.1" class="component">
+    <template
+      data-template-id="PaymentSummary"
+      data-template-version="1.0.1"
+      class="component"
+    >
       <div class="PaymentSummary componentRoot">
         <table
           border="0"
@@ -643,6 +663,23 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </template>
+    ]
+    <template
+      data-template-id="PaymentMethod"
+      data-template-version="1.0.0"
+      class="component"
+    >
+      <div class="PaymentMethod componentRoot">
+        <h5>Zahlungsart</h5>
+        <p class="font-md">Zahlung in Raten</p>
+        <p class="font-sm">
+          Zur Zahlung Ihrer Rechnung erhalten Sie von Klarna eine
+          Zahlungsaufforderung per E-Mail. Bitte begleichen Sie den offenen
+          Betrag bei Klarna. Nähere Informationen zu Ihrer Zahlung finden Sie
+          auf www.klarna.com. Im Anhang finden Sie den Beleg.
+        </p>
       </div>
     </template>
 
@@ -707,7 +744,11 @@
       </div>
     </template>
 
-    <template data-template-id="PrimaryMessage" data-template-version="1.0.0" class="component">
+    <template
+      data-template-id="PrimaryMessage"
+      data-template-version="1.0.0"
+      class="component"
+    >
       <div class="PrimaryMessage componentRoot">
         <p class="font-lg grey-700 center">
           <strong>
@@ -721,7 +762,11 @@
       </div>
     </template>
 
-    <template data-template-id="ShippingStatus" class="component" data-template-version="1.0.0">
+    <template
+      data-template-id="ShippingStatus"
+      class="component"
+      data-template-version="1.0.0"
+    >
       <div class="ShippingStatus componentRoot center">
         <h5>Lieferstatus</h5>
         <br />
@@ -735,7 +780,11 @@
       </div>
     </template>
 
-    <template data-template-id="CallToAction" data-template-version="1.0.0" class="component">
+    <template
+      data-template-id="CallToAction"
+      data-template-version="1.0.0"
+      class="component"
+    >
       <div class="CallToAction componentRoot">
         <p>
           Weitere Details zu Ihrer Bestellung finden Sie auch in Ihrem
@@ -776,7 +825,11 @@
       </div>
     </template>
 
-    <template data-template-id="PrimaryButton"  data-template-version="1.0.0" class="component">
+    <template
+      data-template-id="PrimaryButton"
+      data-template-version="1.0.0"
+      class="component"
+    >
       <div class="PrimaryButton componentRoot">
         <!-- Bulletproof Button -->
         <table class="button" border="0" cellspacing="0" cellpadding="0">
@@ -812,7 +865,11 @@
       </div>
     </template>
 
-    <template data-template-id="OpeningHoursAndContact" data-template-version="1.0.1" class="component">
+    <template
+      data-template-id="OpeningHoursAndContact"
+      data-template-version="1.0.1"
+      class="component"
+    >
       <div class="OpeningHoursAndContact componentRoot">
         <table border="0" cellpadding="0" cellspacing="0" width="628">
           <tr>
@@ -890,7 +947,11 @@
       </div>
     </template>
 
-    <template data-template-id="Disclaimer" data-template-version="1.0.0" class="component">
+    <template
+      data-template-id="Disclaimer"
+      data-template-version="1.0.0"
+      class="component"
+    >
       <div class="Disclaimer componentRoot">
         <div class="boxed">
           <p class="font-sm-narrow">
@@ -936,7 +997,11 @@
       </div>
     </template>
 
-    <template data-template-id="Footer"  data-template-version="1.0.0" class="component">
+    <template
+      data-template-id="Footer"
+      data-template-version="1.0.0"
+      class="component"
+    >
       <div class="Footer center componentRoot">
         <h5 class="font-sm">Kontakt</h5>
         <p class="font-sm">
@@ -971,31 +1036,31 @@
       <div class="appContent">
         <div class="appContentActions">
           <div>
-            <img height="32"
-            alt="Lagerhaus.at"
-            src="images/rwa_logo2x.png"
-            style="width: auto; height: 32px; max-width: 100%"
-          /> 
-          &nbsp;
-            <img height="32"
-            alt="Lagerhaus.at"
-            src="images/lagerhaus_logo2x.png"
-            style="width: auto; height: 32px; max-width: 100%"
-          /> 
-          <div>
-            <button
-              class="appButton appButtonPrimary"
-              id="theme"
-              onclick="switchTheme()"
-            >
-              RWA
-            </button>
-          </div>
-          </div>
-          <div>
-            <div class="appFontMd appPrimary">
-              Layout-Preview
+            <img
+              height="32"
+              alt="Lagerhaus.at"
+              src="images/rwa_logo2x.png"
+              style="width: auto; height: 32px; max-width: 100%"
+            />
+            &nbsp;
+            <img
+              height="32"
+              alt="Lagerhaus.at"
+              src="images/lagerhaus_logo2x.png"
+              style="width: auto; height: 32px; max-width: 100%"
+            />
+            <div>
+              <button
+                class="appButton appButtonPrimary"
+                id="theme"
+                onclick="switchTheme()"
+              >
+                RWA
+              </button>
             </div>
+          </div>
+          <div>
+            <div class="appFontMd appPrimary">Layout-Preview</div>
             <button class="appButton grey-700" onclick="saveLayout()">
               Save
             </button>
@@ -1075,9 +1140,7 @@
           <div>
             <button class="appButton" onclick="copy()">Copy</button>
             <button class="appButton" onclick="selectLayout()">Layout</button>
-            <button class="appButton" onclick="selectDocument()">
-              HTML
-            </button>
+            <button class="appButton" onclick="selectDocument()">HTML</button>
             <button class="appButton" onclick="clearLayout()">
               <svg
                 width="26"
