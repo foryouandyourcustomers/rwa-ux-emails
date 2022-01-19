@@ -60,9 +60,13 @@ Componenten können auf zwei Arten ausgewählt werden.
 
 Ein ausgewählte Componente kann mit dem `<`-Button oder der `←` Pfeiltaste zum bestehenden Layout hinzugefügt werden. Danach erscheint diese im **Layout-Preview**.
 
-### Componenten Löschen/Reihenfolge ändern
+### Componenten Löschen
 
 Mit den `🗑️` Button oder der `Delete` oder `Backspace`-Taste können Componenten aus dem Layout entfernt werden.
+
+### Reihenfolge ändern
+
+Die ausgewählte Componente kann mit den Pfeiltasten bzw. mit den Buttons in der **Layout-Preview** Ansicht oben bzw. unten verschieben verschoben werden.  
 
 ------------------------------------------------------------------
 
@@ -70,12 +74,53 @@ Mit den `🗑️` Button oder der `Delete` oder `Backspace`-Taste können Compon
 
 ### Componenten
 
+Alle Componenten befinden sich in `index.html` jeweils in einem `HTMLTemplateElement`-Tag. Dieser hat die zwingenden Attribute  `data-template-id`, `data-template-version` und der CSS Klasse `component`. 
+
+* `data-template-id` ist der Name der Componente ("ProductItem") der von allen am Design und Dev Prozess beteiligten Personen abgestimmt wurde. 
+* `data-template-version` wird von der Frontent-Entwickler:in nach dem SEM Versioning 2.0 gepflegt.
+* `class="component"` dient nur der Funktionalität des Editors und kann ignoriert werden, ist aber bindend. 
+
+Innerhalb des Template-Tag beginnt die Componente Root. Die ist bereits eine notwendige Klasse des Design Systems. Dadurch werden die Componenten von einander mit Abstand getrennt, bsplw. Der primäre Klassenname entspricht dem `ComponentName`. Die definitionen werden im Datei Kopf innerhalb von `<style data-styles-partial="design-system"></style>` definiert.
+
 #### Neue Componente anlegen
+
+Das grobe Gerüst in den Body kopieren.
+
+```
+<template
+    data-template-id="ComponentName"
+    data-template-version="1.0.0"
+    class="component">
+    <div class="ComponentName componentRoot">
+        <!-- My Markdown -->
+    </div>
+</template>
+```
+
+Danach die primäre CSS Klasse im `data-styles-partial="design-system"` Style-Tag anlegen wenn benötigt. 
+
+Es gibt eine Reihe von Utility Klassen aus dem Design System bereits wie beispielsweise: `grey-500`,`font-sm`,`font-md`,`font-md-narrow`, `signal-500`, etc.
+
+```
+.ComponentName { }
+```
+
+Componente testen via [Litmus](https://www.litmus.com) und/oder [Postdrop](https://app.postdrop.io/) auf mindesten 1000 Email Clients. 
 
 #### Componente updaten
 
+Nach dem SEM Versioning bitte die Version updaten und dann Dev und Design Team informieren.
+
 #### Componente entfernen
+
+Dabei gilt es zu beachten, DOM und CSS zu entfernen. 
+
+
+------------------------------------------------------------------
 
 ## Als App Entwickler:in
 
 ### Componenten
+
+Hast du bereits eine Layout Datein `layout.json`fuer das benötigte Email, so kannst du dies mit Drag und Drop laden. Derzeit sind Layouts nicht versioniert. Es gilt als Source of Reference der Priority Guide in Figma.
+Durch Auswahl einer Componente im Layout 
