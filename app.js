@@ -221,9 +221,8 @@ const themeSwitcher = document.querySelector("#theme");
 const setTheme = () => {
   const currentTheme = localStorage.getItem("theme") || Theme.Lagerhaus;
   document.body.dataset.theme = currentTheme;
-  const innerText =
-    currentTheme === Theme.Lagerhaus ? Theme.RWA : Theme.Lagerhaus;
-  themeSwitcher.innerText = innerText;
+
+  alert(`Theme for ${currentTheme} is activated!`);
 };
 
 // set theme on inital load
