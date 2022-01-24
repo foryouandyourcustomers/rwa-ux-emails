@@ -70,7 +70,7 @@ Die ausgewählte Componente kann mit den Pfeiltasten bzw. mit den Buttons in der
 
 ------------------------------------------------------------------
 
-## Als UI/UX Entwickler:in
+## Zu beachten als UI/UX Entwickler:in
 
 ### Componenten
 
@@ -118,9 +118,11 @@ Dabei gilt es zu beachten, DOM und CSS zu entfernen.
 
 ------------------------------------------------------------------
 
-## Als App Entwickler:in
+## Zu beachten als App Entwickler:in
 
 ### Componenten
 
 Hast du bereits eine Layout Datein `layout.json`fuer das benötigte Email, so kannst du dies mit Drag und Drop laden. Derzeit sind Layouts nicht versioniert. Es gilt als Source of Reference der Priority Guide in Figma.
-Durch Auswahl einer Componente im Layout 
+Durch Auswahl einer Componente im Layout oder im Drop&Down wird das HTML der Komponente angezeigt unten rechts im Screen. 
+
+Mit `Copy`wird der Quelltext in die Zwischenablage kopiert.
