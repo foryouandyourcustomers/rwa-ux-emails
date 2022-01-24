@@ -209,6 +209,7 @@ const switchTheme = () => {
     localStorage.getItem("theme") === Theme.Lagerhaus
       ? Theme.RWA
       : Theme.Lagerhaus;
+      console.log(toggleValue)
   localStorage.setItem("theme", toggleValue);
   setTheme();
 };
