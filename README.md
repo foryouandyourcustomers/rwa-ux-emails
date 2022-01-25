@@ -126,3 +126,7 @@ Hast du bereits eine Layout Datein `layout.json`fuer das benötigte Email, so ka
 Durch Auswahl einer Componente im Layout oder im Drop&Down wird das HTML der Komponente angezeigt unten rechts im Screen. 
 
 Mit `Copy`wird der Quelltext in die Zwischenablage kopiert.
+
+# Deployment
+
+Die app kann einfach auf jede Art von static Webserver deployt werden. Die aktuelle Version befindet sich auf www.netlify.com.
