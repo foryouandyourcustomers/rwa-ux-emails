@@ -1,4 +1,4 @@
-# Componenten Library
+# Componenten Library [![Netlify Status](https://api.netlify.com/api/v1/badges/0616ce8b-9234-4828-a53d-f72aaaa6e271/deploy-status)](https://app.netlify.com/sites/rwa-emails/deploys)
 
 Die Library dient als **Single Source of Thruth** zwischen UI/UX Entwicker:innen und App Entwickler:innen. Hier abgebildete Elemente sind mit den UX Designer:innen, Marketer:innen und Produktentwickler:innen abgestimmt.
 
