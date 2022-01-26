@@ -567,11 +567,11 @@
     </template>
 
     <template
-      data-template-id="DeliveryPrefences"
+      data-template-id="DeliveryPreferences"
       data-template-version="1.0.0"
       class="component"
     >
-      <div class="DeliveryPrefences componentRoot center">
+      <div class="DeliveryPreferences componentRoot center">
         <p>
           <strong>Hauszustellung</strong>
           <span class="primary-500"> An Ihre Lieferaddresse </span><br />
@@ -582,7 +582,7 @@
 
     <template
       data-template-id="ProductItem"
-      data-template-version="1.0.2"
+      data-template-version="1.0.3"
       class="component"
     >
       <div class="ProductItem componentRoot">
@@ -603,7 +603,8 @@
               >
                 <h5 class="grey-700">Produktname (237487234)</h5>
                 2x ANNORAK (343878434)<br />
-                1x HUT (23939283)
+                1x HUT (23939283)<br />
+                <span class="grey-400">Es gilt der Aktionspreis</span>
               </td>
               <td class="ProductItem-label grey-400" width="160">
                 Einzelpreis
@@ -617,7 +618,8 @@
             <tr>
               <td class="ProductItem-label grey-400">Preis inkl. MwSt.</td>
               <td class="ProductItem-price">
-                <strong> 25,00 € </strong>
+                <span class="ProductItem-discount-price signal-500">23,00 €</span><br />
+                statt <strong>25,00 €</strong>
               </td>
             </tr>
           </tbody>
