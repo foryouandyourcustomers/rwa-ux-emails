@@ -4,9 +4,15 @@ const selectTemplateElement = document.querySelector("#selectedTemplate");
 const previewElement = document.querySelector("#preview");
 const codeElement = document.querySelector("#code");
 const dropLayoutElement = document.querySelector(".appContent");
+const themeSwitcher = document.querySelector("#theme");
+
+let currentTheme = undefined;
 
 let selectedTemplateId = "None";
 let selectedItemId = undefined;
+
+let draggingItem = undefined;
+let draggedOverItem = undefined;
 
 class LayoutItem {
   static uuid;
@@ -18,15 +24,126 @@ class LayoutItem {
 }
 let layout = [];
 
+function isPositiveInteger(str) {
+  if (typeof str !== "string") {
+    return false;
+  }
+
+  const num = Number(str);
+
+  if (Number.isInteger(num) && num > 0) {
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * Convert color to hex for older email clients 😭
+ * @param {string} string
+ * @returns
+ */
+const rgb2hex = (string) => {
+  const match = string.match(
+    /(\s+)?^rgb?\((\d+),\s*(\d+),\s*(\d+)\)(\s+)?[\W]?$/
+  );
+  console.log(string, match);
+  if (match) {
+    const result = `#${match
+      .slice(2, 5)
+      .map((n, i) =>
+        (i === 3 ? Math.round(parseFloat(n) * 255) : parseFloat(n))
+          .toString(16)
+          .padStart(2, "0")
+          .replace("NaN", "")
+      )
+      .join("")}`;
+
+    console.log(result);
+    return string.replace(result);
+  } else string;
+};
+
+/**
+ * Add CSS rule as inline style
+ * @param {HTMLElement} element
+ * @param {CSSRule} style
+ * @returns {HTMLElement}
+ */
+const css = (element, cssRule) => {
+  for (const property in cssRule.style) {
+    if (
+      !isPositiveInteger(property) &&
+      property !== "0" &&
+      cssRule.style[property] !== "" &&
+      typeof cssRule.style[property] === "string" &&
+      property !== "cssText"
+    ) {
+      element.style[property] = cssRule.style[property];
+    }
+  }
+  return element;
+};
+
+/**
+ * Get CSS rules from a className
+ * @param {HTMLElement} el
+ * @param {string} className
+ * @returns
+ */
+function getCSSRules(el, className) {
+  var sheets = document.styleSheets,
+    ret = [];
+  el.matches =
+    el.matches ||
+    el.webkitMatchesSelector ||
+    el.mozMatchesSelector ||
+    el.msMatchesSelector ||
+    el.oMatchesSelector;
+  for (var i in sheets) {
+    var rules = sheets[i].cssRules;
+    for (const r in rules) {
+      if (rules[r].selectorText) {
+        if (rules[r].selectorText === "." + className) {
+          ret.push(rules[r]);
+        }
+      }
+      continue;
+    }
+  }
+  return ret;
+}
+
+/**
+ * TODO: Add accumulated styles (---> do it the tailwind way)
+ */
+
 /**
  * Update template preview
  */
 const updateTemplatePreview = () => {
   const selector = `[data-template-id="${selectedTemplateId}"]`;
-  const templateHTML = document.querySelector(selector).innerHTML;
-  previewElement.innerHTML = templateHTML;
-  if (selectedTemplateId !== "None") codeElement.innerHTML = templateHTML;
-  else codeElement.innerHTML = "";
+  const templateElement = document
+    .querySelector(selector)
+    .content.cloneNode(true);
+  var nodes = templateElement.querySelectorAll("*");
+
+  nodes.forEach((n) => {
+    n.classList.forEach((className) => {
+      const cssRules = getCSSRules(templateElement, className);
+      cssRules.forEach((style) => {
+        css(n, style);
+      });
+    });
+  });
+
+  const node = document.importNode(templateElement, true);
+
+  previewElement.innerHTML = "";
+  previewElement.appendChild(node);
+  if (selectedTemplateId !== "None") {
+    codeElement.innerHTML = previewElement.innerHTML;
+  } else codeElement.innerHTML = "";
 };
 
 /**
@@ -61,7 +178,7 @@ const copy = () => {
  * Select Layout source code
  **/
 const selectLayout = () => {
-  let templateHTML = document.querySelector("#layout").innerHTML;
+  let templateHTML = layoutElement.innerHTML;
   codeElement.innerHTML = templateHTML;
 };
 
@@ -95,7 +212,12 @@ const selectDocument = () => {
  **/
 const add = () => {
   if (selectedTemplateId !== "None") {
-    layout.push(new LayoutItem(selectedTemplateId, layout.length));
+    const index = layout.findIndex((item) => item.uuid === selectedItemId);
+    layout.splice(
+      index ? index + 1 : layout.length + 1,
+      0,
+      new LayoutItem(selectedTemplateId, layout.length)
+    );
   } else {
     alert("Select template first!");
   }
@@ -111,9 +233,41 @@ const render = () => {
     layout.forEach((item) => {
       attach(item);
     });
+    localStorage.setItem("presetLayout", JSON.stringify(layout));
   } else {
     clearLayout();
   }
+};
+
+/**
+ * Compare if dragged element is over another
+ * @param {Event} e
+ */
+const compare = (e) => {
+  var index1 = layout.findIndex((i) => i.uuid === draggingItem);
+  var index2 = layout.findIndex((i) => i.uuid === draggedOverItem);
+  var item = layout.find((i) => i.uuid === draggingItem);
+  layout.splice(index1, 1);
+  layout.splice(index2, 0, item);
+  render();
+};
+
+/**
+ * Set draggedOverItem to the uuid of the last hoverd item
+ * @param {Event} e
+ */
+const setDraggedOverItem = (e) => {
+  e.preventDefault();
+  const uuid = e.target.closest(".componentRoot").getAttribute("data-uuid");
+  if (uuid) draggedOverItem = uuid;
+};
+
+/**
+ * Set draggingItem to uuid
+ * @param {Event} e
+ */
+const setDraggingItem = (e) => {
+  draggingItem = e.target.getAttribute("data-uuid");
 };
 
 /**
@@ -127,6 +281,11 @@ const attach = (item) => {
   clone.addEventListener("click", () => {
     selectItem(item);
   });
+  clone.draggable = true;
+  clone.dataset.uuid = item.uuid;
+  clone.addEventListener("drag", setDraggingItem);
+  clone.addEventListener("dragover", setDraggedOverItem);
+  document.querySelector("#layout").addEventListener("drop", compare);
   if (item.uuid === selectedItemId) clone.classList.add("isSelected");
   layoutElement.appendChild(clone);
 };
@@ -205,38 +364,40 @@ class Theme {
  * Switch theme
  **/
 const switchTheme = () => {
-  const toggleValue =
-    localStorage.getItem("theme") === Theme.Lagerhaus
-      ? Theme.RWA
-      : Theme.Lagerhaus;
-      console.log(toggleValue)
+  const toggleValue = toggledTheme(localStorage.getItem("theme"));
   localStorage.setItem("theme", toggleValue);
+  populateSelectedTemplateOptions();
   setTheme();
 };
-
-const themeSwitcher = document.querySelector("#theme");
 
 /**
  * Set theme
  **/
 const setTheme = () => {
-  const currentTheme = localStorage.getItem("theme") || Theme.Lagerhaus;
+  currentTheme = localStorage.getItem("theme") || Theme.Lagerhaus;
   document.body.dataset.theme = currentTheme;
 
   alert(`Theme for ${currentTheme} is activated!`);
 };
 
-// set theme on inital load
-setTheme();
-
 const populateSelectedTemplateOptions = () => {
+  selectTemplateElement.innerHTML = "";
   templateElements.forEach((template) => {
-    var opt = document.createElement("option");
-    opt.value = template.dataset.templateId;
-    opt.innerHTML = `${template.dataset.templateId} (${template.dataset.templateVersion})`;
-    selectTemplateElement.appendChild(opt);
+    const isBrand = template.getAttribute("data-brand");
+    if (currentTheme !== isBrand) {
+      var opt = document.createElement("option");
+      opt.value = template.dataset.templateId;
+      opt.innerHTML = `${template.dataset.templateId} (${
+        template.dataset.templateVersion
+      }) ${currentTheme === isBrand ? "*" : ""}`;
+      selectTemplateElement.appendChild(opt);
+    }
   });
 };
+
+function toggledTheme(theme) {
+  return theme === Theme.Lagerhaus ? Theme.RWA : Theme.Lagerhaus;
+}
 
 /**
  * Prompt file for download
@@ -263,8 +424,12 @@ const saveLayout = () => {
 
 const loadLayout = (_layout) => {
   layout = _layout;
-  console.log(layout);
   render();
+};
+
+const getLayoutFromStorage = () => {
+  _layout = JSON.parse(localStorage.getItem("presetLayout"));
+  if (_layout) loadLayout(_layout);
 };
 
 function receivedText(e) {
@@ -284,16 +449,17 @@ const attachlayoutDropZone = () => {
     dropLayoutElement.addEventListener("drop", (event) => {
       event.stopPropagation();
       event.preventDefault();
-      const files = event.dataTransfer.files;
-      const file = files[0];
-      const fr = new FileReader();
-      fr.onload = receivedText;
-      fr.readAsText(file);
+      if (event.dataTransfer.files.length > 0) {
+        const files = event.dataTransfer.files;
+        const file = files[0];
+        const fr = new FileReader();
+        fr.onload = receivedText;
+        fr.readAsText(file);
+      }
     });
     dropLayoutElement.addEventListener(
       "receivedFile",
       (e) => {
-        console.log(e);
         loadLayout(e.detail);
       },
       false
@@ -304,8 +470,6 @@ const attachlayoutDropZone = () => {
 attachKeyEvents = () => {
   const checkKey = (e) => {
     e = e || window.event;
-    console.log(e);
-
     if (e.key == "ArrowUp") {
       moveUp();
     } else if (e.key == "ArrowDown") {
@@ -324,10 +488,11 @@ attachKeyEvents = () => {
  */
 const run = () => {
   // Populate options
+  setTheme();
   attachlayoutDropZone();
   populateSelectedTemplateOptions();
   clearLayout();
   attachKeyEvents();
-  // loadLayout();
+  getLayoutFromStorage();
 };
 run();
