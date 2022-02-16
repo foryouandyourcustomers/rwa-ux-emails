@@ -2,7 +2,7 @@
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:v="urn:schemas-microsoft-com:vml"
   xmlns:o="urn:schemas-microsoft-com:office:office"
-  style="background: #fff !important"
+  style="background: #fff"
 >
   <head>
     <!--[if gte mso 15]>
@@ -86,7 +86,7 @@
         * {
           font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
             "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue",
-            "Lucida Grande", sans-serif !important;
+            "Lucida Grande", sans-serif;
         }
       </style>
     <![endif]-->
@@ -132,24 +132,24 @@
         a,
         li,
         blockquote {
-          -webkit-text-size-adjust: none !important;
+          -webkit-text-size-adjust: none;
         } /* Prevent Webkit platforms from changing default text sizes */
       }
 
       /*////// CLIENT-SPECIFIC SELECTORS //////*/
       a[x-apple-data-detectors] {
-        color: inherit !important;
-        text-decoration: none !important;
-        font-size: inherit !important;
-        font-family: inherit !important;
-        font-weight: inherit !important;
-        line-height: inherit !important;
+        color: inherit;
+        text-decoration: none;
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
       } /* Force iOS devices to heed link styles set in CSS. */
       body {
-        margin: 0 auto !important;
-        padding: 0 !important;
-        height: 100% !important;
-        width: 100% !important;
+        margin: 0 auto;
+        padding: 0;
+        height: 100%;
+        width: 100%;
       }
       td,
       p,
@@ -182,89 +182,104 @@
     </style>
 
     <style data-styles-partial="design-system">
+      /* Annoying so I combined this style */
+      .button {
+        margin: 0 auto;
+      }
+      .button-link {
+        border: 1px solid #009e3c;
+        border-radius: 2px;
+        display: inline-block;
+        font-size: 16px;
+        line-height: 1;
+        font-weight: 700;
+        display: inline-block;
+        padding: 14px 48px;
+        text-align: center;
+        width: 256px;
+        text-decoration: none;
+      }
+
       /* Design System */
-      p,
-      th,
-      td,
-      html,
-      body,
-      div,
-      button,
-      .button,
-      th,
-      td,
-      address,
-      span {
+      .text-md {
         font-weight: 400;
         margin: 0;
         padding: 0;
         color: #434544;
         line-height: 1.5;
       } /* Remove margin and padding from paragraphs */
-      p {
-        font-size: 16px !important;
-        line-height: 1.5 !important;
+      .paragraph {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
         margin-bottom: 16px;
         color: #434544;
       }
-      p:last-of-type {
-        margin-bottom: 0;
+
+      .no-underline {
+        text-decoration: none;
       }
 
-      table.button {
-        margin: 0 auto;
+      .leading-1 {
+        line-height: 1;
       }
-      table.button > tbody > tr > td {
-        background-color: #009e3c;
-        border-radius: 2px;
+      .leading-1-1 {
+        line-height: 1.1;
       }
-
-      a {
-        color: #434544;
+      .leading-1-2 {
+        line-height: 1.2;
       }
-      a:visited {
-        color: #646665;
+      .leading-1-25 {
+        line-height: 1.25;
+      } 
+      .leading-1-5 {
+        line-height: 1.5;
       }
-      .font-sm-narrow {
-        font-size: 13px !important;
-        line-height: 1.1 !important;
+      .leading-1-3 {
+        line-height: 1.3;
       }
       .font-sm {
-        font-size: 13px !important;
-        line-height: 1.3 !important;
+        font-size: 13px;
+        line-height: 1.3;
+        -webkit-font-smoothing: antialiased;
       }
       .font-md {
         /* same as default p */
-        font-size: 16px !important;
-        line-height: 1.5 !important;
+        font-size: 16px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
       }
       .font-xl {
-        font-size: 20px !important;
-        line-height: 1.3 !important;
+        font-size: 20px;
+        line-height: 1.3;
+        -webkit-font-smoothing: antialiased;
       }
-      h1 {
-        font-size: 36px !important;
-        line-height: 1.2 !important;
+      .font-2xl {
+        font-size: 26px;
+        line-height: 1.25;
+        -webkit-font-smoothing: antialiased;
       }
-      h2 {
-        font-size: 26px !important;
-        line-height: 125% !important;
+      .font-3xl {
+        font-size: 36px;
+        line-height: 1.2;
+        -webkit-font-smoothing: antialiased;
       }
-      h3 {
-        font-size: 20px !important;
-        line-height: 150% !important;
-      }
-      h4 {
-        font-size: 18px !important;
-        line-height: 150% !important;
-      }
-      h5 {
-        /* same as default p */
-        font-size: 16px !important;
-        line-height: 150% !important;
-      }
-      address {
+      .normal {
         font-style: normal;
+      }
+      .italic {
+        font-style: italic;
+      }
+      /* Colors */
+      .grey-0, .grey-0 {
+        color: #fff;
+      }
+      .grey-0-bg {
+        background-color: #fff;
+      }
+      .grey-100--bg {
+        background-color: #f0f5f2;
       }
       .grey-400 {
         color: #878a88;
@@ -275,19 +290,22 @@
       .primary-500 {
         color: #009e3c;
       }
+      .primary-500--bg {
+        background-color: #009e3c;
+      }
       .signal-500 {
         color: #e50000;
       }
+
       .divider {
         width: 72px;
         border: 1px solid #009e3c;
         margin-bottom: 16px;
       }
-      .center {
-        display: block;
-        text-align: center;
+      .table {
+        table-layout: auto;
       }
-      table {
+      .table-fixed {
         table-layout: fixed; /* fuck tables */
       }
       .container {
@@ -303,7 +321,7 @@
       .componentRoot {
         text-align: center;
         padding: 0 16px;
-        margin-bottom: 24px; /* Adds a margin behind each component */
+        margin-bottom: 48px; /* Adds a margin behind each component */
       }
       .boxed {
         border: 1px solid #f0f5f2;
@@ -311,6 +329,8 @@
         border-radius: 8px;
         padding: 16px;
       }
+
+      /* Align */
       .align-left {
         text-align: left;
       }
@@ -320,86 +340,88 @@
       .align-center {
         text-align: center;
       }
-      .pad-r-md {
-        padding-right: 16px;
+      .pl-0-5 {
+        padding-left: 0.5rem;
       }
-      .pad-0 {
+      .pl-0-75 {
+        padding-left: 0.75rem;
+      }
+      .pl-0-5 {
+        padding-left: 1rem;
+      }
+      .pr-0-5 {
+        padding-right: .5rem;
+      }
+      .pr-1 {
+        padding-right: 0.75rem;
+      }
+      .pr-1 {
+        padding-right: 1rem;
+      }
+      .p-0 {
         padding: 0;
       }
-
-      /* Components */
-      .OrderDetails {
-        text-align: left;
+      .pb-1 {
+        padding-bottom: 1rem;
       }
-      .ProductItem-image {
-        max-width: 64px;
-        max-height: 64px;
+      .pt-1-5 {
+        padding-top: 1.5rem;
+      }
+      .pb-1-5 {
+        padding-bottom: 1.5rem;
+      }
+      .pl-1 {
+        padding-left: 1rem;
+      }
+      .m-0 {
+        margin: 0;
+      }
+      .m-1 {
+        margin: 1rem;
+      }
+      .mt-1 {
+        margin-top: 1rem;
+      }
+      .mb-0 {
+        margin-bottom: 0;
+      }
+      .mb-0-5 {
+        margin-bottom: 0.5rem;
+      }
+      .mb-1 {
+        margin-bottom: 1rem;
+      }
+      .mb-1-5 {
+        margin-bottom: 1rem;
+      }
+      .mb-2 {
+        margin-bottom: 2rem;
+      }
+      .v-top {
         vertical-align: top;
       }
-      .ProductItem-image img {
-        max-width: 64px;
-        max-height: 64px;
-      }
-      .ProductItem-annotation {
-        padding-left: 8px;
-        width: auto;
-        text-align: left;
-      }
-      .ProductItem-label {
-        vertical-align: top;
-        text-align: right;
-        color: #878a88;
-      }
-      .ProductItem-price {
-        vertical-align: top;
-        text-align: right;
-        color: #00332a;
-      }
-      .PaymentSummary > table {
+      .bt-1 {
         border-top: 1px solid #c5c9c7;
       }
-      .ProductTable table {
-        table-layout: auto;
-      }
-      .ProductTable table th {
+      .bb-1 {
         border-bottom: 1px solid #c5c9c7;
-        padding-bottom: 16px;
       }
-      .ProductTable th {
-        font-weight: bold;
-      }
-      .ProductTable td {
-        padding: 8px 0;
-      }
-      .ProductTable table tfoot td {
-        border-top: 1px solid #c5c9c7;
-      }
-      .Footer {
-        padding-top: 24px;
-        padding-bottom: 24px;
-        background: #f0f5f2;
-      }
-      .Footer a {
-        text-decoration: none;
-        color: #434544;
+      .bl-1 {
+        border-left: 1px solid #c5c9c7;
       }
 
       @media only screen and (max-width: 640px) {
         body {
-          width: 100% !important;
-          min-width: 100% !important;
+          width: 100%;
+          min-width: 100%;
         }
         img {
-          height: auto !important;
+          height: auto;
         }
         .force-row,
         .container {
-          width: 100% !important;
-          max-width: 100% !important;
-        }
-        /* Components */
-        .ProductItem-annotation {
-          padding-left: 0 !important;
+          width: 100%;
+          max-width: 100%;
         }
       }
     </style>
@@ -413,11 +435,11 @@
 
     <template
       data-template-id="DescriptionParagraph"
-      data-template-version="1.0.0"
+      data-template-version="1.1.0"
       class="component"
     >
       <div class="DescriptionParagraph componentRoot">
-        <p class="font-sm grey-400 center">
+        <p class="font-sm grey-400 align-center">
           <br />
           Hiermit erhalten Sie eine Übersicht über ihre bei uns eingegangene
           Bestellung.<br />
@@ -428,35 +450,37 @@
 
     <template
       data-template-id="LogoGreeting"
-      data-template-version="1.0.1"
+      data-template-version="1.1.0"
+      data-brand="Lagerhaus"
       class="component"
     >
-      <div class="LogoGreeting componentRoot">
+      <div class="LogoGreeting componentRoot align-center">
         <img
           width="77"
           alt="Lagerhaus.at"
           src="https://rwa-images.s3.eu-central-1.amazonaws.com/email/lagerhaus_logo2x.png"
           style="width: 77px; height: auto; max-width: 100%"
         />
-        <p><br /></p>
-        <h1>Guten Tag Senta Probst,</h1>
+        <p class="paragraph font-md"><br /></p>
+        <h1 class="font-3xl grey-700">Guten Tag Senta Probst,</h1>
       </div>
     </template>
 
     <template
       data-template-id="LogoGreetingRWA"
-      data-template-version="1.0.0"
+      data-template-version="1.1.0"
+      data-brand="RWA"
       class="component"
     >
-      <div class="LogoGreetingRWA componentRoot">
+      <div class="LogoGreetingRWA componentRoot align-center">
         <img
           width="142"
           alt="RWA.at"
           src="images/rwa_logo2x.png"
           style="width: 142px; height: auto; max-width: 100%"
         />
-        <p><br /></p>
-        <h1>Guten Tag Alina Royer,</h1>
+        <p class="paragraph font-md"><br /></p>
+        <h5 class="font-3xl grey-700">Guten Tag Alina Royer,</h1>
       </div>
     </template>
 
@@ -466,7 +490,7 @@
       class="component"
     >
       <div class="CenteredParagraph componentRoot">
-        <p class="font-md">vielen Dank für die Bestellung bei lagerhaus.at.</p>
+        <p class="paragraph font-md grey-700">vielen Dank für die Bestellung bei lagerhaus.at.</p>
       </div>
     </template>
 
@@ -475,16 +499,18 @@
       data-template-version="1.0.0"
       class="component"
     >
-      <div class="OrderDetails componentRoot">
-        <h5>Bestelldetails</h5>
-        <span class="grey-400"> Ihre Bestellnummer lautet: </span>
-        10300288<br />
-        <span class="grey-400"> Bestellung aufgegeben am: </span>
-        02.11.2021
-        <br />
-        <span class="grey-400"> Vertragspartner: </span>
-        Lagerhaus Eferding-OÖ. Mitte eGen
-      </div>
+      <div class="OrderDetails componentRoot align-left">
+        <h5 class="font-md grey-700">Bestelldetails</h5>
+        <p class="paragraph font-md grey-700">
+          <span class="grey-400"> Ihre Bestellnummer lautet: </span>
+          10300288<br />
+          <span class="grey-400"> Bestellung aufgegeben am: </span>
+          02.11.2021
+          <br />
+          <span class="grey-400"> Vertragspartner: </span>
+          Lagerhaus Eferding-OÖ. Mitte eGen
+        </div>
+      </p>
     </template>
 
     <template
@@ -506,8 +532,8 @@
               >
                 <tr>
                   <td valign="top" class="align-left">
-                    <h5>Rechnungsadresse</h5>
-                    <address>
+                    <h5 class="font-md grey-700">Rechnungsadresse</h5>
+                    <address class="font-md grey-700 normal align-left">
                       Andreas Bacca <br />
                       CapGemini Rechnungsadresse<br />
                       Oberösterreichischer Winterwaldweg 111/Forsthaus 3, Tür
@@ -534,8 +560,8 @@
               >
                 <tr>
                   <td valign="top" class="align-left">
-                    <h5>Lieferadresse</h5>
-                    <address>
+                    <h5 class="font-md grey-700">Lieferadresse</h5>
+                    <address class="font-md grey-700 normal align-left">
                       Beate Bacca<br />
                       CapGemini Lieferadresse<br />
                       Oberösterreichischer Sommerwaldweg 222/Forsthaus 4, Tür
@@ -559,8 +585,8 @@
       data-template-version="1.0.0"
       class="component"
     >
-      <div class="ProductListHeadline componentRoot center">
-        <h5 class="primary-500">Ihre Bestellung im Überblick</h5>
+      <div class="ProductListHeadline componentRoot align-center mb-2">
+        <h5 class="font-md primary-500 m-0">Ihre Bestellung im Überblick</h5>
         <br />
         <hr class="divider" />
       </div>
@@ -568,11 +594,11 @@
 
     <template
       data-template-id="DeliveryPreferences"
-      data-template-version="1.0.0"
+      data-template-version="1.1.0"
       class="component"
     >
-      <div class="DeliveryPreferences componentRoot center">
-        <p>
+      <div class="DeliveryPreferences componentRoot">
+        <p class="font-md align-center">
           <strong>Hauszustellung</strong>
           <span class="primary-500"> An Ihre Lieferaddresse </span><br />
           Voraussichtliche Lieferung: 3 - 7 Werktage
@@ -582,44 +608,54 @@
 
     <template
       data-template-id="ProductItem"
-      data-template-version="1.0.3"
+      data-template-version="1.1.0"
       class="component"
     >
-      <div class="ProductItem componentRoot">
-        <table border="0" cellpadding="0" cellspacing="0" width="628">
+      <div class="ProductItem componentRoot mb-1-5">
+        <table class="table-fixed" border="0" cellpadding="0" cellspacing="0" width="628">
           <tbody>
             <tr>
-              <td rowspan="3" width="62" class="ProductItem-image">
-                <img
-                  src="https://static.lagerhaus.at/mam/eb/54/P-W-8798625923122-2.jpg"
-                  width="62"
-                />
+              <td rowspan="3" width="64" height="64" valign="top" class="v-top pr-0-5">
+                <div style="width: 64px;height: 64px;" class="align-center">
+                  <img
+                  src="https://via.placeholder.com/300x500"
+                  style="max-height: 100%; max-width:100%"
+                  />
+                </div>
               </td>
               <td
                 rowspan="3"
                 valign="top"
                 width="390"
-                class="grey-400 font-sm ProductItem-annotation"
+                class="grey-400 font-sm pad-l-xs"
               >
-                <h5 class="grey-700">Produktname (237487234)</h5>
-                2x ANNORAK (343878434)<br />
-                1x HUT (23939283)<br />
-                <span class="grey-400">Es gilt der Aktionspreis</span>
+                <h5 class="font-md grey-700 m-0 p-0">Produktname (237487234)</h5>
+                <p class="font-md p-0 m-0">
+                  2x ANNORAK (343878434)<br />
+                  1x HUT (23939283)<br />
+                  <span class="font-sm leading-1-1 grey-400">
+                  Es gilt der Aktionspreis
+                </span>
+                </p>
               </td>
-              <td class="ProductItem-label grey-400" width="160">
+              <td class="font-md grey-400 align-right" width="160">
                 Einzelpreis
               </td>
-              <td class="ProductItem-price" width="100">5,00 €</td>
+              <td class="font-md grey-700 align-right" width="100">5,00 €</td>
             </tr>
             <tr>
-              <td class="ProductItem-label grey-400">Menge</td>
-              <td class="ProductItem-price">5</td>
+              <td class="font-md grey-400  align-right">Menge</td>
+              <td class="font-md grey-700 align-right">5</td>
             </tr>
             <tr>
-              <td class="ProductItem-label grey-400">Preis inkl. MwSt.</td>
-              <td class="ProductItem-price">
-                <span class="ProductItem-discount-price signal-500">23,00 €</span><br />
-                statt <strong>25,00 €</strong>
+              <td class="font-md grey-400  align-right v-top" valign="top">Preis inkl. MwSt.</td>
+              <td class="font-md grey-700 align-right">
+                <span class="signal-500"
+                  >23,00 €</span
+                ><br />
+                <span class="font-sm leading-1-1 grey-400">
+                  statt <span class="grey-700">25,00 €</span>
+                </span>
               </td>
             </tr>
           </tbody>
@@ -629,45 +665,43 @@
 
     <template
       data-template-id="PaymentSummary"
-      data-template-version="1.0.1"
-      class="component"
-    >
+      data-template-version="1.1.0"
+      class="component">
       <div class="PaymentSummary componentRoot">
         <table
           border="0"
-          class="force-row"
+          class="table-fixed bt-1"
           cellpadding="0"
           cellspacing="0"
-          width="628"
-        >
+          width="100%">
           <tbody>
             <tr>
               <td valign="top" width="198" class="align-left">
                 <br />
-                <h5>Zahlungsart</h5>
-                <p class="font-md">Zahlung in Raten</p>
+                <h5 class="font-md grey-700 m-0 p-0">Zahlungsart</h5>
+                <p class="font-md grey">Zahlung in Raten</p>
               </td>
               <td valign="top" width="412">
                 <br />
-                <table border="0" cellpadding="0" cellspacing="0" align="right">
+                <table class="table-fixed force-row" border="0" cellpadding="0" cellspacing="0" align="right">
                   <tbody>
                     <tr>
-                      <td valign="top" class="align-right grey-400 pad-r-md">
+                      <td valign="top" class="font-md align-right grey-400 pr-1">
                         Zwischensumme
                       </td>
-                      <td valign="top" class="align-right">185,62 €</td>
+                      <td valign="top" class="font-md grey-700 align-right">185,62 €</td>
                     </tr>
                     <tr>
-                      <td valign="top" class="align-right grey-400 pad-r-md">
+                      <td valign="top" class="font-md align-right grey-400 pr-1">
                         Lieferung
                       </td>
-                      <td valign="top" class="align-right">16,46 €</td>
+                      <td valign="top" class="font-md grey-700 align-right">16,46 €</td>
                     </tr>
                     <tr>
-                      <td valign="top" class="align-right grey-400 pad-r-md">
+                      <td valign="top" class="font-md align-right grey-400 pr-1">
                         <strong> Endbetrag </strong>
                       </td>
-                      <td valign="top" class="align-right">
+                      <td valign="top" class="font-md grey-700 align-right">
                         <strong> 202,62 € </strong>
                       </td>
                     </tr>
@@ -679,15 +713,14 @@
         </table>
       </div>
     </template>
-    
+
     <template
       data-template-id="PaymentMethod"
-      data-template-version="1.0.0"
-      class="component"
-    >
+      data-template-version="1.1.0"
+      class="component">
       <div class="PaymentMethod componentRoot align-left">
-        <h5>Zahlungsart</h5>
-        <p class="font-md">Zahlung in Raten</p>
+        <h5 class="font-md grey-700 m-0">Zahlungsart</h5>
+        <p class="paragraph font-md align-left">Zahlung in Raten</p>
         <p class="font-sm">
           Zur Zahlung Ihrer Rechnung erhalten Sie von Klarna eine
           Zahlungsaufforderung per E-Mail. Bitte begleichen Sie den offenen
@@ -699,57 +732,56 @@
 
     <template
       data-template-id="ProductTable"
-      data-brand-specific-for="RWA"
-      data-template-version="1.0.0"
+      data-brand="RWA"
+      data-template-version="1.1.0"
       class="component"
     >
       <div class="ProductTable componentRoot">
         <table
-          width="628"
+          width="100%"
           border="0"
-          class="font-md"
           cellpadding="0"
           cellspacing="0"
-        >
+          class="table">
           <thead>
             <tr class="ProductTableHeader">
-              <th class="align-left">Art.Nr.</th>
-              <th class="align-left">OTN</th>
-              <th class="align-center">Pos.</th>
-              <th class="align-center">L/S</th>
-              <th class="align-left">Bezeichnung</th>
-              <th class="align-right">Menge</th>
-              <th class="align-right">Preis</th>
+              <th class="font-md grey-700 align-left bb-1">Art.Nr.</th>
+              <th class="font-md grey-700 align-left bb-1">OTN</th>
+              <th class="font-md grey-700 align-center bb-1">Pos.</th>
+              <th class="font-md grey-700 align-center bb-1">L/S</th>
+              <th class="font-md grey-700 align-left bb-1">Bezeichnung</th>
+              <th class="font-md grey-700 align-right bb-1">Menge</th>
+              <th class="font-md grey-700 align-right bb-1">Preis</th>
             </tr>
           </thead>
           <tbody>
             <tr class="ProductTableItem">
-              <td class="align-left">6253823</td>
-              <td class="align-left">23662</td>
-              <td class="align-center">2</td>
-              <td class="align-center">S</td>
-              <td class="align-left">Zolliger Schieber EMS</td>
-              <td class="align-right">1</td>
-              <td class="align-right">10,99 &euro;</td>
+              <td class="font-md grey-700 align-left">6253823</td>
+              <td class="font-md grey-700 align-left">23662</td>
+              <td class="font-md grey-700 align-center">2</td>
+              <td class="font-md grey-700 align-center">S</td>
+              <td class="font-md grey-700 align-left">Zolliger Schieber EMS</td>
+              <td class="font-md grey-700 align-right">1</td>
+              <td class="font-md grey-700 align-right">10,99 &euro;</td>
             </tr>
             <tr class="ProductTableAdditionalText">
-              <td class="align-left font-sm grey-400 pad-0" colspan="7">
+              <td class="align-left font-sm grey-400 p-0" colspan="7">
                 Eine Bemerkung zum Produkt
               </td>
             </tr>
             <tr class="ProductTableItem">
-              <td class="align-left">672348</td>
-              <td class="align-left">2222912</td>
-              <td class="align-center">4</td>
-              <td class="align-center">L</td>
-              <td class="align-left">Sachinger Schraubmelkstuhl</td>
-              <td class="align-right">2</td>
-              <td class="align-right">52,99 &euro;</td>
+              <td class="font-md grey-700 align-left">672348</td>
+              <td class="font-md grey-700 align-left">2222912</td>
+              <td class="font-md grey-700 align-center">4</td>
+              <td class="font-md grey-700 align-center">L</td>
+              <td class="font-md grey-700 align-left">Sachinger Schraubmelkstuhl</td>
+              <td class="font-md grey-700 align-right">2</td>
+              <td class="font-md grey-700 align-right">52,99 &euro;</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <td class="align-right" colspan="7">
+              <td class="font-md grey-700 align-right bt-1" colspan="7">
                 Gesamtpreis: <strong>116,97 &euro;</strong>
               </td>
             </tr>
@@ -760,11 +792,10 @@
 
     <template
       data-template-id="PrimaryMessage"
-      data-template-version="1.0.1"
-      class="component"
-    >
+      data-template-version="1.1.0"
+      class="component">
       <div class="PrimaryMessage componentRoot">
-        <p class="font-xl grey-700 center">
+        <p class="paragraph font-xl grey-700 align-center">
           <strong>
             Ihre Reservierung wird am Standort Gösling/Ybbs vorbereitet </strong
           ><br />
@@ -778,13 +809,11 @@
 
     <template
       data-template-id="CustomMessage"
-      data-template-version="1.0.0"
-      class="component"
-    >
+      data-template-version="1.1.0"
+      class="component">
       <div class="CustomMessage componentRoot">
-        <p class="font-xl grey-700 center">
-          <strong>
-            Derzeit kann es zu Lieferschwierigkeiten kommen!</strong
+        <p class="paragraph font-xl grey-700 align-center">
+          <strong> Derzeit kann es zu Lieferschwierigkeiten kommen!</strong
           ><br />
           Wir bitten um ihr Verständnis
         </p>
@@ -794,13 +823,13 @@
     <template
       data-template-id="ShippingStatus"
       class="component"
-      data-template-version="1.0.0"
+      data-template-version="1.1.0"
     >
-      <div class="ShippingStatus componentRoot center">
-        <h5>Lieferstatus</h5>
+      <div class="ShippingStatus componentRoot align-center">
+        <h5 class="font-md primary-500 m-0 p-0">Lieferstatus</h5>
         <br />
-        <p>Ihre Bestellung wird mit unser Spedition zugestellt.</p>
-        <p>
+        <p class="paragraph font-md grey-700 m-0">Ihre Bestellung wird mit unser Spedition zugestellt.</p>
+        <p class="paragraph font-md grey-700">
           <strong>
             Zur Vereinbarung eines Liefertermin werden Sie vorab von der
             Spedition kontaktiert.
@@ -811,40 +840,26 @@
 
     <template
       data-template-id="CallToAction"
-      data-template-version="1.0.0"
+      data-template-version="1.1.0"
       class="component"
     >
       <div class="CallToAction componentRoot">
-        <p>
+        <p class="font-md grey-700">
           Weitere Details zu Ihrer Bestellung finden Sie auch in Ihrem
           Kundenkonto!
         </p>
         <br />
-        <!-- Bulletproof Button -->
-        <table class="button" border="0" cellspacing="0" cellpadding="0">
+        <!-- Bulletproof Button:Use PrimaryButton -->
+        <table class="table button" border="0" cellspacing="0" cellpadding="0">
           <tbody>
             <tr>
-              <td>
+              <td class="primary-500--bg grey-0">
                 <a
-                  href="http://smart.acct.lagerhaus.at/mein-konto"
-                  class="button"
+                  href="http://smart.acct.lagerhaus.at/primary"
+                  class="button-link primary-500--bg grey-0"
                   target="_blank"
-                  style="
-                    background-color: #009e3c;
-                    border-radius: 2px;
-                    color: #ffffff;
-                    border: 1px solid #009e3c;
-                    display: inline-block;
-                    font-size: 16px;
-                    line-height: 1;
-                    font-weight: 700;
-                    display: inline-block;
-                    padding: 14px 48px;
-                    text-align: center;
-                    text-decoration: none;
-                  "
                   data-saferedirecturl="https://www.google.com/url?q=http://smart.acct.lagerhaus.at/mein-konto&amp;source=gmail&amp;ust=1636131846857000&amp;usg=AFQjCNEYU3DQWAr8fv_aFWESt6dz775qRA"
-                  >Mein Konto</a
+                  >Primary Action</a
                 >
               </td>
             </tr>
@@ -856,35 +871,47 @@
 
     <template
       data-template-id="PrimaryButton"
-      data-template-version="1.0.0"
+      data-template-version="1.1.0"
       class="component"
     >
       <div class="PrimaryButton componentRoot">
         <!-- Bulletproof Button -->
-        <table class="button" border="0" cellspacing="0" cellpadding="0">
+        <table class="table button" border="0" cellspacing="0" cellpadding="0">
           <tbody>
             <tr>
-              <td>
+              <td class="grey-0 primary-500--bg ">
                 <a
-                  href="http://smart.acct.lagerhaus.at/mein-konto"
-                  class="button"
+                  href="http://smart.acct.lagerhaus.at/primary"
+                  class="button-link primary-500--bg grey-0 "
                   target="_blank"
-                  style="
-                    background-color: #009e3c;
-                    border-radius: 2px;
-                    color: #ffffff;
-                    border: 1px solid #009e3c;
-                    display: inline-block;
-                    font-size: 16px;
-                    line-height: 1;
-                    font-weight: 700;
-                    display: inline-block;
-                    padding: 14px 48px;
-                    text-align: center;
-                    text-decoration: none;
-                  "
                   data-saferedirecturl="https://www.google.com/url?q=http://smart.acct.lagerhaus.at/mein-konto&amp;source=gmail&amp;ust=1636131846857000&amp;usg=AFQjCNEYU3DQWAr8fv_aFWESt6dz775qRA"
-                  >Bestellung versand</a
+                  >Primary Action</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- /Bulletproof Button -->
+      </div>
+    </template>
+
+    <template
+      data-template-id="SecondaryButton"
+      data-template-version="1.1.0"
+      class="component"
+    >
+      <div class="SecondaryButton componentRoot">
+        <!-- Bulletproof Button -->
+        <table class="table button" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td class="primary-500 grey-0-bg">
+                <a
+                  href="http://smart.acct.lagerhaus.at/secondary"
+                  class="button-link primary-500 gery-0--bg"
+                  target="_blank"
+                  data-saferedirecturl=""
+                  >Lower Priority Action</a
                 >
               </td>
             </tr>
@@ -896,24 +923,24 @@
 
     <template
       data-template-id="OpeningHoursAndContact"
-      data-template-version="1.0.1"
+      data-template-version="1.1.0"
       class="component"
     >
       <div class="OpeningHoursAndContact componentRoot">
-        <table border="0" cellpadding="0" cellspacing="0" width="628">
+        <table class="table-fixed" border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
-            <td width="33.333%" valign="top">
+            <td width="33.33%" valign="top">
               <table
                 width="198"
                 border="0"
                 cellpadding="0"
                 cellspacing="0"
                 align="left"
-                class="force-row"
+                class="table-fixed force-row"
               >
                 <tr>
-                  <td valign="top" class="align-left">
-                    <h5>Öffnungszeiten</h5>
+                  <td valign="top" class="font-md grey-400 align-left">
+                    <h5 class="font-md grey-700 m-0 p-0">Öffnungszeiten</h5>
                     Mo: 07:30-18:00<br />
                     Di: 07:30-18:00<br />
                     Mi: 07:30-18:00<br />
@@ -932,11 +959,11 @@
                 cellpadding="0"
                 cellspacing="0"
                 align="left"
-                class="force-row"
+                class="table-fixed force-row"
               >
                 <tr>
-                  <td valign="top">
-                    <h5>Jahreöffnungszeiten</h5>
+                  <td valign="top" class="font-md grey-400 align-left">
+                    <h5 class="font-md grey-700 m-0 p-0 leading-1-2">Jahreöffnungszeiten</h5>
                     08.12: geschlossen<br />
                     25.12: geschlossen<br />
                     26.12: geschlossen<br />
@@ -947,30 +974,31 @@
             </td>
             <td width="33.33%" valign="top" class="align-left">
               <table
-                width="198"
-                border="0"
-                cellpadding="0"
-                cellspacing="0"
-                align="right"
-                class="force-row"
+              width="198"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              align="right"
+              class="table-fixed force-row"
               >
-                <tr>
-                  <td valign="top">
-                    <h5>Kontakt</h5>
-                    <address>
+              <tr>
+                <td valign="top" class="v-top align-left bl-1 pl-1">
+                  <h5 class="font-md grey-700 m-0 p-0">Kontakt</h5>
+                  <address class="font-md grey-700 normal align-left">
+                    <div class="mb-0-5">
                       <span class="grey-400">Telefon:</span>
                       +43 7472 200 600<br />
                       <span class="grey-400">Fax:</span>
                       +43 7472 200 651<br />
-                      <br />
-                      Amstetten Rütgersstraße 1<br />
-                      3300 Amstetten<br />
-                      Österreich
-                    </address>
-                  </td>
-                </tr>
-              </table>
-            </td>
+                    </div>
+                    Rütgersstraße 1<br />
+                    3300 Amstetten<br />
+                    Österreich
+                  </address>
+                </td>
+              </tr>
+            </table>
+          </td>
           </tr>
         </table>
       </div>
@@ -978,19 +1006,19 @@
 
     <template
       data-template-id="Disclaimer"
-      data-template-version="1.0.0"
+      data-template-version="1.1.0"
       class="component"
     >
       <div class="Disclaimer componentRoot">
-        <div class="boxed">
-          <p class="font-sm-narrow">
+        <div class="boxed align-left pl-1 pr-1 ">
+          <p class="paragraph font-sm leading-1-1 grey-700 mb-1">
             Zahlungs-, Liefer- und Leistungsbedingungen<br />
             Es gelten unsere Allgemeinen Geschäftsbedingungen (siehe AGB).
           </p>
-          <p class="font-sm-narrow">
+          <p class="paragraph font-sm leading-1-1 grey-700 mb-1">
             Es bestehen die gesetzlichen Gewährleistungsbestimmungen.
           </p>
-          <p class="font-sm-narrow">
+          <p class="paragraph font-sm leading-1-1 grey-700 mb-1">
             Rücktrittsrecht<br />
             Es besteht ein Rücktrittsrecht (siehe Widerrufsbelehrung).<br />
             Bei Waren, die nach Lieferung aufgrund ihrer Beschaffenheit
@@ -998,27 +1026,26 @@
             Widerrufsrecht ab dem Zeitpunkt der Vermischung. (siehe
             Widerrufsbelehrung)<br />
           </p>
-
-          <p class="font-sm-narrow">
+          <p class="paragraph font-sm leading-1-1 grey-700 mb-1">
             Zur Information über die Bedingungen, die Fristen und die
             Vorgangsweise zur Ausübung dieses Rücktrittsrechtes wird dem
             Verbraucher das Muster-Widerrufsformular gemäß Anhang I Teil B des
             FAGG (siehe PDF-Download) ausgehändigt.
           </p>
-          <p class="font-sm-narrow">
+          <p class="paragraph font-sm leading-1-1 grey-700 mb-1">
             Zur näheren Erläuterung des Widerrufsrechtes, der Folgen des
             Widerrufs, der Rücksendung im Widerrufsfall wurde dem Verbraucher
             die ausgefüllte Widerrufsbelehrung gemäß Anhang I Teil A des FAGG
             (siehe Widerrufsbelehrung) ausgehändigt. Bei Kauf im Onlineshop
             übernimmt der Verkäufer die Rücksendekosten.
           </p>
-          <p class="font-sm-narrow">
+          <p class="paragraph font-sm leading-1-1 grey-700 mb-1">
             Der Verbraucher hat ausdrücklich zugestimmt, dass ihm die
             Informationen gemäß § 4 FAGG auch auf einem anderen dauerhaften
             Datenträger, wie Email, USB-Stick, CD-ROM, DVD oder Speicherkarten
             bereitgestellt werden können.
           </p>
-          <p class="font-sm-narrow">
+          <p class="paragraph font-sm leading-1-1 grey-700 mb-0">
             Im Übrigen gelten die Allgemeinen Verkaufs- und Lieferbedingungen
             des Unternehmers (siehe Verkaufs- und Lieferbedingungen).
           </p>
@@ -1028,16 +1055,16 @@
 
     <template
       data-template-id="Footer"
-      data-template-version="1.0.0"
+      data-template-version="1.1.0"
       class="component"
     >
-      <div class="Footer center componentRoot">
-        <h5 class="font-sm">Kontakt</h5>
-        <p class="font-sm">
+      <div class="Footer align-center componentRoot pt-1-5 pb-1-5 grey-100--bg">
+        <h5 class="font-sm grey-700 m-0">Kontakt</h5>
+        <p class="font-sm grey-700 m-0 mb-1">
           Bei Fragen helfen wir Ihnen gern weiter! <br />Tel.: +431 600 70 70
         </p>
-        <p class="font-sm">
-          <a href="mailto:service@lagerhaus.at" tabindex="-1"
+        <p class="font-sm grey-700">
+          <a href="mailto:service@lagerhaus.at" tabindex="-1"  class="font-sm grey-700 no-underline"
             >servicecenter@lagerhaus.at</a
           ><br />
           Erreichbarkeit Service Center:
@@ -1048,13 +1075,13 @@
         </p>
         <p><br /></p>
         <p class="font-sm">
-          <a href="https://lagerhaus.at/impressum" tabindex="-1">Impressum</a>
-          <a href="https://lagerhaus.at/AGB" tabindex="-1">AGB</a>
-          <a href="https://lagerhaus.at/Datenschutz" tabindex="-1"
+          <a href="https://lagerhaus.at/impressum" tabindex="-1"  class="font-sm grey-700 no-underline">Impressum</a>
+          <a href="https://lagerhaus.at/AGB" tabindex="-1"  class="font-sm grey-700 no-underline">AGB</a>
+          <a href="https://lagerhaus.at/Datenschutz" tabindex="-1"  class="font-sm grey-700 no-underline"
             >Datenschutz</a
           >
-          <a href="https://lagerhaus.at/Kontakt" tabindex="-1">Kontakt</a>
-          <a href="https://lagerhaus.at/FAQ" tabindex="-1">FAQ</a>
+          <a href="https://lagerhaus.at/Kontakt" tabindex="-1"  class="font-sm grey-700 no-underline">Kontakt</a>
+          <a href="https://lagerhaus.at/FAQ" tabindex="-1"  class="font-sm grey-700 no-underline">FAQ</a>
         </p>
       </div>
     </template>
@@ -1139,7 +1166,7 @@
                     >
                       <tbody>
                         <tr>
-                          <td valign="top" align="center">
+                          <td valign="top" align="align-center">
                             <!-- LAYOUT -->
                             <div id="layout" class="layout"></div>
                             <!-- /LAYOUT -->
