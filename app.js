@@ -178,8 +178,22 @@ const copy = () => {
  * Select Layout source code
  **/
 const selectLayout = () => {
-  let templateHTML = layoutElement.innerHTML;
-  codeElement.innerHTML = templateHTML;
+  var nodes = layoutElement.querySelectorAll("*");
+
+  nodes.forEach((n) => {
+    n.classList.forEach((className) => {
+      const cssRules = getCSSRules(layoutElement, className);
+      cssRules.forEach((style) => {
+        css(n, style);
+      });
+    });
+  });
+
+  const node = document.importNode(layoutElement, true);
+
+  previewElement.innerHTML = "";
+  previewElement.appendChild(node);
+  codeElement.innerHTML = previewElement.innerHTML;
 };
 
 const selectDocument = () => {

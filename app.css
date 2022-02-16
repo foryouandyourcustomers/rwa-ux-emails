@@ -93,7 +93,7 @@
   background: hsl(60, 0%, 100%);
   border-left: 2px solid hsl(60, 0%, 90%);
   display: grid;
-  grid-template-rows: 3rem auto auto;
+  grid-template-rows: 3rem auto calc(50vh - 1.5rem);
   height: 100vh;
   font-family: "Open Sans", system, -apple-system, ".SFNSText-Regular",
     "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande",
@@ -105,6 +105,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.appSidebar #preview {
+  overflow: scroll;
 }
 .appSidebar .appSidebarActions > div,
 .appContent .appContentActions > div {
@@ -123,7 +126,7 @@
 .layout .componentRoot {
   cursor: default;
 }
-.layout .componentRoot:hover {
+.appContent .componentRoot:hover {
   outline: 1px dashed hsl(0, 60%, 65%);
   outline-offset: -1px;
 }
