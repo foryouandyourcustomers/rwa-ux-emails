@@ -1,3 +1,6 @@
+* {
+  -webkit-font-smoothing: antialiased;
+}
 /* Styles for Layout Skeleton App */
 .app {
   display: grid;
@@ -8,10 +11,10 @@
 .appTheme-logo {
   opacity: 0.25;
 }
-[data-theme=Lagerhaus] .appTheme-logo.appTheme-logo--Lagerhaus {
+[data-theme="Lagerhaus"] .appTheme-logo.appTheme-logo--Lagerhaus {
   opacity: 1;
 }
-[data-theme=RWA] .appTheme-logo.appTheme-logo--RWA {
+[data-theme="RWA"] .appTheme-logo.appTheme-logo--RWA {
   opacity: 1;
 }
 .appButton {
@@ -83,8 +86,8 @@
   background: hsl(60, 0%, 90%);
 }
 .appContent .appContentActions .appFontMd {
-    line-height: 2rem;
-    padding-right: 1rem;
+  line-height: 2rem;
+  padding-right: 1rem;
 }
 .appSidebar {
   background: hsl(60, 0%, 100%);
