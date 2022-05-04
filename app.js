@@ -391,7 +391,7 @@ const setTheme = () => {
   currentTheme = localStorage.getItem("theme") || Theme.Lagerhaus;
   document.body.dataset.theme = currentTheme;
 
-  alert(`Theme for ${currentTheme} is activated!`);
+  //alert(`Theme for ${currentTheme} is activated!`);
 };
 
 const populateSelectedTemplateOptions = () => {
