@@ -1,0 +1,7 @@
+[
+  { "uuid": "ae539ae2-b8b3", "templateId": "LogoGreeting" },
+  { "uuid": "437de7d3-ba53", "templateId": "CenteredParagraph" },
+  { "uuid": "feb7db26-886e", "templateId": "PrimaryButton" },
+  { "uuid": "da805008-759b", "templateId": "CenteredParagraph" },
+  { "uuid": "bd5936c3-4dfd", "templateId": "Footer" }
+]
