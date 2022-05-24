@@ -417,18 +417,18 @@
       }
 
       @media only screen and (max-width: 640px) {
-        body {
+        /* body {
           width: 100%;
           min-width: 100%;
-        }
+        } */
         img {
           height: auto;
         }
-        .force-row,
+        /* .force-row,
         .container {
           width: 100%;
           max-width: 100%;
-        }
+        } */
       }
     </style>
   </head>
@@ -632,7 +632,7 @@
 
     <template
       data-template-id="ProductItem"
-      data-template-version="1.2.0"
+      data-template-version="1.3.0"
       class="component"
     >
       <div class="ProductItem componentRoot mb-1-5">
@@ -641,17 +641,11 @@
           border="0"
           cellpadding="0"
           cellspacing="0"
-          width="628"
+          width="660"
         >
           <tbody>
             <tr>
-              <td
-                rowspan="3"
-                width="64"
-                height="64"
-                valign="top"
-                class="v-top pr-0-5"
-              >
+              <td width="64" height="64" valign="top" class="v-top pr-0-5">
                 <div style="width: 64px; height: 64px" class="align-center">
                   <img
                     src="https://via.placeholder.com/300x500"
@@ -659,12 +653,7 @@
                   />
                 </div>
               </td>
-              <td
-                rowspan="3"
-                valign="top"
-                width="390"
-                class="font-sm pad-l-xs align-left"
-              >
+              <td valign="top" width="390" class="font-sm pad-l-xs align-left">
                 <a class="font-md grey-700 m-0 p-0 no-underline bold" href="#"
                   >Produktname (237487234)</a
                 >
@@ -672,28 +661,43 @@
                   2x ANNORAK (343878434)<br />
                   1x HUT (23939283)<br />
                   <span class="font-sm leading-1-1">
-                    Es gilt der Aktionspreis
+                    <strong>23€</strong>
+                    <span class="grey-400">statt <s>25€</s></span>
                   </span>
                 </p>
               </td>
-              <td class="font-md grey-400 align-right" width="160">
-                Einzelpreis
-              </td>
-              <td class="font-md grey-700 align-right" width="100">5,00 €</td>
-            </tr>
-            <tr>
-              <td class="font-md grey-400 align-right">Menge</td>
-              <td class="font-md grey-700 align-right">5</td>
-            </tr>
-            <tr>
-              <td class="font-md grey-400 align-right v-top" valign="top">
-                Preis inkl. MwSt.
-              </td>
-              <td class="font-md grey-700 align-right">
-                <span class="bold">23,00 €</span><br />
-                <span class="font-sm leading-1-1 grey-400">
-                  statt <span class="grey-700">25,00 €</span>
-                </span>
+              <td valign="top" width="174">
+                <table border="0" cellpadding="0" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td class="font-md grey-400 align-right" width="160">
+                        Einzelpreis
+                      </td>
+                      <td class="font-md grey-700 align-right" width="100">
+                        5,00 €
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-md grey-400 align-right" width="160">
+                        Menge
+                      </td>
+                      <td class="font-md grey-700 align-right" width="100">
+                        5
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="font-md grey-400 align-right v-top"
+                        valign="top"
+                      >
+                        Preis inkl. MwSt.
+                      </td>
+                      <td class="font-md grey-700 align-right">
+                        <span class="bold">23,00 €</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </td>
             </tr>
           </tbody>
@@ -877,7 +881,7 @@
       class="component"
     >
       <div class="CustomMessage componentRoot">
-        <p class="paragraph font-xl grey-700 align-center">
+        <p class="paragraph font-md grey-700 align-center">
           <strong> Derzeit kann es zu Lieferschwierigkeiten kommen!</strong
           ><br />
           Wir bitten um ihr Verständnis
