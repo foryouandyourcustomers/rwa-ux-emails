@@ -1,1 +1,9 @@
-[{"uuid":"dca18178-23ba","templateId":"LogoGreetingRWA"},{"uuid":"8b3d252d-49e3","templateId":"PrimaryMessage"},{"uuid":"bee4a2e1-da03","templateId":"CustomMessage"},{"uuid":"3c671434-7c25","templateId":"OrderDetails"},{"uuid":"c31cfddc-1376","templateId":"PaymentMethod"},{"uuid":"4fbc21f6-e96a","templateId":"CallToAction"},{"uuid":"1a5b7879-4fb1","templateId":"Footer"}]
+[
+  { "uuid": "dca18178-23ba", "templateId": "LogoGreeting" },
+  { "uuid": "8b3d252d-49e3", "templateId": "PrimaryMessage" },
+  { "uuid": "bee4a2e1-da03", "templateId": "CustomMessage" },
+  { "uuid": "3c671434-7c25", "templateId": "OrderDetails" },
+  { "uuid": "c31cfddc-1376", "templateId": "PaymentMethod" },
+  { "uuid": "4fbc21f6-e96a", "templateId": "CallToAction" },
+  { "uuid": "1a5b7879-4fb1", "templateId": "Footer" }
+]

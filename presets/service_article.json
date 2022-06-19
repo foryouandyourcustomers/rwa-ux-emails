@@ -1,1 +1,10 @@
-[{"uuid":"dca18178-23ba","templateId":"LogoGreetingRWA"},{"uuid":"3c671434-7c25","templateId":"OrderDetails"},{"uuid":"46e29a00-3eb0","templateId":"BillingShippingAddress"},{"uuid":"8e961d10-dfc3","templateId":"CustomMessage"},{"uuid":"4c4216bc-f3a0","templateId":"ProductListHeadline"},{"uuid":"6fb85bb6-bdfa","templateId":"ProductItem"},{"uuid":"b917f2ee-f866","templateId":"ProductItem"},{"uuid":"1a5b7879-4fb1","templateId":"Footer"}]
+[
+  { "uuid": "dca18178-23ba", "templateId": "LogoGreeting" },
+  { "uuid": "3c671434-7c25", "templateId": "OrderDetails" },
+  { "uuid": "46e29a00-3eb0", "templateId": "BillingShippingAddress" },
+  { "uuid": "8e961d10-dfc3", "templateId": "CustomMessage" },
+  { "uuid": "4c4216bc-f3a0", "templateId": "ProductListHeadline" },
+  { "uuid": "6fb85bb6-bdfa", "templateId": "ProductItem" },
+  { "uuid": "b917f2ee-f866", "templateId": "ProductItem" },
+  { "uuid": "1a5b7879-4fb1", "templateId": "Footer" }
+]

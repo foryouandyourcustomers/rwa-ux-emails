@@ -1,1 +1,12 @@
-[{"uuid":"dca18178-23ba","templateId":"LogoGreetingRWA"},{"uuid":"3c671434-7c25","templateId":"OrderDetails"},{"uuid":"bee4a2e1-da03","templateId":"CustomMessage"},{"uuid":"3b8aa26c-d963","templateId":"ProductItem"},{"uuid":"264f5a40-7446","templateId":"ProductItem"},{"uuid":"8fcc0997-d782","templateId":"CustomMessage"},{"uuid":"d95ce794-8869","templateId":"PrimaryButton"},{"uuid":"517d49e9-456d","templateId":"PrimaryButton"},{"uuid":"3b6aefb3-ab65","templateId":"PrimaryButton"},{"uuid":"1a5b7879-4fb1","templateId":"Footer"}]
+[
+  { "uuid": "dca18178-23ba", "templateId": "LogoGreeting" },
+  { "uuid": "3c671434-7c25", "templateId": "OrderDetails" },
+  { "uuid": "bee4a2e1-da03", "templateId": "CustomMessage" },
+  { "uuid": "3b8aa26c-d963", "templateId": "ProductItem" },
+  { "uuid": "264f5a40-7446", "templateId": "ProductItem" },
+  { "uuid": "8fcc0997-d782", "templateId": "CustomMessage" },
+  { "uuid": "d95ce794-8869", "templateId": "PrimaryButton" },
+  { "uuid": "517d49e9-456d", "templateId": "PrimaryButton" },
+  { "uuid": "3b6aefb3-ab65", "templateId": "PrimaryButton" },
+  { "uuid": "1a5b7879-4fb1", "templateId": "Footer" }
+]
