@@ -236,6 +236,9 @@
         text-decoration: none;
       }
 
+      .w100 {
+        width: 100%;
+      }
       .leading-1 {
         line-height: 1;
       }
@@ -659,16 +662,16 @@
 
     <template
       data-template-id="ProductItem"
-      data-template-version="1.4.0"
+      data-template-version="1.5.0"
       class="component"
     >
       <div class="ProductItem componentRoot mb-1-5">
         <table
-          class="table-fixed"
+          class="table-fixed w100"
+          width="686"
           border="0"
           cellpadding="0"
           cellspacing="0"
-          width="660"
         >
           <tbody>
             <tr>
@@ -680,7 +683,7 @@
                   />
                 </div>
               </td>
-              <td valign="top" width="390" class="font-sm pad-l-xs align-left">
+              <td valign="top" width="400" class="font-sm pad-l-xs align-left">
                 <a class="font-md grey-700 m-0 p-0 no-underline bold" href="#"
                   >Produktname (237487234)</a
                 >
@@ -693,34 +696,36 @@
                   </span>
                 </p>
               </td>
-              <td valign="top" width="190">
-                <table border="0" cellpadding="0" cellspacing="0">
+              <td valign="top" width="206">
+                <table
+                  border="0"
+                  cellpadding="0"
+                  cellspacing="0"
+                  width="206"
+                  class="w100"
+                >
                   <tbody>
                     <tr>
-                      <td class="font-md grey-400 align-right" width="160">
+                      <td class="font-md grey-400 align-right pr-1" width="130">
                         Einzelpreis
                       </td>
-                      <td class="font-md grey-700 align-right" width="100">
+                      <td class="font-md grey-700 align-right" width="60">
                         5,00 €
                       </td>
                     </tr>
                     <tr>
-                      <td class="font-md grey-400 align-right" width="160">
-                        Menge
-                      </td>
-                      <td class="font-md grey-700 align-right" width="100">
-                        5
-                      </td>
+                      <td class="font-md grey-400 align-right pr-1">Menge</td>
+                      <td class="font-md grey-700 align-right">5</td>
                     </tr>
                     <tr>
                       <td
-                        class="font-md grey-400 align-right v-top"
+                        class="font-md grey-400 align-right v-top pr-1"
                         valign="top"
                       >
                         Preis inkl. MwSt.
                       </td>
                       <td class="font-md grey-700 align-right">
-                        <span class="bold">23,00 €</span>
+                        <span class="bold nowrap">23,00 €</span>
                       </td>
                     </tr>
                   </tbody>
@@ -734,25 +739,25 @@
 
     <template
       data-template-id="PaymentSummary"
-      data-template-version="1.2.0"
+      data-template-version="1.3.0"
       class="component"
     >
       <div class="PaymentSummary componentRoot">
         <table
           border="0"
-          class="table-fixed bt-1"
+          class="table-fixed bt-1 w100"
           cellpadding="0"
           cellspacing="0"
-          width="100%"
+          width="686"
         >
           <tbody>
             <tr>
-              <td valign="top" width="198" class="align-left">
+              <td valign="top" width="480" class="align-left" width="454">
                 <br />
                 <h5 class="font-md grey-700 m-0 p-0">Zahlungsart</h5>
                 <p class="font-md grey m-0 p-0">Zahlung in Raten</p>
               </td>
-              <td valign="top" width="412">
+              <td valign="top" width="206">
                 <br />
                 <table
                   class="table-fixed force-row"
@@ -760,16 +765,22 @@
                   cellpadding="0"
                   cellspacing="0"
                   align="right"
+                  width="206"
                 >
                   <tbody>
                     <tr>
                       <td
                         valign="top"
                         class="font-md align-right grey-400 pr-1"
+                        width="130"
                       >
                         Zwischensumme
                       </td>
-                      <td valign="top" class="font-md grey-700 align-right">
+                      <td
+                        valign="top"
+                        class="font-md grey-700 align-right nowrap"
+                        width="60"
+                      >
                         185,62 €
                       </td>
                     </tr>
@@ -780,7 +791,10 @@
                       >
                         Lieferung
                       </td>
-                      <td valign="top" class="font-md grey-700 align-right">
+                      <td
+                        valign="top"
+                        class="font-md grey-700 align-right nowrap"
+                      >
                         16,46 €
                       </td>
                     </tr>
@@ -788,10 +802,13 @@
                       <td><br /></td>
                     </tr>
                     <tr>
-                      <td valign="top" class="font-md align-right pr-1">
+                      <td valign="top" class="font-md align-right pr-1 nowrap">
                         <strong> Endbetrag </strong>
                       </td>
-                      <td valign="top" class="font-md grey-700 align-right">
+                      <td
+                        valign="top"
+                        class="font-md grey-700 align-right nowrap"
+                      >
                         <strong> 202,62 € </strong>
                       </td>
                     </tr>
@@ -803,7 +820,7 @@
                         Ihr Ersparnis:
                       </td>
                       <td valign="top" class="font-md grey-700 align-right">
-                        8 €
+                        &nbsp; 8 €
                       </td>
                     </tr>
                   </tbody>
