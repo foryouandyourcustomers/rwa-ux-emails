@@ -142,8 +142,8 @@ const updateTemplatePreview = () => {
   previewElement.innerHTML = "";
   previewElement.appendChild(node);
   if (selectedTemplateId !== "None") {
-    codeElement.innerHTML = previewElement.innerHTML;
-  } else codeElement.innerHTML = "";
+    codeElement.value = previewElement.innerHTML;
+  } else codeElement.value = "";
 };
 
 /**
@@ -174,10 +174,7 @@ const copy = () => {
   alert("Copied source code to your clipboard!");
 };
 
-/**
- * Select Layout source code
- **/
-const selectLayout = () => {
+const getLayout = () => {
   var nodes = layoutElement.querySelectorAll("*");
 
   nodes.forEach((n) => {
@@ -193,10 +190,19 @@ const selectLayout = () => {
 
   previewElement.innerHTML = "";
   previewElement.appendChild(node);
-  codeElement.innerHTML = previewElement.innerHTML;
+  return previewElement;
 };
 
-const selectDocument = () => {
+/**
+ * Select Layout source code
+ **/
+const selectLayout = () => {
+  const layout = getLayout();
+  console.log(layout.innerHTML);
+  codeElement.value = layout.innerHTML;
+};
+
+const getDocument = (layout) => {
   const clone = document.firstElementChild.cloneNode(true);
   // Remove the other font style sheet
   clone
@@ -215,10 +221,25 @@ const selectDocument = () => {
   clone.querySelector("body").innerHTML = "";
   // Re-attach layout wrapper
   clone.querySelector("body").appendChild(layoutWrapper);
+
   // Replace layout with placeholder comment
   clone.querySelector("#layout").innerHTML =
-    "<!-- Add your components here -->";
-  codeElement.innerHTML = clone.innerHTML;
+    layout ?? "<!-- Add your components here -->";
+  return clone;
+};
+
+const selectDocument = () => {
+  const document = getDocument();
+  codeElement.value = document.innerHTML;
+};
+
+/**
+ * Select Layout source code
+ **/
+const selectAll = () => {
+  const layout = getLayout();
+  const doc = getDocument(layout.firstChild.innerHTML);
+  codeElement.value = doc.innerHTML;
 };
 
 /**
